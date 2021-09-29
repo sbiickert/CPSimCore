@@ -8,4 +8,9 @@ final class CPSimCoreTests: XCTestCase {
         // results.
         XCTAssertEqual(CPSimCore().text, "Hello, World!")
     }
+	
+	func testComputeRole() throws {
+		let r:ComputeRole = .dbms
+		XCTAssert(r.rawValue == "dbms")
+	}
 }
