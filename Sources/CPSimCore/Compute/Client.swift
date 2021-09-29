@@ -8,10 +8,8 @@
 import Foundation
 
 class Client: ObjectIdentity, ComputeNode {
-	var queue: MultiQueue
-	
 	var id: String = UUID().uuidString
-	var name: String {
+	var name: String = "" {
 		didSet {
 			self.queue.name = name
 		}
@@ -19,11 +17,12 @@ class Client: ObjectIdentity, ComputeNode {
 	var description: String?
 	
 	var hardware: HardwareDefinition?
-	
+	var queue: MultiQueue
+
 	init(_ hardware: HardwareDefinition) {
 		self.hardware = hardware
 		self.queue = MultiQueue(channelCount: hardware.coreCount)
-		self.name = ""
+		self.queue.delegate = self
 	}
 	
 	func handle(request: ClientRequest, clock: Double) {

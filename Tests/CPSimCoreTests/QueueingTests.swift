@@ -43,6 +43,31 @@ final class QueueingTests: XCTestCase {
 		XCTAssert(finished[0].metrics.totalServiceTime == 1.0)
 		XCTAssert(finished[0].metrics.totalQueueTime == 1.0)
 		XCTAssert(finished[0].metrics.totalLatencyTime == 0.0)
-
+	}
+	
+	func testResizeQueue() throws {
+		let q = MultiQueue(channelCount: 2)
+		q.metricsKey = "test"
+		q.mode = .processing
+		
+		let r1 = ClientRequest()
+		q.enqueue(r1, clock: 1.01)
+		
+		XCTAssert(q.requestCount == 1)
+		XCTAssert(q.availableChannelCount == 1)
+		
+		q.requestedChannelCount = 4
+		var finished = q.removeFinishedRequests(1.0)
+		
+		XCTAssert(finished.count == 0)
+		XCTAssert(q.requestCount == 1)
+		XCTAssert(q.availableChannelCount == 3)
+		
+		q.requestedChannelCount = 2
+		finished = q.removeFinishedRequests(1.0)
+		
+		XCTAssert(finished.count == 0)
+		XCTAssert(q.requestCount == 1)
+		XCTAssert(q.availableChannelCount == 1)
 	}
 }

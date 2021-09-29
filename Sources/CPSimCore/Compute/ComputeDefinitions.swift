@@ -30,35 +30,3 @@ protocol ComputeNode: ServiceTimeCalculator {
 	func handle(request: ClientRequest, clock: Double)
 }
 
-struct HardwareDefinition: ObjectIdentity, Equatable {
-	static var baselineRatingPerCore: Double = 50.0
-	
-	var id: String = UUID().uuidString
-	var name: String
-	var description: String?
-	
-	var category: String?
-	var processor: String = ""
-	var coreCount: UInt = 1
-	var chipCount: UInt = 1
-	var mhz: Int = 1000
-	var specRating: UInt = 200
-	var platform: Platform = .intel
-	var referenceYear: UInt = 2000
-
-	var specRatingPerCore: Double {
-		get {
-			return Double(specRating) / (Double(coreCount) * Double(chipCount))
-		}
-	}
-
-}
-
-enum Platform: String {
-	case intel = "Intel"
-	case amd = "AMD"
-	case sparc = "Sun SPARC"
-	case itanium = "Itanium"
-	case parisc = "PARisc"
-	case pseries = "IBM pSeries"
-}
