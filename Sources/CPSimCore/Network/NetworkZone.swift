@@ -14,11 +14,26 @@ class NetworkZone: ObjectIdentity {
 	
 	var localBandwidth: UInt = 1000
 	var connections = [NetworkConnection]()
+	
+	var configuredWorkflows = [ConfiguredWorkflow]()
 	var hosts = [Host]()
 	
 	init(bandwidth bw: UInt = 100) {
 		localBandwidth = bw
 		_ = NetworkConnection(sourceZone: self, destZone: self, bandwidth: bw, latencyMilliSeconds: 0) // localConnection
+	}
+	
+	private struct JsonKeys {
+		static let name = "name"
+		static let desc = "description"
+		static let bw = "localBW"
+	}
+
+	init(info: NSDictionary) throws {
+		name = info[JsonKeys.name] as! String
+		description = info[JsonKeys.desc] as? String
+		localBandwidth = info[JsonKeys.bw] as! UInt
+		_ = NetworkConnection(sourceZone: self, destZone: self, bandwidth: localBandwidth, latencyMilliSeconds: 0) // localConnection
 	}
 	
 	var localConnection: NetworkConnection? {

@@ -13,7 +13,7 @@ struct HardwareLibrary {
 		return try HardwareLibrary(at: PATH)
 	}
 	
-	private var _aliases = Dictionary<String, String>()
+	var aliases = Dictionary<String, String>()
 	private var _hardware = Dictionary<String, HardwareDefinition>()
 	
 	var baselineRating: Double = 50.0
@@ -37,8 +37,8 @@ struct HardwareLibrary {
 	}
 	
 	func findHardware(_ key: String) -> HardwareDefinition? {
-		if _aliases.keys.contains(key) {
-			return self._hardware[_aliases[key]!]
+		if aliases.keys.contains(key) {
+			return self._hardware[aliases[key]!]
 		}
 		return self._hardware[key]
 	}
@@ -46,14 +46,6 @@ struct HardwareLibrary {
 
 struct HardwareDefinition: ObjectIdentity, Equatable {
 	static var baselineRatingPerCore: Double = 50.0
-	
-	enum CodingKeys: String, CodingKey {
-		case name, category, processor, mhz, platform
-		case coreCount = "nCores"
-		case chipCount = "nChips"
-		case specRating = "spec"
-		case referenceYear = "refYear"
-	}
 
 	var id: String = UUID().uuidString
 	var name: String

@@ -30,3 +30,44 @@ protocol ComputeNode: ServiceTimeCalculator {
 	func handle(request: ClientRequest, clock: Double)
 }
 
+enum DataSourceType: String {
+	case DBMS = "DB"
+	case SmallFileGDB = "SFG"
+	case LargeFileGDB = "LFG"
+	case SmallShapeFile = "SSF"
+	case MediumShapeFile = "MSF"
+	case LargeShapeFile = "LSF"
+	case CachedTiles = "Cache"
+	
+	var appAdjustment: Double {
+		get {
+			switch rawValue {
+			case "SFG":
+				return 0.8
+			case "MSF":
+				return 2.0
+			case "LSF":
+				return 3.0
+			default:
+				return 1.0
+			}
+		}
+	}
+	
+	var trafficAdjustment: Double {
+		get {
+			switch rawValue {
+			case "LFG":
+				return 1.5
+			case "SSF":
+				return 5.0
+			case "MSF":
+				return 10.0
+			case "LSF":
+				return 15.0
+			default:
+				return 1.0
+			}
+		}
+	}
+}

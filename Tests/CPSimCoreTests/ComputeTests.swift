@@ -4,9 +4,13 @@ import XCTest
 final class ComputeTests: XCTestCase {
 	
 	func testHWLibraryLoad() throws {
-		let hwLib = try HardwareLibrary.defaultHardware()
+		var hwLib = try HardwareLibrary.defaultHardware()
 		XCTAssert(hwLib.baselineRating == 58.0)
 		XCTAssert(hwLib.findHardware("Intel Core i7-4770 4 core (1 chip) 3400 MHz") != nil)
+		
+		hwLib.aliases["bob"] = "Intel Core i7-4770 4 core (1 chip) 3400 MHz"
+		
+		XCTAssert(hwLib.findHardware("bob") != nil)
 	}
 	
 	func testClient() throws {

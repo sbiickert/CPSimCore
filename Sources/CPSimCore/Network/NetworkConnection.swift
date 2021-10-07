@@ -28,8 +28,8 @@ class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
 			destination.connections.append(self)
 		}
 	}
-	let bandwidth: UInt
-	let latency: UInt
+	var bandwidth: UInt
+	var latency: UInt
 
 	var queue: MultiQueue
 
@@ -48,6 +48,13 @@ class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
 		if source !== destination {
 			destination.connections.append(self)
 		}
+	}
+	
+	func invert() -> NetworkConnection {
+		return NetworkConnection(sourceZone: self.destination,
+								 destZone: self.source,
+								 bandwidth: self.bandwidth,
+								 latencyMilliSeconds: self.latency)
 	}
 	
 	func calculateServiceTime(for request: ClientRequest) -> Double {
