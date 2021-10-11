@@ -23,6 +23,7 @@ class Client: ObjectIdentity, ComputeNode {
 		self.hardware = hardware
 		self.queue = MultiQueue(channelCount: hardware.coreCount)
 		self.queue.delegate = self
+		self.queue.mode = .processing
 	}
 	
 	func handle(request: ClientRequest, clock: Double) {
@@ -31,14 +32,16 @@ class Client: ObjectIdentity, ComputeNode {
 	
 	func calculateServiceTime(for request: ClientRequest) -> Double {
 		var serviceTime = ClientRequest.requestTime
-//		if let step = request.solution?.currentStep {
-//			if step.isResponse {
-//				serviceTime = request.referenceServiceTimes[step.computeRole] ?? 0.0
-//			}
-//			// Adjust by the hardware rating
-//			serviceTime = adjustedServiceTime(serviceTime)
-//		}
+		if let step = request.solution?.currentStep {
+			serviceTime = request.serviceTimes[step.computeRole] ?? 0.0
+			// Adjust by the hardware rating
+			serviceTime = adjustedServiceTime(serviceTime)
+		}
 		return serviceTime
+	}
+	
+	func calculateLatency(for request: ClientRequest) -> Double {
+		return 0.0
 	}
 	
 	func adjustedServiceTime(_ workflowServiceTime: Double) -> Double {

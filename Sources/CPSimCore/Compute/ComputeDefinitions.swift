@@ -17,7 +17,7 @@ enum ComputeRole: String, CaseIterable {
 	case file = "file"
 	case cache = "cache"
 	case hosting = "hosting"
-	case gis = "gis"
+	case gis = "soc"
 	case sde = "sde"
 	case geoanalytic = "geoanalytic"
 	case geoevent = "geoevent"

@@ -3,6 +3,23 @@ import XCTest
 
 final class SimulationTests: XCTestCase {
 	
+	static var exampleClientRequest: ClientRequest? {
+		get {
+			do {
+				let hwLib = try HardwareLibrary.defaultHardware()
+				let hw = hwLib.findHardware("Intel Core i7-4770 4 core (1 chip) 3400 MHz")
+				let client = Client(hw!)
+				let wfLib = try WorkflowLibrary.defaultWorkflows()
+				let w = wfLib.findWorkflow("AGS101 REST 2D V Med 100%Dyn 13x7 PNG24")!
+				let cw = ConfiguredWorkflow(name: "test", definition: w, client: client)
+				return ClientRequest(configuredWorkflow: cw)
+			}
+			catch {
+				return nil
+			}
+		}
+	}
+	
 	func testWorkflowLibraryLoad() throws {
 		var wLib = try WorkflowLibrary.defaultWorkflows()
 		XCTAssert(wLib.count > 0)
@@ -52,8 +69,38 @@ final class SimulationTests: XCTestCase {
 		XCTAssert(localView!.tiers[.dbms] === dbTier)
 		XCTAssert(localView!.tiers[.gis] === gisTier)
 		XCTAssert(localView!.tiers[.geoevent] == nil)
+		XCTAssert(localView!.definition.serviceTimes[.gis]! > 0)
 		
 		let localViewZone = design.findZone(containing: localView!)
 		XCTAssert(localViewZone != nil)
+	}
+	
+	func testOnePingOnly() throws {
+		let design = try Design(at: "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_00_v0.3.json")
+		
+		var clock = 0.0
+		let cw = design.configuredWorkflows.first(where: {$0.name == "Local View"})
+		XCTAssert(cw != nil)
+		let req = ClientRequest(configuredWorkflow: cw!)
+		print(req.configuredWorkflow.definition.serviceType.serverRoleChain)
+		req.solution = try ClientRequestSolutionFactory.createSolution(for: req, in: design)
+		XCTAssert(req.solution != nil)
+		
+		while req.isFinished == false {
+			if let currentStep = req.solution?.currentStep {
+				req.startCurrentStep(clock)
+				let nextTime = currentStep.calculator.queue.nextEventTime
+				XCTAssert(nextTime != nil)
+				XCTAssert(nextTime! > clock)
+				clock = nextTime!
+				let finished = currentStep.calculator.queue.removeFinishedRequests(clock)
+				XCTAssert(finished.count == 1)
+				_ = req.solution?.next()
+			}
+		}
+		
+		XCTAssert(req.metrics.totalServiceTime > 0.0)
+		XCTAssert(req.metrics.totalQueueTime == 0.0) // No queueing b/c this is the only request
+		XCTAssert(req.metrics.totalLatencyTime > 0.0)
 	}
 }

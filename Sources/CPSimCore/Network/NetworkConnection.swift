@@ -44,6 +44,7 @@ class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
 		latency = latencyMilliSeconds
 		queue = MultiQueue(channelCount: 1)
 		queue.delegate = self
+		queue.mode = .transmitting
 		source.connections.append(self)
 		if source !== destination {
 			destination.connections.append(self)
@@ -59,25 +60,29 @@ class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
 	
 	func calculateServiceTime(for request: ClientRequest) -> Double {
 		var serviceTime = 0.0
-//		if let step = request.solution?.currentStep {
-//			var dataSize = ClientRequest.requestSize
-//			if step.isResponse {
-//				if step.computeRole == .client {
-//					dataSize = request.clientTraffic
-//				}
-//				else {
-//					dataSize = request.serverTraffic
-//				}
-//			}
-//			// data (Mb) / bandwidth (Mb/s) = transfer time in seconds
-//			let transferTime = dataSize / Double(bandwidth)
-//			// TODO: should this be more complex, and simulate sending (chatter) packets of data?
-//			// chatter * latency (milliseconds) * 0.001 = latency time in seconds
-//			let latencyTime = Double(request.configuredWorkflow.workflow.chatter) * Double(latency) * 0.001
-//			serviceTime = transferTime + latencyTime
-//			//assert(serviceTime < 2.1, "Long network service time: \(serviceTime)s")
-//		}
+		if let step = request.solution?.currentStep {
+			var dataSize = ClientRequest.requestSize
+			if step.isResponse {
+				if step.computeRole == .client {
+					dataSize = request.clientTraffic
+				}
+				else {
+					dataSize = request.serverTraffic
+				}
+			}
+			// data (Mb) / bandwidth (Mb/s) = transfer time in seconds
+			let transferTime = dataSize / Double(bandwidth)
+			
+			serviceTime = transferTime
+			//assert(serviceTime < 2.1, "Long network service time: \(serviceTime)s")
+		}
 		return serviceTime
 	}
 
+	func calculateLatency(for request: ClientRequest) -> Double {
+		// TODO: should this be more complex, and simulate sending (chatter) packets of data?
+		// chatter * latency (milliseconds) * 0.001 = latency time in seconds
+		let latency = Double(request.configuredWorkflow.definition.chatter) * Double(latency) * 0.001
+		return latency
+	}
 }

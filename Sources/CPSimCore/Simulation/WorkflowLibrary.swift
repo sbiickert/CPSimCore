@@ -114,4 +114,17 @@ enum ServiceType: String, CaseIterable {
 		let lc = value.lowercased()
 		return ServiceType(rawValue: lc) ?? ServiceType.custom
 	}
+	
+	public var serverRoleChain: [ComputeRole] {
+		var chain = [ComputeRole]()
+		switch self {
+		case .geoAnalytics:
+			chain.append(contentsOf: [.wts, .web, .portal, .hosting, .geoanalytic, .dbms, .file])
+		case .rasterAnalytics:
+			chain.append(contentsOf: [.wts, .web, .portal, .hosting, .rasteranalytic, .dbms, .file])
+		default:
+			chain.append(contentsOf: [.wts, .web, .portal, .gis, .dbms, .file])
+		}
+		return chain
+	}
 }

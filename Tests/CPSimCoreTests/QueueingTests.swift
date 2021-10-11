@@ -5,22 +5,21 @@ final class QueueingTests: XCTestCase {
 	
 	func testQueue() throws {
 		let q = MultiQueue(channelCount: 2)
-		q.metricsKey = "test"
 		q.mode = .processing
 		
-		let r1 = ClientRequest()
+		let r1 = SimulationTests.exampleClientRequest!
 		q.enqueue(r1, clock: 1.0)
 		
 		XCTAssert(q.requestCount == 1)
 		XCTAssert(q.availableChannelCount == 1)
 		
-		let r2 = ClientRequest()
+		let r2 = SimulationTests.exampleClientRequest!
 		q.enqueue(r2, clock: 1.0)
 		
 		XCTAssert(q.requestCount == 2)
 		XCTAssert(q.availableChannelCount == 0)
 		
-		let r3 = ClientRequest()
+		let r3 = SimulationTests.exampleClientRequest!
 		q.enqueue(r3, clock: 1.0)
 		
 		XCTAssert(q.requestCount == 3)
@@ -47,10 +46,9 @@ final class QueueingTests: XCTestCase {
 	
 	func testResizeQueue() throws {
 		let q = MultiQueue(channelCount: 2)
-		q.metricsKey = "test"
 		q.mode = .processing
 		
-		let r1 = ClientRequest()
+		let r1 = SimulationTests.exampleClientRequest!
 		q.enqueue(r1, clock: 1.01)
 		
 		XCTAssert(q.requestCount == 1)

@@ -11,4 +11,5 @@ import Foundation
 protocol ServiceTimeCalculator {
 	var queue: MultiQueue {get}
 	func calculateServiceTime(for request:ClientRequest) -> Double;
+	func calculateLatency(for request:ClientRequest) -> Double;
 }

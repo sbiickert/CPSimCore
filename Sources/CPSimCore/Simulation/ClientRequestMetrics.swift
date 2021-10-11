@@ -39,6 +39,7 @@ class ClientRequestMetrics {
 		return total
 	}
 
+	@discardableResult
 	func add(serviceTime: Double, to key: String) -> Double {
 		if metrics.keys.contains(key) == false {
 			metrics[key] = Metric()
@@ -47,6 +48,7 @@ class ClientRequestMetrics {
 		return newValue
 	}
 	
+	@discardableResult
 	func add(queueTime: Double, to key: String) -> Double {
 		if metrics.keys.contains(key) == false {
 			metrics[key] = Metric()
@@ -55,6 +57,7 @@ class ClientRequestMetrics {
 		return newValue
 	}
 	
+	@discardableResult
 	func addLatency(_ time: Double) -> Double {
 		if metrics.keys.contains(ClientRequestMetrics.NETWORK_KEY) == false {
 			metrics[ClientRequestMetrics.NETWORK_KEY] = Metric()
@@ -69,18 +72,21 @@ struct Metric {
 	private(set) var queueTime: Double = 0.0
 	private(set) var latency: Double = 0.0
 	
+	@discardableResult
 	mutating func add(serviceTime: Double) -> Double {
 		let newValue = self.serviceTime + serviceTime
 		self.serviceTime = newValue
 		return newValue
 	}
 	
+	@discardableResult
 	mutating func add(queueTime: Double) -> Double {
 		let newValue = self.queueTime + queueTime
 		self.queueTime = newValue
 		return newValue
 	}
 	
+	@discardableResult
 	mutating func add(latency: Double) -> Double {
 		let newValue = self.latency + latency
 		self.latency = newValue

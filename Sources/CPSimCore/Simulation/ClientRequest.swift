@@ -23,6 +23,45 @@ class ClientRequest: ObjectIdentity, Equatable {
 	var name: String = ""
 	var description: String?
 
-	let metrics = ClientRequestMetrics()
+	// Definition of the request
+	let configuredWorkflow: ConfiguredWorkflow!
 	
+	// The means to solve the request
+	var solution: ClientRequestSolution?
+	
+	// The traffic and service times for *this* request, randomly different from other requests
+	var clientTraffic: Double!
+	var serverTraffic: Double!
+	var serviceTimes = Dictionary<ComputeRole, Double>()
+	
+	// Execution Metrics
+	let metrics = ClientRequestMetrics()
+
+	init(configuredWorkflow cw: ConfiguredWorkflow) {
+		configuredWorkflow = cw
+		name = "\(id): \(cw.name)"
+		
+		for computeRole in configuredWorkflow.definition.serviceTimes.keys {
+			let stdServiceTime = configuredWorkflow.definition.serviceTimes[computeRole]!
+			if stdServiceTime > 0.0 {
+				serviceTimes[computeRole] = stdServiceTime.randomAdjusted()
+			}
+		}
+		
+		let w = configuredWorkflow.definition
+		clientTraffic = w.clientTraffic.randomAdjusted()
+		serverTraffic = w.serverTraffic.randomAdjusted()
+	}
+	
+	func startCurrentStep(_ clock: Double) {
+		if let step = solution?.currentStep {
+			step.calculator.queue.enqueue(self, clock: clock)
+		}
+	}
+
+	var isFinished:Bool {
+		// If there is no solution, the request is finished.
+		return solution?.isFinished ?? true
+	}
+
 }

@@ -27,6 +27,7 @@ class PhysicalHost: Host {
 		self.hardware = hardware
 		self.queue = MultiQueue(channelCount: hardware.coreCount)
 		self.queue.delegate = self
+		self.queue.mode = .processing
 	}
 
 	func adjustedServiceTime(_ workflowServiceTime: Double) -> Double {
@@ -41,18 +42,17 @@ class PhysicalHost: Host {
 	
 	func calculateServiceTime(for request: ClientRequest) -> Double {
 		var serviceTime = ClientRequest.requestTime
-//		if let step = request.solution?.currentStep {
-//			if step.isResponse {
-//				serviceTime = request.referenceServiceTimes[step.computeRole] ?? 0.0
-//			}
-//			// Adjust by the hardware rating
-//			serviceTime = adjustedServiceTime(serviceTime)
-//		}
+		if let step = request.solution?.currentStep {
+			serviceTime = request.serviceTimes[step.computeRole] ?? 0.0
+			// Adjust by the hardware rating
+			serviceTime = adjustedServiceTime(serviceTime)
+		}
 		return serviceTime
-
 	}
 	
-	
+	func calculateLatency(for request: ClientRequest) -> Double {
+		return 0.0
+	}
 }
 
 class VirtualHost: Host {
@@ -93,6 +93,7 @@ class VirtualHost: Host {
 		self.vMemGB = vMemGB
 		self.queue = MultiQueue(channelCount: host.hardware?.coreCount ?? 0)
 		self.queue.delegate = self
+		self.queue.mode = .processing
 		self.physicalHost.virtualHosts.append(self)
 	}
 
@@ -109,13 +110,15 @@ class VirtualHost: Host {
 	
 	func calculateServiceTime(for request: ClientRequest) -> Double {
 		var serviceTime = ClientRequest.requestTime
-//		if let step = request.solution?.currentStep {
-//			if step.isResponse {
-//				serviceTime = request.referenceServiceTimes[step.computeRole] ?? 0.0
-//			}
-//			// Adjust by the hardware rating
-//			serviceTime = adjustedServiceTime(serviceTime)
-//		}
+		if let step = request.solution?.currentStep {
+			serviceTime = request.serviceTimes[step.computeRole] ?? 0.0
+			// Adjust by the hardware rating
+			serviceTime = adjustedServiceTime(serviceTime)
+		}
 		return serviceTime
+	}
+	
+	func calculateLatency(for request: ClientRequest) -> Double {
+		return 0.0
 	}
 }
