@@ -48,6 +48,10 @@ class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
 		source.connections.append(self)
 		if source !== destination {
 			destination.connections.append(self)
+			self.name = "\(sourceZone.name) -> \(destZone.name)"
+		}
+		else {
+			self.name = "\(sourceZone.name) Local"
 		}
 	}
 	
@@ -82,7 +86,12 @@ class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
 	func calculateLatency(for request: ClientRequest) -> Double {
 		// TODO: should this be more complex, and simulate sending (chatter) packets of data?
 		// chatter * latency (milliseconds) * 0.001 = latency time in seconds
-		let latency = Double(request.configuredWorkflow.definition.chatter) * Double(latency) * 0.001
-		return latency
+		var result = 0.0
+		if let step = request.solution?.currentStep {
+			if step.isResponse {
+				result = Double(request.configuredWorkflow.definition.chatter) * Double(self.latency) * 0.001
+			}
+		}
+		return result
 	}
 }

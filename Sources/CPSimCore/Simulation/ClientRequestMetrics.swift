@@ -38,6 +38,10 @@ class ClientRequestMetrics {
 		}
 		return total
 	}
+	
+	var responseTime: Double {
+		return totalLatencyTime + totalServiceTime + totalQueueTime
+	}
 
 	@discardableResult
 	func add(serviceTime: Double, to key: String) -> Double {

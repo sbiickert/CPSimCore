@@ -102,5 +102,6 @@ final class SimulationTests: XCTestCase {
 		XCTAssert(req.metrics.totalServiceTime > 0.0)
 		XCTAssert(req.metrics.totalQueueTime == 0.0) // No queueing b/c this is the only request
 		XCTAssert(req.metrics.totalLatencyTime > 0.0)
+		print("Response time for request \(req.name) was \(req.metrics.responseTime) s")
 	}
 }
