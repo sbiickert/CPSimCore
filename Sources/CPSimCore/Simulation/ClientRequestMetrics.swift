@@ -45,6 +45,7 @@ class ClientRequestMetrics {
 
 	@discardableResult
 	func add(serviceTime: Double, to key: String) -> Double {
+		assert(serviceTime >= 0.0)
 		if metrics.keys.contains(key) == false {
 			metrics[key] = Metric()
 		}
@@ -54,6 +55,7 @@ class ClientRequestMetrics {
 	
 	@discardableResult
 	func add(queueTime: Double, to key: String) -> Double {
+		assert(queueTime >= 0.0)
 		if metrics.keys.contains(key) == false {
 			metrics[key] = Metric()
 		}
@@ -63,6 +65,7 @@ class ClientRequestMetrics {
 	
 	@discardableResult
 	func addLatency(_ time: Double) -> Double {
+		assert(time >= 0.0)
 		if metrics.keys.contains(ClientRequestMetrics.NETWORK_KEY) == false {
 			metrics[ClientRequestMetrics.NETWORK_KEY] = Metric()
 		}

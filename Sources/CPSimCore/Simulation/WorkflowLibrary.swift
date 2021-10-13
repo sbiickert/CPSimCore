@@ -43,6 +43,8 @@ struct WorkflowLibrary {
 }
 
 struct WorkflowDefinition: ObjectIdentity {
+	static let cacheServiceTime = 0.001
+	
 	var id: String = UUID().uuidString
 	var name: String
 	var description: String?
@@ -75,6 +77,8 @@ struct WorkflowDefinition: ObjectIdentity {
 			let st = workflowData.value(forKey: stKey) as? Double ?? 0.0
 			serviceTimes[cr] = st
 		}
+		
+		serviceTimes[.cache] = WorkflowDefinition.cacheServiceTime
 	}
 	
 	var clientServiceTime: Double {
@@ -94,6 +98,7 @@ struct WorkflowDefinition: ObjectIdentity {
 
 enum ServiceType: String, CaseIterable {
 	case map = "map"
+	case cache = "$$"
 	case feature = "feature"
 	case image = "image"
 	case geocode = "geocode"
@@ -122,6 +127,8 @@ enum ServiceType: String, CaseIterable {
 			chain.append(contentsOf: [.wts, .web, .portal, .hosting, .geoanalytic, .dbms, .file])
 		case .rasterAnalytics:
 			chain.append(contentsOf: [.wts, .web, .portal, .hosting, .rasteranalytic, .dbms, .file])
+		case .cache:
+			chain.append(contentsOf: [.wts, .web, .cache])
 		default:
 			chain.append(contentsOf: [.wts, .web, .portal, .gis, .dbms, .file])
 		}

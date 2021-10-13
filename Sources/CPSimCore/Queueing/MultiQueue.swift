@@ -59,6 +59,7 @@ class MultiQueue {
 												  withLatency: latency,
 												  mode: self.mode)
 				startingImmediately = true
+				assert(_channels[index]!.waitEndTime! > clock)
 				break
 			}
 		}
@@ -160,7 +161,17 @@ class WaitingRequest {
 				mode: WaitMode) {
 		self.request = request
 		self.waitStartTime = time
-		self.waitEndTime = serviceTime == nil ? nil : time + serviceTime! + (latency ?? 0.0)
+		if mode == .queueing {
+			self.waitEndTime = nil
+		}
+		else if serviceTime != nil {
+			assert(serviceTime! >= 0.0)
+			self.waitEndTime = time + serviceTime! + (latency ?? 0.0)
+		}
+		else {
+			// This should never happen. Only queueing will have an open-ended service time
+			self.waitEndTime = nil
+		}
 		self.latency = latency ?? 0.0
 		self.mode = mode
 	}

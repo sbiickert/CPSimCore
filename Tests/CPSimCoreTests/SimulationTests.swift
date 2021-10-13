@@ -75,7 +75,7 @@ final class SimulationTests: XCTestCase {
 		XCTAssert(localViewZone != nil)
 	}
 	
-	func testOnePingOnly() throws {
+	func testSingleMapRequest() throws {
 		let design = try Design(at: "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_00_v0.3.json")
 		
 		var clock = 0.0
@@ -103,5 +103,69 @@ final class SimulationTests: XCTestCase {
 		XCTAssert(req.metrics.totalQueueTime == 0.0) // No queueing b/c this is the only request
 		XCTAssert(req.metrics.totalLatencyTime > 0.0)
 		print("Response time for request \(req.name) was \(req.metrics.responseTime) s")
+	}
+	
+	func testSingleMapRequestWithCache() throws {
+		let design = try Design(at: "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_00_v0.3.json")
+		
+		var clock = 0.0
+		let cw = design.configuredWorkflows.first(where: {$0.name == "Local View"})
+		XCTAssert(cw != nil)
+		let req = ClientRequest(configuredWorkflow: cw!)
+		print(req.configuredWorkflow.definition.serviceType.serverRoleChain)
+		req.solution = try ClientRequestSolutionFactory.createSolution(for: req, in: design)
+		XCTAssert(req.solution != nil)
+		
+		var reqs = [req]
+		
+		if req.configuredWorkflow.definition.hasCache {
+			let cacheReq = ClientRequest(configuredWorkflow: cw!)
+			cacheReq.configuredWorkflow.definition.serviceType = .cache
+			cacheReq.solution = try ClientRequestSolutionFactory.createSolution(for: cacheReq, in: design)
+			XCTAssert(req.solution != nil)
+			reqs.append(cacheReq)
+		}
+
+		// Kick off requests
+		for r in reqs {
+			r.startCurrentStep(clock)
+		}
+		
+		while reqs.filter({$0.isFinished == false}).count > 0 {
+			//print("clock: \(clock)")
+			var nextClock = Double.greatestFiniteMagnitude
+			for r in reqs {
+				// Find the lowest next event time
+				if let currentStep = r.solution?.currentStep,
+				   let nextTimeForReq = currentStep.calculator.queue.nextEventTime
+				{
+					nextClock = Double.minimum(nextTimeForReq, nextClock)
+				}
+			}
+			
+			assert(nextClock > clock)
+			clock = nextClock
+
+			for r in reqs {
+				if let currentStep = r.solution?.currentStep,
+				   let nextTimeForReq = currentStep.calculator.queue.nextEventTime
+				{
+					if nextTimeForReq <= clock {
+						let finished = currentStep.calculator.queue.removeFinishedRequests(clock)
+						XCTAssert(finished.count == 1)
+						_ = r.solution?.next()
+						r.startCurrentStep(clock)
+					}
+				}
+			}
+		}
+		
+		XCTAssert(req.metrics.totalServiceTime > 0.0)
+		XCTAssert(req.metrics.totalQueueTime == 0.0) 		// No queueing b/c this is the first request
+		XCTAssert(reqs[1].metrics.totalQueueTime >= 0.0) 	// Queueing b/c this is the second request and had to wait behind first for a bit
+		XCTAssert(req.metrics.totalLatencyTime > 0.0)
+		for r in reqs {
+			print("\(r.name) ST: \(r.metrics.totalServiceTime.roundTo(places: 3)) QT: \(r.metrics.totalQueueTime.roundTo(places: 6))")
+		}
 	}
 }

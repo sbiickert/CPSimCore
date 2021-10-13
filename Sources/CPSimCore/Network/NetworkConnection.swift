@@ -53,6 +53,7 @@ class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
 		else {
 			self.name = "\(sourceZone.name) Local"
 		}
+		queue.name = "\(name) Q"
 	}
 	
 	func invert() -> NetworkConnection {
