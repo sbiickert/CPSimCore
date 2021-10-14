@@ -46,4 +46,14 @@ class ConfiguredWorkflow: ObjectIdentity {
 		return self.nextEventTime
 	}
 
+	func copy() -> ConfiguredWorkflow {
+		let duplicate = ConfiguredWorkflow(name: self.name, definition: self.definition, client: self.client)
+		duplicate.description = self.description
+		duplicate.userCount = self.userCount
+		duplicate.productivity = self.productivity
+		duplicate.tph = self.tph
+		duplicate.dataSource = self.dataSource
+		duplicate.tiers = self.tiers
+		return duplicate
+	}
 }

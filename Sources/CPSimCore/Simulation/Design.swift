@@ -4,7 +4,6 @@ struct Design: ObjectIdentity {
 	var id: String = UUID().uuidString
 	var name: String = ""
 	var description: String?
-	var isValid:Bool = false
 	var zones = [NetworkZone]()
 	var tiers = [Tier]()
 	var defaultTiers = Dictionary<ComputeRole, Tier>()
@@ -184,6 +183,11 @@ struct Design: ObjectIdentity {
 		}
 	}
 	
+	var isValid:Bool {
+		// TODO: evaluate validity of the design
+		return true
+	}
+
 	var configuredWorkflows: [ConfiguredWorkflow] {
 		var cw = [ConfiguredWorkflow]()
 		for zone in zones {

@@ -119,8 +119,10 @@ final class SimulationTests: XCTestCase {
 		var reqs = [req]
 		
 		if req.configuredWorkflow.definition.hasCache {
-			let cacheReq = ClientRequest(configuredWorkflow: cw!)
+			let cacheCW = cw!.copy()
+			let cacheReq = ClientRequest(configuredWorkflow: cacheCW)
 			cacheReq.configuredWorkflow.definition.serviceType = .cache
+			XCTAssert(req.configuredWorkflow.definition.serviceType != cacheReq.configuredWorkflow.definition.serviceType)
 			cacheReq.solution = try ClientRequestSolutionFactory.createSolution(for: cacheReq, in: design)
 			XCTAssert(req.solution != nil)
 			reqs.append(cacheReq)
@@ -167,5 +169,18 @@ final class SimulationTests: XCTestCase {
 		for r in reqs {
 			print("\(r.name) ST: \(r.metrics.totalServiceTime.roundTo(places: 3)) QT: \(r.metrics.totalQueueTime.roundTo(places: 6))")
 		}
+	}
+	
+	func testSimulation() throws {
+		let simulator = Simulator()
+		let design = try Design(at: "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_00_v0.3.json")
+		simulator.design = design
+		
+		simulator.start()
+		
+		for _ in 0..<10 {
+			simulator.advanceTime(by: 1.0)
+		}
+		print(simulator.handled.count)
 	}
 }
