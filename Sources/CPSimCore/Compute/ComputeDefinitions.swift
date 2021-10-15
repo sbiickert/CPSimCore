@@ -26,6 +26,7 @@ enum ComputeRole: String, CaseIterable {
 
 protocol ComputeNode: ServiceTimeCalculator {
 	var hardware: HardwareDefinition? {get set}
+	var queue: MultiQueue {get set}
 	func adjustedServiceTime(_ workflowServiceTime: Double) -> Double
 	func handle(request: ClientRequest, clock: Double)
 }

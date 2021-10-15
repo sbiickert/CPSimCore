@@ -204,6 +204,23 @@ struct Design: ObjectIdentity {
 		return h
 	}
 	
+	var computeNodes: [ComputeNode] {
+		var nodes = [ComputeNode]()
+		nodes.append(contentsOf: hosts)
+		for configuredWorkflow in configuredWorkflows {
+			nodes.append(configuredWorkflow.client)
+		}
+		return nodes
+	}
+	
+	var networkConnections: [NetworkConnection] {
+		var conns = [NetworkConnection]()
+		for zone in zones {
+			conns.append(contentsOf: zone.connections)
+		}
+		return conns
+	}
+	
 	func findZone(named name:String) -> NetworkZone? {
 		return zones.first(where: {$0.name == name})
 	}

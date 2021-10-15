@@ -145,7 +145,9 @@ class Simulator {
 	}
 	
 	func moveRequestToHandled(request: ClientRequest) {
-		print("\(request.name) FINISHED [\(request.metrics.responseTime)]")
+		if request.name.contains("$$") == false {
+			print("\(request.name) FINISHED [\(request.metrics.responseTime)]")
+		}
 
 		if let idx = active.firstIndex(where: {$0.id == request.id}) {
 			active.remove(at: idx)

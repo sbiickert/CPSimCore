@@ -17,11 +17,13 @@ class MultiQueue {
 
 	private var _mainQueue = [WaitingRequest]()
 	private var _channels = [WaitingRequest?]()
+	private(set) var metrics: MultiQueueMetrics
 	
 	init(channelCount: UInt) {
 		for _ in 0..<channelCount {
 			_channels.append(nil)
 		}
+		metrics = MultiQueueMetrics(channelCount: channelCount)
 	}
 
 	var requestedChannelCount: Int?
@@ -45,6 +47,9 @@ class MultiQueue {
 	}
 	
 	func enqueue(_ clientRequest: ClientRequest, clock: Double) {
+		// Track utilization
+		metrics.add(dataPoint: (clock: clock, requestCount: self.requestCount))
+		
 		var startingImmediately = false
 		
 		for (index, channel) in _channels.enumerated() {
@@ -75,6 +80,9 @@ class MultiQueue {
 	}
 	
 	func removeFinishedRequests(_ clock: Double) -> [ClientRequest] {
+		// Track utilization
+		metrics.add(dataPoint: (clock: clock, requestCount: self.requestCount))
+		
 		var finishedRequests = [ClientRequest]()
 
 		for (index, requestBeingProcessed) in self._channels.enumerated() {

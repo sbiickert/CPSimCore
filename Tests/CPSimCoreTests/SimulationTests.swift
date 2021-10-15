@@ -182,5 +182,8 @@ final class SimulationTests: XCTestCase {
 			simulator.advanceTime(by: 1.0)
 		}
 		print(simulator.handled.count)
+		for cNode in simulator.design!.computeNodes {
+			print("\((cNode as? ObjectIdentity)!.name) utilization: \(cNode.queue.metrics.utilization(inPrevious: nil))")
+		}
 	}
 }

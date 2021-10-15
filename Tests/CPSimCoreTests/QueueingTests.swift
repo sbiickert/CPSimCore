@@ -68,4 +68,21 @@ final class QueueingTests: XCTestCase {
 		XCTAssert(q.requestCount == 1)
 		XCTAssert(q.availableChannelCount == 1)
 	}
+	
+	func testUtilization() throws {
+		var mqm = MultiQueueMetrics(channelCount: 4)
+		
+		mqm.add(dataPoint: (clock: 0.0, requestCount: 2))
+		
+		XCTAssert(mqm.utilization(inPrevious: nil) == 0.5)
+		
+		mqm.add(dataPoint: (clock: 1.0, requestCount: 4))
+		XCTAssert(mqm.utilization(inPrevious: nil) == 1.0)
+		
+		mqm.add(dataPoint: (clock: 2.0, requestCount: 2))
+		XCTAssert(mqm.utilization(inPrevious: nil) == 0.75)
+		
+		mqm.add(dataPoint: (clock: 10.0, requestCount: 1))
+		XCTAssert(mqm.utilization(inPrevious: 5.0) == 0.25)
+	}
 }
