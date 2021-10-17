@@ -103,8 +103,13 @@ class ClientRequestSolutionFactory {
 			}
 			
 			// Add a solution step for the compute node
-			// Commented out b/c compute for the host will be processed on the return leg
-			//solution.addStep(ClientRequestSolutionStep(calculator: host, isResponse: false, computeRole: computeRole))
+			// Portal is only on the request leg. All others on the return leg
+			if computeRole == .portal {
+				solution.addStep(ClientRequestSolutionStep(calculator: host,
+														   isResponse: false,
+														   computeRole: computeRole,
+														   dataSize: ClientRequest.requestSize))
+			}
 			
 			fromZone = toZone
 		}
@@ -151,6 +156,12 @@ class ClientRequestSolutionFactory {
 		for case let host as Host in computeNodeStack {
 			// The compute role that is being done at this node
 			computeRole = chain.removeFirst()
+			
+			if computeRole == .portal {
+				// Don't send the response back through the Portal
+				continue
+			}
+			
 			dataSize = calcDataSize()
 			
 			// Find network route to compute node
