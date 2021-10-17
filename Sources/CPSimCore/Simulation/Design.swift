@@ -216,7 +216,12 @@ struct Design: ObjectIdentity {
 	var networkConnections: [NetworkConnection] {
 		var conns = [NetworkConnection]()
 		for zone in zones {
-			conns.append(contentsOf: zone.connections)
+			let noDupes = zone.exitConnections.filter({a in
+				let idx = conns.firstIndex(where: {$0.id == a.id})
+				return idx == nil
+			})
+			conns.append(contentsOf: noDupes)
+			conns.append(zone.localConnection!)
 		}
 		return conns
 	}

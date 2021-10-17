@@ -64,7 +64,7 @@ class MultiQueue {
 												  withLatency: latency,
 												  mode: self.mode)
 				startingImmediately = true
-				assert(_channels[index]!.waitEndTime! > clock)
+				//assert(_channels[index]!.waitEndTime! > clock)
 				break
 			}
 		}
@@ -90,7 +90,7 @@ class MultiQueue {
 			   let endTime = wr.waitEndTime {
 				if clock >= endTime {
 					//print("\(requestBeingProcessed!.name) finished in queue \(name)")
-					finishedRequests.append(wr.endWait(at: clock))
+					finishedRequests.append(wr.endWait(in: self, at: clock))
 					self._channels[index] = nil
 				}
 			}
@@ -119,7 +119,7 @@ class MultiQueue {
 			for (index, requestBeingProcessed) in _channels.enumerated() {
 				if requestBeingProcessed == nil {
 					// Nothing active in this channel
-					let clientRequest = waitingRequest.endWait(at: clock)
+					let clientRequest = waitingRequest.endWait(in: self, at: clock)
 					let serviceTime = delegate?.calculateServiceTime(for: waitingRequest.request) ?? 0.0
 					let latency = delegate?.calculateLatency(for: clientRequest) ?? 0.0
 					//print("\(clientRequest.name) put in channel \(index) of queue \(name)")
@@ -184,7 +184,7 @@ class WaitingRequest {
 		self.mode = mode
 	}
 	
-	public func endWait(at time: Double) -> ClientRequest {
+	public func endWait(in queue:MultiQueue, at time: Double) -> ClientRequest {
 		let elapsed = time - waitStartTime - latency
 		
 		let metricKey = request.solution?.currentStep?.computeRole.rawValue ?? ""
@@ -193,7 +193,12 @@ class WaitingRequest {
 		case .processing:
 			_ = request.metrics.add(serviceTime: elapsed, to: metricKey)
 		case .queueing:
-			_ = request.metrics.add(queueTime: elapsed, to: metricKey)
+			if queue.mode == .transmitting {
+				_ = request.metrics.add(queueTime: elapsed, to: ClientRequestMetrics.NETWORK_KEY)
+			}
+			else {
+				_ = request.metrics.add(queueTime: elapsed, to: metricKey)
+			}
 		case .transmitting:
 			_ = request.metrics.add(serviceTime: elapsed, to: ClientRequestMetrics.NETWORK_KEY)
 		}

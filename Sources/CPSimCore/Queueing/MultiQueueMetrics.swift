@@ -35,14 +35,6 @@ struct MultiQueueMetrics {
 	}
 	
 	mutating func add(dataPoint: QueueMetric) {
-		if let lc = lastClock {
-			assert(dataPoint.clock >= lc)
-			// Possible to have more than one insert/remove at same time.
-			// Last in wins.
-			if lc == dataPoint.clock {
-				_data.removeLast()
-			}
-		}
 		_data.append(dataPoint)
 	}
 	

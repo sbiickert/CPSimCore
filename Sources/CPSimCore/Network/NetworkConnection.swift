@@ -66,17 +66,8 @@ class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
 	func calculateServiceTime(for request: ClientRequest) -> Double {
 		var serviceTime = 0.0
 		if let step = request.solution?.currentStep {
-			var dataSize = ClientRequest.requestSize
-			if step.isResponse {
-				if step.computeRole == .client {
-					dataSize = request.clientTraffic
-				}
-				else {
-					dataSize = request.serverTraffic
-				}
-			}
 			// data (Mb) / bandwidth (Mb/s) = transfer time in seconds
-			let transferTime = dataSize / Double(bandwidth)
+			let transferTime = step.dataSize / Double(bandwidth)
 			
 			serviceTime = transferTime
 			//assert(serviceTime < 2.1, "Long network service time: \(serviceTime)s")

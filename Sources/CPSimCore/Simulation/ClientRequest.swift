@@ -30,6 +30,7 @@ class ClientRequest: ObjectIdentity, Equatable {
 	var solution: ClientRequestSolution?
 	
 	// The traffic and service times for *this* request, randomly different from other requests
+	var cacheTraffic: Double!
 	var clientTraffic: Double!
 	var serverTraffic: Double!
 	var serviceTimes = Dictionary<ComputeRole, Double>()
@@ -49,7 +50,15 @@ class ClientRequest: ObjectIdentity, Equatable {
 		}
 		
 		let w = configuredWorkflow.definition
-		clientTraffic = w.clientTraffic.randomAdjusted()
+		if w.hasCache {
+			let traffic = w.clientTraffic.randomAdjusted()
+			clientTraffic = traffic * 0.25
+			cacheTraffic = traffic * 0.75
+		}
+		else {
+			clientTraffic = w.clientTraffic.randomAdjusted()
+			cacheTraffic = 0.0
+		}
 		serverTraffic = w.serverTraffic.randomAdjusted()
 	}
 	

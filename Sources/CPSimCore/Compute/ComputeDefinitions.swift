@@ -22,6 +22,14 @@ enum ComputeRole: String, CaseIterable {
 	case geoanalytic = "geoanalytic"
 	case geoevent = "geoevent"
 	case rasteranalytic = "rasteranalytic"
+
+	public var isRenderer: Bool {
+		return ComputeRole.renderers.contains(self)
+	}
+	
+	public static var renderers: [ComputeRole] {
+		return [.client, .wts, .hosting, .gis, .cache]
+	}
 }
 
 protocol ComputeNode: ServiceTimeCalculator {

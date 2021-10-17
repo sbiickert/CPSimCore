@@ -31,6 +31,7 @@ struct ClientRequestSolutionStep {
 	let calculator: ServiceTimeCalculator
 	let isResponse: Bool
 	let computeRole: ComputeRole
+	let dataSize: Double
 }
 
 class ClientRequestSolutionFactory {
@@ -95,7 +96,10 @@ class ClientRequestSolutionFactory {
 			// For each leg of the network route
 			for nc in route! {
 				// Add a solution step
-				solution.addStep(ClientRequestSolutionStep(calculator: nc, isResponse: false, computeRole: computeRole))
+				solution.addStep(ClientRequestSolutionStep(calculator: nc,
+														   isResponse: false,
+														   computeRole: computeRole,
+														   dataSize: ClientRequest.requestSize))
 			}
 			
 			// Add a solution step for the compute node
@@ -118,14 +122,36 @@ class ClientRequestSolutionFactory {
 		
 		let start = computeNodeStack.removeFirst() as! Host
 		var computeRole = chain.removeFirst()
-
-		solution.addStep(ClientRequestSolutionStep(calculator: start, isResponse: true, computeRole: computeRole))
+		
+		// Data size starts at "server" size and steps down to "client" size after rendering
+		// Or cache size if this is a cache response
+		var hasSteppedDown = false
+		func calcDataSize() -> Double {
+			if cr.configuredWorkflow.definition.serviceType == .cache {
+				return cr.cacheTraffic
+			}
+			if hasSteppedDown {
+				return cr.clientTraffic!
+			}
+			if computeRole.isRenderer {
+				hasSteppedDown = true
+				return cr.clientTraffic!
+			}
+			return cr.serverTraffic!
+		}
+		var dataSize = calcDataSize()
+		
+		solution.addStep(ClientRequestSolutionStep(calculator: start,
+												   isResponse: true,
+												   computeRole: computeRole,
+												   dataSize: dataSize))
 		fromZone = design.findZone(containing: start) // Don't need to test for nil: we've found these once already
 		
 		// For each compute node in reversed chain
 		for case let host as Host in computeNodeStack {
 			// The compute role that is being done at this node
 			computeRole = chain.removeFirst()
+			dataSize = calcDataSize()
 			
 			// Find network route to compute node
 			let toZone = design.findZone(containing: host) // Don't need to test for nil: we've found these once already
@@ -139,17 +165,24 @@ class ClientRequestSolutionFactory {
 			// For each leg of the network route
 			for nc in route! {
 				// Add a solution step
-				solution.addStep(ClientRequestSolutionStep(calculator: nc, isResponse: true, computeRole: computeRole))
+				solution.addStep(ClientRequestSolutionStep(calculator: nc,
+														   isResponse: true,
+														   computeRole: computeRole,
+														   dataSize: dataSize))
 			}
 		
 			// Add a solution step for the compute node
-			solution.addStep(ClientRequestSolutionStep(calculator: host, isResponse: true, computeRole: computeRole))
+			solution.addStep(ClientRequestSolutionStep(calculator: host,
+													   isResponse: true,
+													   computeRole: computeRole,
+													   dataSize: dataSize))
 			
 			fromZone = toZone
 		}
 		
 		// Client processing
 		computeRole = .client
+		dataSize = cr.clientTraffic
 		let route = NetworkRouteFinder(fromZone: fromZone!, toZone: clientZone!).find()
 		guard route != nil else {
 			print("Could not find reverse route from \(fromZone!.name) to \(clientZone!.name)")
@@ -159,11 +192,17 @@ class ClientRequestSolutionFactory {
 		// For each leg of the network route to the client
 	   for nc in route! {
 		   // Add a solution step
-		   solution.addStep(ClientRequestSolutionStep(calculator: nc, isResponse: true, computeRole: computeRole))
+		   solution.addStep(ClientRequestSolutionStep(calculator: nc,
+													  isResponse: true,
+													  computeRole: computeRole,
+													  dataSize: dataSize))
 	   }
    
 	   // Add a solution step for the client
-	   solution.addStep(ClientRequestSolutionStep(calculator: client, isResponse: true, computeRole: computeRole))
+		solution.addStep(ClientRequestSolutionStep(calculator: client,
+												   isResponse: true,
+												   computeRole: computeRole,
+												   dataSize: dataSize))
 
 		return solution
 	}
