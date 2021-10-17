@@ -10,6 +10,10 @@ import Foundation
 struct ClientRequestSolution {
 	private var _steps = [ClientRequestSolutionStep]()
 	
+	var stepCount: Int {
+		return _steps.count
+	}
+	
 	mutating func addStep(_ step: ClientRequestSolutionStep) {
 		_steps.append(step)
 	}

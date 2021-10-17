@@ -80,7 +80,8 @@ class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
 		// chatter * latency (milliseconds) * 0.001 = latency time in seconds
 		var result = 0.0
 		if let step = request.solution?.currentStep {
-			if step.isResponse {
+			if step.isResponse == false {
+				// Will calc latency on the request leg
 				result = Double(request.configuredWorkflow.definition.chatter) * Double(self.latency) * 0.001
 			}
 		}

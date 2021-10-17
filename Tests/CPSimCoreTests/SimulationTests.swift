@@ -2,6 +2,10 @@ import XCTest
 @testable import CPSimCore
 
 final class SimulationTests: XCTestCase {
+	private enum TestDesign: String {
+		case simple = "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_00_v0.3.json"
+		case waDMZ = "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_01_v0.3.json"
+	}
 	
 	static var exampleClientRequest: ClientRequest? {
 		get {
@@ -33,7 +37,7 @@ final class SimulationTests: XCTestCase {
 	}
 	
 	func testDesignLoad() throws {
-		let design = try Design(at: "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_00_v0.3.json")
+		let design = try Design(at: TestDesign.simple.rawValue)
 		XCTAssert(design.name == "Design 00 (Simple)")
 		XCTAssert(design.zones.count == 3)
 		
@@ -75,8 +79,62 @@ final class SimulationTests: XCTestCase {
 		XCTAssert(localViewZone != nil)
 	}
 	
+	func testWADMZDesignLoad() throws {
+		let design = try Design(at: TestDesign.waDMZ.rawValue)
+		XCTAssert(design.name == "Design 01 (WA to DMZ)")
+		XCTAssert(design.zones.count == 4)
+		
+		let internet = design.findZone(named: "Internet")
+		XCTAssert(internet != nil)
+		XCTAssert(internet!.hosts.count == 0)
+		
+		let lan = design.findZone(named: "LAN")
+		XCTAssert(lan != nil)
+		XCTAssert(lan!.hosts.count == 3)
+		XCTAssert(lan!.hosts.filter({$0 is PhysicalHost}).count == 1)
+		XCTAssert(lan!.hosts.filter({$0 is VirtualHost}).count == 2)
+		
+		let dmz = design.findZone(named: "DMZ")
+		XCTAssert(dmz != nil)
+		XCTAssert(dmz!.hosts.count == 2)
+		XCTAssert(dmz!.hosts.filter({$0 is PhysicalHost}).count == 1)
+		XCTAssert(dmz!.hosts.filter({$0 is VirtualHost}).count == 1)
+
+		let agol = design.findZone(named: "ArcGIS Online")
+		XCTAssert(agol != nil)
+		XCTAssert(agol!.hosts.count == 1)
+		XCTAssert(agol!.hosts[0].name == "AGOL AMI")
+		
+		XCTAssert(design.tiers.count == 4)
+		let dbTier = design.tiers.first(where: {$0.name == "DBMS"})
+		XCTAssert(dbTier != nil)
+		XCTAssert(design.defaultTiers[.dbms] === dbTier)
+		let gisTier = design.tiers.first(where: {$0.name == "Web GIS"})
+		XCTAssert(gisTier != nil)
+		XCTAssert(gisTier!.nodes.count == 1)
+		XCTAssert(gisTier!.roles.count == 3)
+		XCTAssert(gisTier!.roles.contains(.gis))
+		let webTier = design.tiers.first(where: {$0.name == "Web"})
+		XCTAssert(webTier != nil)
+		XCTAssert(webTier!.nodes.count == 1)
+		XCTAssert(webTier!.roles.count == 1)
+		XCTAssert(webTier!.roles.contains(.web))
+
+		XCTAssert(design.configuredWorkflows.count == 2)
+		let localView = design.configuredWorkflows.first(where: {$0.name == "Local View"})
+		XCTAssert(localView != nil)
+		//XCTAssert(localView!.tps == 20000.0 / 60.0 / 60.0)
+		XCTAssert(localView!.tiers[.dbms] === dbTier)
+		XCTAssert(localView!.tiers[.gis] === gisTier)
+		XCTAssert(localView!.tiers[.geoevent] == nil)
+		XCTAssert(localView!.definition.serviceTimes[.gis]! > 0)
+		
+		let localViewZone = design.findZone(containing: localView!)
+		XCTAssert(localViewZone != nil)
+	}
+
 	func testSingleMapRequest() throws {
-		let design = try Design(at: "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_00_v0.3.json")
+		let design = try Design(at: TestDesign.waDMZ.rawValue)
 		
 		var clock = 0.0
 		let cw = design.configuredWorkflows.first(where: {$0.name == "Local View"})
@@ -85,7 +143,8 @@ final class SimulationTests: XCTestCase {
 		print(req.configuredWorkflow.definition.serviceType.serverRoleChain)
 		req.solution = try ClientRequestSolutionFactory.createSolution(for: req, in: design)
 		XCTAssert(req.solution != nil)
-		
+		XCTAssert(req.solution!.stepCount > 0)
+
 		while req.isFinished == false {
 			if let currentStep = req.solution?.currentStep {
 				req.startCurrentStep(clock)
@@ -101,12 +160,14 @@ final class SimulationTests: XCTestCase {
 		
 		XCTAssert(req.metrics.totalServiceTime > 0.0)
 		XCTAssert(req.metrics.totalQueueTime == 0.0) // No queueing b/c this is the only request
-		XCTAssert(req.metrics.totalLatencyTime > 0.0)
+		if req.configuredWorkflow.tiers[.portal]!.name == "AGOL" {
+			XCTAssert(req.metrics.totalLatencyTime > 0.0)
+		}
 		print("Response time for request \(req.name) was \(req.metrics.responseTime) s")
 	}
 	
 	func testSingleMapRequestWithCache() throws {
-		let design = try Design(at: "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_00_v0.3.json")
+		let design = try Design(at: TestDesign.waDMZ.rawValue)
 		
 		var clock = 0.0
 		let cw = design.configuredWorkflows.first(where: {$0.name == "Local View"})
@@ -165,7 +226,9 @@ final class SimulationTests: XCTestCase {
 		XCTAssert(req.metrics.totalServiceTime > 0.0)
 		XCTAssert(req.metrics.totalQueueTime == 0.0) 		// No queueing b/c this is the first request
 		XCTAssert(reqs[1].metrics.totalQueueTime >= 0.0) 	// Queueing b/c this is the second request and had to wait behind first for a bit
-		XCTAssert(req.metrics.totalLatencyTime > 0.0)
+		if req.configuredWorkflow.tiers[.portal]!.name == "AGOL" {
+			XCTAssert(req.metrics.totalLatencyTime > 0.0)
+		}
 		for r in reqs {
 			print("\(r.name) ST: \(r.metrics.totalServiceTime.roundTo(places: 3)) QT: \(r.metrics.totalQueueTime.roundTo(places: 6))")
 		}
@@ -173,7 +236,7 @@ final class SimulationTests: XCTestCase {
 	
 	func testSimulation() throws {
 		let simulator = Simulator()
-		let design = try Design(at: "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_00_v0.3.json")
+		let design = try Design(at: TestDesign.waDMZ.rawValue)
 		simulator.design = design
 		
 		simulator.start()
