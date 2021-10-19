@@ -1,0 +1,500 @@
+{
+	"version": 0.1,
+	"updatedBy": "SYSTEM",
+	"updatedOn": "1/14/2016 9:14:04 AM",
+	"cpt": "Arc15CapacityPlanning0101",
+	"workflows": [
+		{
+		"name": "AGD wkstn ArcMap 2D V Lite 100%Dyn 19x10 Feature",
+		"category": "Standard Workflows","chatter": 100,"clientTraffic": 13.184,"dbTraffic": 13.184,"clientST": 0.2078540039,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0230925798,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD wkstn ArcMap 2D V Med 100%Dyn 19x10 Feature",
+		"category": "Standard Workflows","chatter": 200,"clientTraffic": 26.367,"dbTraffic": 26.367,"clientST": 0.4157080078,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0461851597,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD wkstn Pro 2D V  Lite 100%Dyn 19x10 Feature",
+		"category": "Standard Workflows","chatter": 50,"clientTraffic": 13.184,"dbTraffic": 13.184,"clientST": 0.2078540039,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0230925798,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD wkstn Pro 2D V  Med 100%Dyn 19x10 Feature",
+		"category": "Standard Workflows","chatter": 100,"clientTraffic": 26.367,"dbTraffic": 26.367,"clientST": 0.4157080078,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0461851597,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD wkstn FSvc Pro 2D VP Med 20%Dyn 19x10 Feature +$$",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 5.773,"dbTraffic": 5.273,"clientST": 0.0831416016,"wtsST": 0.0000000000,"webST": 0.0180000000,"portalST": 0.0019000000,"socST": 0.0140917969,"sdeST": 0.0000000000,"dbmsST": 0.0092370319,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD wkstn Pro 3D V Lite 100%Dyn 19x10 Feature",
+		"category": "Standard Workflows","chatter": 50,"clientTraffic": 13.184,"dbTraffic": 13.184,"clientST": 0.4157080078,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0230925798,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD wkstn Pro 3D V Med 100%Dyn 19x10 Feature",
+		"category": "Standard Workflows","chatter": 100,"clientTraffic": 26.367,"dbTraffic": 26.367,"clientST": 0.8314160156,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0461851597,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD Citrix ArcMap 2D V Lite 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.369,"dbTraffic": 13.184,"clientST": 0.0270000000,"wtsST": 0.2078540039,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0230925798,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD Citrix ArcMap 2D V Med 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.738,"dbTraffic": 26.367,"clientST": 0.0270000000,"wtsST": 0.4157080078,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0461851597,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD Citrix ArcMap 2D R Lite 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.637,"dbTraffic": 13.184,"clientST": 0.0270000000,"wtsST": 0.2078540039,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0230925798,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD Citrix ArcMap 2D R Med 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 5.273,"dbTraffic": 26.367,"clientST": 0.0270000000,"wtsST": 0.4157080078,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0461851597,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD Citrix Pro 2D V Lite 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.369,"dbTraffic": 13.184,"clientST": 0.0270000000,"wtsST": 0.2078540039,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0230925798,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD Citrix Pro 2D V Med 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.738,"dbTraffic": 26.367,"clientST": 0.0270000000,"wtsST": 0.4157080078,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0461851597,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD Citrix Pro 2D R Lite 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.637,"dbTraffic": 13.184,"clientST": 0.0270000000,"wtsST": 0.2078540039,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0230925798,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD Citrix Pro 2D R Med 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 5.273,"dbTraffic": 26.367,"clientST": 0.0270000000,"wtsST": 0.4157080078,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0461851597,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD Citrix FSvc Pro 2D VP Med 20%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.443,"dbTraffic": 5.273,"clientST": 0.0270000000,"wtsST": 0.0831416016,"webST": 0.0180000000,"portalST": 0.0019000000,"socST": 0.0140917969,"sdeST": 0.0000000000,"dbmsST": 0.0092370319,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD Citrix FSvc Pro 2D RP Med 20%Dyn 19x10 ICA +$$",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 3.664,"dbTraffic": 5.273,"clientST": 0.0270000000,"wtsST": 0.0831416016,"webST": 0.0180000000,"portalST": 0.0019000000,"socST": 0.0140917969,"sdeST": 0.0000000000,"dbmsST": 0.0092370319,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD Citrix Pro 3D V Med 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 3.691,"dbTraffic": 26.367,"clientST": 0.0270000000,"wtsST": 0.8314160156,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0461851597,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD Citrix Pro 3D R Med 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 26.367,"dbTraffic": 26.367,"clientST": 0.0270000000,"wtsST": 0.8314160156,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0461851597,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS REST 2D VP Med 100%Dyn 13x7 PNG24",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0180000000,"portalST": 0.0019000000,"socST": 0.1408544922,"sdeST": 0.0000000000,"dbmsST": 0.0240752832,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS REST 2D V Lite 100%Dyn 13x7 PNG24",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 6.67,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0704272461,"sdeST": 0.0000000000,"dbmsST": 0.0120376416,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS REST 2D V Med 100%Dyn 13x7 PNG24",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.1408544922,"sdeST": 0.0000000000,"dbmsST": 0.0240752832,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS REST 2D V Med 100%Dyn 13x7 PNG24 +$$",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.634,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.1408544922,"sdeST": 0.0000000000,"dbmsST": 0.0240752832,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS REST 2D V Med 40%Dyn 13x7 PNG24 +$$",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 1.994,"dbTraffic": 5.336,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0563417969,"sdeST": 0.0000000000,"dbmsST": 0.0096301133,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS REST 2D VP Med 20%Dyn 13x7 Feature +$$",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 3.168,"dbTraffic": 2.668,"clientST": 0.0639262695,"wtsST": 0.0000000000,"webST": 0.0180000000,"portalST": 0.0019000000,"socST": 0.0108349609,"sdeST": 0.0000000000,"dbmsST": 0.0048150566,"think": 3,"productivity": 6,"description": "","wType": "Feature"
+		},
+		{
+		"name": "AGS Full MapCache",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.5,"dbTraffic": 0.5,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0090000000,"sdeST": 0.0000000000,"dbmsST": 0.0000000000,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS PortalShare",
+		"category": "Standard Workflows","chatter": 200,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0190000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0000000000,"think": 3,"productivity": 10,"description": "","wType": "Feature"
+		},
+		{
+		"name": "AGS KML 2D V Med 100%Dyn 13x7 PNG24",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.2155073730,"sdeST": 0.0000000000,"dbmsST": 0.0240752832,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS WMS 2D V Med 100%Dyn 13x7 PNG24",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.2284659863,"sdeST": 0.0000000000,"dbmsST": 0.0240752832,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS ArcGIS Mobile Client",
+		"category": "Standard Workflows","chatter": 0,"clientTraffic": 0,"dbTraffic": 0,"clientST": 0.1475000000,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0000000000,"think": 3,"productivity": 10,"description": "","wType": "Feature"
+		},
+		{
+		"name": "AGS ArcGIS Mobile Sychronization Service",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.5,"dbTraffic": 0.5,"clientST": 0.0147500000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0025000000,"sdeST": 0.0000000000,"dbmsST": 0.0011110000,"think": 3,"productivity": 6,"description": "","wType": "Sync"
+		},
+		{
+		"name": "AGS ArcGIS Mobile Provisioning Service",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 5,"dbTraffic": 5,"clientST": 0.1475000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0250000000,"sdeST": 0.0000000000,"dbmsST": 0.0111100000,"think": 3,"productivity": 6,"description": "","wType": "Sync"
+		},
+		{
+		"name": "AGS Imagery 2D R Lite 100%Dyn 13x7 JPEG",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.668,"dbTraffic": 6.67,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0427980957,"sdeST": 0.0053497620,"dbmsST": 0.0053497620,"think": 3,"productivity": 6,"description": "","wType": "Image"
+		},
+		{
+		"name": "AGS Imagery 2D R Med 100%Dyn 13x7 JPEG",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.668,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0855961914,"sdeST": 0.0106995239,"dbmsST": 0.0106995239,"think": 3,"productivity": 6,"description": "","wType": "Image"
+		},
+		{
+		"name": "AGS Imagery 2D R Hvy 100%Dyn 13x7 JPEG",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.668,"dbTraffic": 20.01,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.1283942871,"sdeST": 0.0160492859,"dbmsST": 0.0160492859,"think": 3,"productivity": 6,"description": "","wType": "Image"
+		},
+		{
+		"name": "AGD103 wkstn ArcMap 2D V Lite 100%Dyn 19x10 Feature",
+		"category": "Standard Workflows","chatter": 100,"clientTraffic": 13.184,"dbTraffic": 13.184,"clientST": 0.2078540039,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0230925798,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD103 wkstn ArcMap 2D V Med 100%Dyn 19x10 Feature",
+		"category": "Standard Workflows","chatter": 200,"clientTraffic": 26.367,"dbTraffic": 26.367,"clientST": 0.4157080078,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0461851597,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD103 wkstn Pro 2D V  Lite 100%Dyn 19x10 Feature",
+		"category": "Standard Workflows","chatter": 50,"clientTraffic": 13.184,"dbTraffic": 13.184,"clientST": 0.2078540039,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0230925798,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD103 wkstn Pro 2D V  Med 100%Dyn 19x10 Feature",
+		"category": "Standard Workflows","chatter": 100,"clientTraffic": 26.367,"dbTraffic": 26.367,"clientST": 0.4157080078,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0461851597,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD103 wkstn FSvc Pro 2D VP Med 20%Dyn 19x10 Feature +$$",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 5.773,"dbTraffic": 5.273,"clientST": 0.0831416016,"wtsST": 0.0000000000,"webST": 0.0180000000,"portalST": 0.0019000000,"socST": 0.0140917969,"sdeST": 0.0000000000,"dbmsST": 0.0092370319,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD103 wkstn Pro 3D V Lite 100%Dyn 19x10 Feature",
+		"category": "Standard Workflows","chatter": 50,"clientTraffic": 13.184,"dbTraffic": 13.184,"clientST": 0.4157080078,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0230925798,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD103 wkstn Pro 3D V Med 100%Dyn 19x10 Feature",
+		"category": "Standard Workflows","chatter": 100,"clientTraffic": 26.367,"dbTraffic": 26.367,"clientST": 0.8314160156,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0461851597,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD103 Citrix ArcMap 2D V Lite 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.369,"dbTraffic": 13.184,"clientST": 0.0270000000,"wtsST": 0.2078540039,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0230925798,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD103 Citrix ArcMap 2D V Med 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.738,"dbTraffic": 26.367,"clientST": 0.0270000000,"wtsST": 0.4157080078,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0461851597,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD103 Citrix ArcMap 2D R Lite 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.637,"dbTraffic": 13.184,"clientST": 0.0270000000,"wtsST": 0.2078540039,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0230925798,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD103 Citrix ArcMap 2D R Med 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 5.273,"dbTraffic": 26.367,"clientST": 0.0270000000,"wtsST": 0.4157080078,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0461851597,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD103 Citrix Pro 2D V Lite 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.369,"dbTraffic": 13.184,"clientST": 0.0270000000,"wtsST": 0.2078540039,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0230925798,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD103 Citrix Pro 2D V Med 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.738,"dbTraffic": 26.367,"clientST": 0.0270000000,"wtsST": 0.4157080078,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0461851597,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD103 Citrix Pro 2D R Lite 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.637,"dbTraffic": 13.184,"clientST": 0.0270000000,"wtsST": 0.2078540039,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0230925798,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD103 Citrix Pro 2D R Med 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 5.273,"dbTraffic": 26.367,"clientST": 0.0270000000,"wtsST": 0.4157080078,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0461851597,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD103 Citrix FSvc Pro 2D VP Med 20%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.443,"dbTraffic": 5.273,"clientST": 0.0270000000,"wtsST": 0.0831416016,"webST": 0.0180000000,"portalST": 0.0019000000,"socST": 0.0140917969,"sdeST": 0.0000000000,"dbmsST": 0.0092370319,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD103 Citrix FSvc Pro 2D RP Med 20%Dyn 19x10 ICA +$$",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 3.664,"dbTraffic": 5.273,"clientST": 0.0270000000,"wtsST": 0.0831416016,"webST": 0.0180000000,"portalST": 0.0019000000,"socST": 0.0140917969,"sdeST": 0.0000000000,"dbmsST": 0.0092370319,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD103 Citrix Pro 3D V Med 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 3.691,"dbTraffic": 26.367,"clientST": 0.0270000000,"wtsST": 0.8314160156,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0461851597,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD103 Citrix Pro 3D R Med 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 26.367,"dbTraffic": 26.367,"clientST": 0.0270000000,"wtsST": 0.8314160156,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0461851597,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS103 REST 2D VP Med 100%Dyn 13x7 PNG24",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0180000000,"portalST": 0.0019000000,"socST": 0.1408544922,"sdeST": 0.0000000000,"dbmsST": 0.0240752832,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS103 REST 2D V Lite 100%Dyn 13x7 PNG24",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 6.67,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0704272461,"sdeST": 0.0000000000,"dbmsST": 0.0120376416,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS103 REST 2D V Med 100%Dyn 13x7 PNG24",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.1408544922,"sdeST": 0.0000000000,"dbmsST": 0.0240752832,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS103 REST 2D V Med 100%Dyn 13x7 PNG24 +$$",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.634,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.1408544922,"sdeST": 0.0000000000,"dbmsST": 0.0240752832,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS103 REST 2D V Med 40%Dyn 13x7 PNG24 +$$",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 1.994,"dbTraffic": 5.336,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0563417969,"sdeST": 0.0000000000,"dbmsST": 0.0096301133,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS103 REST 2D VP Med 20%Dyn 13x7 Feature +$$",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 3.168,"dbTraffic": 2.668,"clientST": 0.0639262695,"wtsST": 0.0000000000,"webST": 0.0180000000,"portalST": 0.0019000000,"socST": 0.0108349609,"sdeST": 0.0000000000,"dbmsST": 0.0048150566,"think": 3,"productivity": 6,"description": "","wType": "Feature"
+		},
+		{
+		"name": "AGS Full MapCache",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.5,"dbTraffic": 0.5,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0090000000,"sdeST": 0.0000000000,"dbmsST": 0.0000000000,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS103 PortalShare",
+		"category": "Standard Workflows","chatter": 200,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0190000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0000000000,"think": 3,"productivity": 10,"description": "","wType": "Feature"
+		},
+		{
+		"name": "AGS103 KML 2D V Med 100%Dyn 13x7 PNG24",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.2155073730,"sdeST": 0.0000000000,"dbmsST": 0.0240752832,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS103 WMS 2D V Med 100%Dyn 13x7 PNG24",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.2284659863,"sdeST": 0.0000000000,"dbmsST": 0.0240752832,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS103 ArcGIS Mobile Client",
+		"category": "Standard Workflows","chatter": 0,"clientTraffic": 0,"dbTraffic": 0,"clientST": 0.1475000000,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0000000000,"think": 3,"productivity": 10,"description": "","wType": "Feature"
+		},
+		{
+		"name": "AGS103 ArcGIS Mobile Sychronization Service",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.5,"dbTraffic": 0.5,"clientST": 0.0147500000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0025000000,"sdeST": 0.0000000000,"dbmsST": 0.0011110000,"think": 3,"productivity": 6,"description": "","wType": "Sync"
+		},
+		{
+		"name": "AGS103 ArcGIS Mobile Provisioning Service",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 5,"dbTraffic": 5,"clientST": 0.1475000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0250000000,"sdeST": 0.0000000000,"dbmsST": 0.0111100000,"think": 3,"productivity": 6,"description": "","wType": "Sync"
+		},
+		{
+		"name": "AGS103 Imagery 2D R Lite 100%Dyn 13x7 JPEG",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.668,"dbTraffic": 6.67,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0427980957,"sdeST": 0.0053497620,"dbmsST": 0.0053497620,"think": 3,"productivity": 6,"description": "","wType": "Image"
+		},
+		{
+		"name": "AGS103 Imagery 2D R Med 100%Dyn 13x7 JPEG",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.668,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0855961914,"sdeST": 0.0106995239,"dbmsST": 0.0106995239,"think": 3,"productivity": 6,"description": "","wType": "Image"
+		},
+		{
+		"name": "AGS103 Imagery 2D R Hvy 100%Dyn 13x7 JPEG",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.668,"dbTraffic": 20.01,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.1283942871,"sdeST": 0.0160492859,"dbmsST": 0.0160492859,"think": 3,"productivity": 6,"description": "","wType": "Image"
+		},
+		{
+		"name": "AGD102 wkstn ArcMap 2D V Lite 100%Dyn 19x10 Feature",
+		"category": "Standard Workflows","chatter": 100,"clientTraffic": 13.184,"dbTraffic": 13.184,"clientST": 0.1847847606,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0230980951,"dbmsST": 0.0230980951,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD102 wkstn ArcMap 2D V Med 100%Dyn 19x10 Feature",
+		"category": "Standard Workflows","chatter": 200,"clientTraffic": 26.367,"dbTraffic": 26.367,"clientST": 0.3695695211,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0461961901,"dbmsST": 0.0461961901,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD102 Citrix ArcMap 2D V Lite 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.369,"dbTraffic": 13.184,"clientST": 0.0274137931,"wtsST": 0.1847847606,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0230980951,"dbmsST": 0.0230980951,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD102 Citrix ArcMap 2D V Med 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.738,"dbTraffic": 26.367,"clientST": 0.0274137931,"wtsST": 0.3695695211,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0461961901,"dbmsST": 0.0461961901,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD102 Citrix ArcMap 2D R Lite 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.637,"dbTraffic": 13.184,"clientST": 0.0274137931,"wtsST": 0.1847847606,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0230980951,"dbmsST": 0.0230980951,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD102 Citrix ArcMap 2D R Med 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 5.273,"dbTraffic": 26.367,"clientST": 0.0274137931,"wtsST": 0.3695695211,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0461961901,"dbmsST": 0.0461961901,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS102 REST 2D VP Med 100%Dyn 13x7 PNG24",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0180000000,"portalST": 0.0019000000,"socST": 0.1253604980,"sdeST": 0.0241077881,"dbmsST": 0.0241077881,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS102 REST 2D V Lite 100%Dyn 13x7 PNG24",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 6.67,"clientST": 0.0274137931,"wtsST": 0.0000000000,"webST": 0.0091379310,"portalST": 0.0000000000,"socST": 0.0627470335,"sdeST": 0.0120667372,"dbmsST": 0.0120667372,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS102 REST 2D V Med 100%Dyn 13x7 PNG24",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0274137931,"wtsST": 0.0000000000,"webST": 0.0091379310,"portalST": 0.0000000000,"socST": 0.1254940670,"sdeST": 0.0241334744,"dbmsST": 0.0241334744,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS102 REST 2D V Med 100%Dyn 13x7 PNG24 +$$",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.634,"dbTraffic": 13.34,"clientST": 0.0274137931,"wtsST": 0.0000000000,"webST": 0.0091379310,"portalST": 0.0000000000,"socST": 0.1254940670,"sdeST": 0.0241334744,"dbmsST": 0.0241334744,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS102 REST 2D V Med 40%Dyn 13x7 PNG24 +$$",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 1.994,"dbTraffic": 5.336,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0501441992,"sdeST": 0.0096431152,"dbmsST": 0.0096431152,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS102 REST 2D V Med 20%Dyn 13x7 Feature +$$",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 3.168,"dbTraffic": 2.668,"clientST": 0.0639262695,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0096431152,"sdeST": 0.0048215576,"dbmsST": 0.0048215576,"think": 3,"productivity": 6,"description": "","wType": "Feature"
+		},
+		{
+		"name": "AGS102 PortalShare",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0190000000,"socST": 0.0000070427,"sdeST": 0.0000013544,"dbmsST": 0.0000013544,"think": 3,"productivity": 6,"description": "","wType": "Feature"
+		},
+		{
+		"name": "AGS102 KML 2D V Med 100%Dyn 13x7 PNG24",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.2005767969,"sdeST": 0.0241077881,"dbmsST": 0.0241077881,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS102 WMS 2D V Med 100%Dyn 13x7 PNG24",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.2131128467,"sdeST": 0.0241077881,"dbmsST": 0.0241077881,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS102 ArcGIS Mobile Client",
+		"category": "Standard Workflows","chatter": 0,"clientTraffic": 0,"dbTraffic": 0,"clientST": 0.1310000000,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0000000000,"think": 3,"productivity": 6,"description": "","wType": "Feature"
+		},
+		{
+		"name": "AGS102 ArcGIS Mobile Sychronization Service",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.5,"dbTraffic": 0.5,"clientST": 0.0147500000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0022250000,"sdeST": 0.0011125000,"dbmsST": 0.0011125000,"think": 3,"productivity": 6,"description": "","wType": "Sync"
+		},
+		{
+		"name": "AGS102 ArcGIS Mobile Provisioning Service",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 5,"dbTraffic": 5,"clientST": 0.1475000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0222500000,"sdeST": 0.0111250000,"dbmsST": 0.0111250000,"think": 3,"productivity": 6,"description": "","wType": "Sync"
+		},
+		{
+		"name": "AGS102 Imagery MosaicDS 2D R Med 100%Dyn 13x7 JPEG",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0855961914,"sdeST": 0.0106995239,"dbmsST": 0.0106995239,"think": 3,"productivity": 6,"description": "","wType": "Image"
+		},
+		{
+		"name": "AGS102 Imagery MosaicDS 2D R Lite 100%Dyn 13x7 JPEG",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 6.67,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0427980957,"sdeST": 0.0053497620,"dbmsST": 0.0053497620,"think": 3,"productivity": 6,"description": "","wType": "Image"
+		},
+		{
+		"name": "AGS102 Imagery RasterDS 2D R Med 100%Dyn 13x7 JPEG",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0855961914,"sdeST": 0.0106995239,"dbmsST": 0.0106995239,"think": 3,"productivity": 6,"description": "","wType": "Image"
+		},
+		{
+		"name": "AGD101 wkstn ArcMap 2D V Lite 100%Dyn 19x10 Feature",
+		"category": "Standard Workflows","chatter": 100,"clientTraffic": 13.184,"dbTraffic": 13.184,"clientST": 0.2078540039,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0259817505,"dbmsST": 0.0259817505,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD101 wkstn ArcMap 2D V Med 100%Dyn 19x10 Feature",
+		"category": "Standard Workflows","chatter": 200,"clientTraffic": 26.367,"dbTraffic": 26.367,"clientST": 0.4157080078,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0519635010,"dbmsST": 0.0519635010,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD101 Citrix ArcMap 2D V Lite 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.369,"dbTraffic": 13.184,"clientST": 0.0270000000,"wtsST": 0.2078540039,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0259817505,"dbmsST": 0.0259817505,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD101 Citrix ArcMap 2D V Med 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.738,"dbTraffic": 26.367,"clientST": 0.0270000000,"wtsST": 0.4157080078,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0519635010,"dbmsST": 0.0519635010,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD101 Citrix ArcMap 2D R Lite 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.637,"dbTraffic": 13.184,"clientST": 0.0270000000,"wtsST": 0.2078540039,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0259817505,"dbmsST": 0.0259817505,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGD101 Citrix ArcMap 2D R Med 100%Dyn 19x10 ICA",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 5.273,"dbTraffic": 26.367,"clientST": 0.0270000000,"wtsST": 0.4157080078,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0519635010,"dbmsST": 0.0519635010,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS101 REST 2D V Lite 100%Dyn 13x7 PNG24",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 6.67,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0704272461,"sdeST": 0.0135437012,"dbmsST": 0.0135437012,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS101 REST 2D V Med 100%Dyn 13x7 PNG24",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.1408544922,"sdeST": 0.0270874023,"dbmsST": 0.0270874023,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS101 REST 2D V Med 40%Dyn 13x7 PNG24 +$$",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 1.994,"dbTraffic": 5.336,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0563417969,"sdeST": 0.0108349609,"dbmsST": 0.0108349609,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS101 REST 2D V Med 20%Dyn 13x7 Feature +$$",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 3.168,"dbTraffic": 2.668,"clientST": 0.0639262695,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0108349609,"sdeST": 0.0054174805,"dbmsST": 0.0054174805,"think": 3,"productivity": 6,"description": "","wType": "Feature"
+		},
+		{
+		"name": "AGS101 WMS 2D V Med 100%Dyn 13x7 PNG24",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.2394526367,"sdeST": 0.0270874023,"dbmsST": 0.0270874023,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "AGS101 ArcGIS Mobile Client",
+		"category": "Standard Workflows","chatter": 0,"clientTraffic": 0,"dbTraffic": 0,"clientST": 0.1475000000,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0000000000,"dbmsST": 0.0000000000,"think": 3,"productivity": 6,"description": "","wType": "Feature"
+		},
+		{
+		"name": "AGS101 ArcGIS Mobile Sychronization Service",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 0.5,"dbTraffic": 0.5,"clientST": 0.0147500000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0020750000,"sdeST": 0.0012500000,"dbmsST": 0.0012500000,"think": 3,"productivity": 6,"description": "","wType": "Sync"
+		},
+		{
+		"name": "AGS101 ArcGIS Mobile Provisioning Service",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 5,"dbTraffic": 5,"clientST": 0.1475000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0207500000,"sdeST": 0.0125000000,"dbmsST": 0.0125000000,"think": 3,"productivity": 6,"description": "","wType": "Sync"
+		},
+		{
+		"name": "AGS101 Imagery MosaicDS 2D R Med 100%Dyn 13x7 JPEG",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0855961914,"sdeST": 0.0106995239,"dbmsST": 0.0106995239,"think": 3,"productivity": 6,"description": "","wType": "Image"
+		},
+		{
+		"name": "AGS101 Imagery MosaicDS 2D R Lite 100%Dyn 13x7 JPEG",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 6.67,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0427980957,"sdeST": 0.0053497620,"dbmsST": 0.0053497620,"think": 3,"productivity": 6,"description": "","wType": "Image"
+		},
+		{
+		"name": "AGS101 Imagery RasterDS 2D R Med 100%Dyn 13x7 JPEG",
+		"category": "Standard Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 13.34,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0855961914,"sdeST": 0.0106995239,"dbmsST": 0.0106995239,"think": 3,"productivity": 6,"description": "","wType": "Image"
+		},
+		{
+		"name": "S DeskEdit_ArcGIS Desktop Editor",
+		"category": "Sample Workflows","chatter": 200,"clientTraffic": 10,"dbTraffic": 10,"clientST": 0.2777931034,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0347241379,"dbmsST": 0.0347241379,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "S DeskView_ArcGIS Desktop Viewer",
+		"category": "Sample Workflows","chatter": 200,"clientTraffic": 10,"dbTraffic": 10,"clientST": 0.2777931034,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0347241379,"dbmsST": 0.0347241379,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "S CitrixEdit_Remote ArcGIS Desktop Editor",
+		"category": "Sample Workflows","chatter": 10,"clientTraffic": 1,"dbTraffic": 10,"clientST": 0.0292413793,"wtsST": 0.2777931034,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0347241379,"dbmsST": 0.0347241379,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "S CitrixView_Remote ArcGIS Desktop Viewer",
+		"category": "Sample Workflows","chatter": 10,"clientTraffic": 1,"dbTraffic": 10,"clientST": 0.0292413793,"wtsST": 0.2777931034,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0347241379,"dbmsST": 0.0347241379,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "S Batch_Batch Mapping Service",
+		"category": "Sample Workflows","chatter": 10,"clientTraffic": 2,"dbTraffic": 10,"clientST": 0.0292413793,"wtsST": 0.0000000000,"webST": 0.0095034483,"portalST": 0.0000000000,"socST": 0.1900689655,"sdeST": 0.0237586207,"dbmsST": 0.0237586207,"think": 0,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "S WebMap_Web Mapping Service",
+		"category": "Sample Workflows","chatter": 10,"clientTraffic": 2,"dbTraffic": 10,"clientST": 0.0292413793,"wtsST": 0.0000000000,"webST": 0.0095034483,"portalST": 0.0000000000,"socST": 0.1900689655,"sdeST": 0.0237586207,"dbmsST": 0.0237586207,"think": 3,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "S WebMobile_Web Mobile Sync Service",
+		"category": "Sample Workflows","chatter": 10,"clientTraffic": 0.42,"dbTraffic": 0.5,"clientST": 0.0292413793,"wtsST": 0.0000000000,"webST": 0.0095034483,"portalST": 0.0000000000,"socST": 0.0074901140,"sdeST": 0.0009362642,"dbmsST": 0.0009362642,"think": 3,"productivity": 6,"description": "","wType": "Feature"
+		},
+		{
+		"name": "Light_AGD102 wkstn MXD  100%Dyn Lite 10x7 Feature",
+		"category": "Sample Workflows","chatter": 100,"clientTraffic": 5,"dbTraffic": 5,"clientST": 0.1311293103,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0163911638,"dbmsST": 0.0163911638,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "Medium_AGD102 wkstn MXD  100%Dyn Med 10x7 Feature",
+		"category": "Sample Workflows","chatter": 200,"clientTraffic": 10,"dbTraffic": 10,"clientST": 0.2622586207,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0327823276,"dbmsST": 0.0327823276,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "Heavy_AGD102 wkstn MXD  100%Dyn Hvy 10x7 Feature",
+		"category": "Sample Workflows","chatter": 300,"clientTraffic": 15,"dbTraffic": 15,"clientST": 0.3933879310,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0491734914,"dbmsST": 0.0491734914,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "2x Medium_AGD102 wkstn MXD  100%Dyn 2Med 10x7 Feature",
+		"category": "Sample Workflows","chatter": 400,"clientTraffic": 20,"dbTraffic": 20,"clientST": 0.5245172414,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0655646552,"dbmsST": 0.0655646552,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "3x Medium_AGD102 wkstn MXD  100%Dyn 3Med 10x7 Feature",
+		"category": "Sample Workflows","chatter": 600,"clientTraffic": 30,"dbTraffic": 30,"clientST": 0.7867758621,"wtsST": 0.0000000000,"webST": 0.0000000000,"portalST": 0.0000000000,"socST": 0.0000000000,"sdeST": 0.0983469828,"dbmsST": 0.0983469828,"think": 3,"productivity": 10,"description": "","wType": "Map"
+		},
+		{
+		"name": "RedlandsVM_AGS103 REST 2D V Lite 85%Dyn 13x7 PNG24",
+		"category": "Sample Workflows","chatter": 10,"clientTraffic": 1.974,"dbTraffic": 5.669,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0598631592,"sdeST": 0.0000000000,"dbmsST": 0.0102319954,"think": 0,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "CanadaVM_AGS103 REST 2D V Med 80%Dyn 13x7 PNG24",
+		"category": "Sample Workflows","chatter": 10,"clientTraffic": 1.921,"dbTraffic": 10.672,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.1126835938,"sdeST": 0.0000000000,"dbmsST": 0.0192602266,"think": 0,"productivity": 6,"description": "","wType": "Map"
+		},
+		{
+		"name": "CanadaVM_AGS103 REST 2D V Lite 100%Dyn 13x7 PNG24",
+		"category": "Sample Workflows","chatter": 10,"clientTraffic": 2.134,"dbTraffic": 6.67,"clientST": 0.0270000000,"wtsST": 0.0000000000,"webST": 0.0090000000,"portalST": 0.0000000000,"socST": 0.0704272461,"sdeST": 0.0000000000,"dbmsST": 0.0120376416,"think": 0,"productivity": 6,"description": "","wType": "Map"
+		}
+	]
+}

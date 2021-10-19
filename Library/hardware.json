@@ -1,0 +1,1998 @@
+{
+	"version": 0.1,
+	"updatedBy": "SYSTEM",
+	"updatedOn": "1/14/2016 9:14:04 AM",
+	"cpt": "Arc15CapacityPlanning0101",
+	"arcbaseline": "Arc15 Baseline 4 core (1 chip) 3500 MHz",
+	"arcbaselinerating": 58,
+	"hardwareTypes": [
+		{
+		"name": "Intel i7-5960X 8 core (1 chip) 4400 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel i7-5960X","nCores": 8,"nChips": 1,"mhz": 4400,"spec": 529,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "Intel Core i7-4790 4 core (1 chip) 4000 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i7-4790","nCores": 4,"nChips": 1,"mhz": 4000,"spec": 215,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "Intel Core i7-4770K 4 core (1 chip) 3500 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i7-4770K","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 204,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "Intel Core i3-4330 2 core (1 chip) 3500 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i3-4330","nCores": 2,"nChips": 1,"mhz": 3500,"spec": 111,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "Xeon E3-1270v3 4 core (1 chip) 3500 MHz",
+		"category": "Intel Desktop Candidates","processor": "Xeon E3-1270v3","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 212,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "Intel Core i7-4770 4 core (1 chip) 3400 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i7-4770","nCores": 4,"nChips": 1,"mhz": 3400,"spec": 209,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "Intel Core i3-4330 2 core (1 chip) 3500 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i3-4330","nCores": 2,"nChips": 1,"mhz": 3500,"spec": 111,"platform": "Intel","refYear": 2013
+		},
+		{
+		"name": "Xeon E3-1280 v3 4 core (1 chip) 3600 MHz",
+		"category": "Intel Desktop Candidates","processor": "Xeon E3-1280 v3","nCores": 4,"nChips": 1,"mhz": 3600,"spec": 212,"platform": "Intel","refYear": 2013
+		},
+		{
+		"name": "Xeon E5-1620 4 core (1 chip) 3600 MHz",
+		"category": "Intel Desktop Candidates","processor": "Xeon E5-1620","nCores": 4,"nChips": 1,"mhz": 3600,"spec": 198,"platform": "Intel","refYear": 2013
+		},
+		{
+		"name": "Intel Xeon E5-2637 4 core (2 chip) 3000 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Xeon E5-2637","nCores": 4,"nChips": 2,"mhz": 3000,"spec": 185,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Intel Core i7-2860QM 4 core (1 chip) 2500 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i7-2860QM","nCores": 4,"nChips": 1,"mhz": 2500,"spec": 122,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Intel Core i7-2600  4 core (1 chip) 3800 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i7-2600 ","nCores": 4,"nChips": 1,"mhz": 3800,"spec": 148,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Intel Core i5-2500  4 core (1 chip) 3300 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i5-2500 ","nCores": 4,"nChips": 1,"mhz": 3300,"spec": 121,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Intel Core i5-2400  4 core (1 chip) 3100 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i5-2400 ","nCores": 4,"nChips": 1,"mhz": 3100,"spec": 116,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Intel Core i3-2120 2 core (1 chip) 3100 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i3-2120","nCores": 2,"nChips": 1,"mhz": 3100,"spec": 74,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Intel Core i5-680  2 core (1 chip) 3333 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i5-680 ","nCores": 2,"nChips": 1,"mhz": 3333,"spec": 69,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Intel Xeon X5667 8 core (2 chip) 3067 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Xeon X5667","nCores": 8,"nChips": 2,"mhz": 3067,"spec": 249,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Intel Xeon X5677 Tboost 8 core (2 chip) 3467 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Xeon X5677 Tboost","nCores": 8,"nChips": 2,"mhz": 3467,"spec": 255,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Intel Core i7-965 Tboost 4 core (1 chip) 3200 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i7-965 Tboost","nCores": 4,"nChips": 1,"mhz": 3200,"spec": 126,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Intel Core i7-975 Tboost 4 core (1 chip) 3333 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i7-975 Tboost","nCores": 4,"nChips": 1,"mhz": 3333,"spec": 121,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Intel Core i7-860 Tboost 4 core (1 chip) 2800 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i7-860 Tboost","nCores": 4,"nChips": 1,"mhz": 2800,"spec": 121,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Intel Core i7-620M Tboost 4 core (1 chip) 2666 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i7-620M Tboost","nCores": 4,"nChips": 1,"mhz": 2666,"spec": 103,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Intel Core i7-610E  2 core (1 chip) 2533 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i7-610E ","nCores": 2,"nChips": 1,"mhz": 2533,"spec": 49,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon W5590 8 core (2 chip) 3333 MHz",
+		"category": "Intel Desktop Candidates","processor": "Xeon W5590","nCores": 8,"nChips": 2,"mhz": 3333,"spec": 255,"platform": "Intel","refYear": 2009
+		},
+		{
+		"name": "Xeon W5580 8 core (2 chip) 3200 MHz",
+		"category": "Intel Desktop Candidates","processor": "Xeon W5580","nCores": 8,"nChips": 2,"mhz": 3200,"spec": 249,"platform": "Intel","refYear": 2009
+		},
+		{
+		"name": "Intel Core i7-923 Extreme 4 core (1 chip) 3733 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i7-923 Extreme","nCores": 4,"nChips": 1,"mhz": 3733,"spec": 122,"platform": "Intel","refYear": 2009
+		},
+		{
+		"name": "Intel Xeon W3570 4 core (1 chip) 3200 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Xeon W3570","nCores": 4,"nChips": 1,"mhz": 3200,"spec": 122,"platform": "Intel","refYear": 2009
+		},
+		{
+		"name": "Intel Core i7-965 Extreme 4 core (1 chip) 3200 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i7-965 Extreme","nCores": 4,"nChips": 1,"mhz": 3200,"spec": 117,"platform": "Intel","refYear": 2009
+		},
+		{
+		"name": "Intel Core i7-940 4 core (1 chip) 2933 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i7-940","nCores": 4,"nChips": 1,"mhz": 2933,"spec": 108,"platform": "Intel","refYear": 2009
+		},
+		{
+		"name": "Intel Core i7-920 4 core (1 chip) 2667 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core i7-920","nCores": 4,"nChips": 1,"mhz": 2667,"spec": 102,"platform": "Intel","refYear": 2009
+		},
+		{
+		"name": "Intel Core 2 Duo E8500 2 core (1 chip) 3166 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Duo E8500","nCores": 2,"nChips": 1,"mhz": 3166,"spec": 38,"platform": "Intel","refYear": 2008
+		},
+		{
+		"name": "Intel Core 2 Duo E6850 2 core (1 chip) 3000 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Duo E6850","nCores": 2,"nChips": 1,"mhz": 3000,"spec": 34,"platform": "Intel","refYear": 2008
+		},
+		{
+		"name": "Intel Core 2 Duo T9600 2 core (1 chip) 2800 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Duo T9600","nCores": 2,"nChips": 1,"mhz": 2800,"spec": 33,"platform": "Intel","refYear": 2008
+		},
+		{
+		"name": "Intel Core 2 Duo T9500 2 core (1 chip) 2600 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Duo T9500","nCores": 2,"nChips": 1,"mhz": 2600,"spec": 32,"platform": "Intel","refYear": 2008
+		},
+		{
+		"name": "Intel Core 2 Duo P8800 2 core (1 chip) 2666 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Duo P8800","nCores": 2,"nChips": 1,"mhz": 2666,"spec": 33,"platform": "Intel","refYear": 2008
+		},
+		{
+		"name": "Intel Core 2 Quad Q9650 4 core (1 chip) 3000 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Quad Q9650","nCores": 4,"nChips": 1,"mhz": 3000,"spec": 61,"platform": "Intel","refYear": 2008
+		},
+		{
+		"name": "Intel Core 2 Duo T7700 2 core (1 chip) 2400 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Duo T7700","nCores": 2,"nChips": 1,"mhz": 2400,"spec": 27,"platform": "Intel","refYear": 2008
+		},
+		{
+		"name": "Intel Core 2 Duo T7600 2 core (1 chip) 2333 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Duo T7600","nCores": 2,"nChips": 1,"mhz": 2333,"spec": 24,"platform": "Intel","refYear": 2008
+		},
+		{
+		"name": "Intel Xeon 5160 2 core (1 chip) 3000 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Xeon 5160","nCores": 2,"nChips": 1,"mhz": 3000,"spec": 80,"platform": "Intel","refYear": 2007
+		},
+		{
+		"name": "Intel Core 2 Duo E6700 2 core (1 chip) 2667 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Duo E6700","nCores": 2,"nChips": 1,"mhz": 2667,"spec": 29,"platform": "Intel","refYear": 2007
+		},
+		{
+		"name": "Intel Core 2 Duo E6600 2 core (1 chip) 2400 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Duo E6600","nCores": 2,"nChips": 1,"mhz": 2400,"spec": 27,"platform": "Intel","refYear": 2007
+		},
+		{
+		"name": "Intel Core 2 Duo E6400 2 core (1 chip) 2133 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Duo E6400","nCores": 2,"nChips": 1,"mhz": 2133,"spec": 23,"platform": "Intel","refYear": 2007
+		},
+		{
+		"name": "Intel Core 2 Quad Q6700 4 core (1 chip) 2667 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Quad Q6700","nCores": 4,"nChips": 1,"mhz": 2667,"spec": 33,"platform": "Intel","refYear": 2007
+		},
+		{
+		"name": "Intel Pentium E965 2 core (1 chip) 3733 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Pentium E965","nCores": 2,"nChips": 1,"mhz": 3733,"spec": 32,"platform": "Intel","refYear": 2007
+		},
+		{
+		"name": "Intel Core 2 Extreem X6800 2 core (1 chip) 2933 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Extreem X6800","nCores": 2,"nChips": 1,"mhz": 2933,"spec": 31,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Intel Pentium Extreem 965 2 core (1 chip) 3600 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Pentium Extreem 965","nCores": 2,"nChips": 1,"mhz": 3600,"spec": 22,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Intel PentiumD  2 core (1 chip) 3200 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel PentiumD ","nCores": 2,"nChips": 1,"mhz": 3200,"spec": 19,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Intel Core 2 Quad Q9650 4 core (1 chip) 3000 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Quad Q9650","nCores": 4,"nChips": 1,"mhz": 3000,"spec": 80,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Intel Core 2 Duo E8500 2 core (1 chip) 3166 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Duo E8500","nCores": 2,"nChips": 1,"mhz": 3166,"spec": 38,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Intel Core 2 Duo E6850 2 core (1 chip) 3000 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Duo E6850","nCores": 2,"nChips": 1,"mhz": 3000,"spec": 34,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Intel Core 2 Duo T9700 2 core (1 chip) 2800 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Duo T9700","nCores": 2,"nChips": 1,"mhz": 2800,"spec": 33,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Intel Core 2 Duo T9500 2 core (1 chip) 2600 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Duo T9500","nCores": 2,"nChips": 1,"mhz": 2600,"spec": 32,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Intel Core 2 Duo T7700 2 core (1 chip) 2400 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Duo T7700","nCores": 2,"nChips": 1,"mhz": 2400,"spec": 27,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Intel Core 2 Duo T7600 2 core (1 chip) 2333 MHz",
+		"category": "Intel Desktop Candidates","processor": "Intel Core 2 Duo T7600","nCores": 2,"nChips": 1,"mhz": 2333,"spec": 24,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Xeon E5-2637v3 4 core (1 chip) 3500 MHz",
+		"category": "Project Platform Candidates","processor": "Xeon E5-2637v3","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 235,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Xeon E5-2637v3 8 core (2 chip) 3500 MHz",
+		"category": "Project Platform Candidates","processor": "Xeon E5-2637v3","nCores": 8,"nChips": 2,"mhz": 3500,"spec": 459,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Xeon E5-2643v3 12 core (2 chip) 3400 MHz",
+		"category": "Project Platform Candidates","processor": "Xeon E5-2643v3","nCores": 12,"nChips": 2,"mhz": 3400,"spec": 671,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Xeon E5-2667v3 16 core (2 chip) 3200 MHz",
+		"category": "Project Platform Candidates","processor": "Xeon E5-2667v3","nCores": 16,"nChips": 2,"mhz": 3200,"spec": 816,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Xeon E5-2687Wv3 20 core (2 chip) 3100 MHz",
+		"category": "Project Platform Candidates","processor": "Xeon E5-2687Wv3","nCores": 20,"nChips": 2,"mhz": 3100,"spec": 954,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Xeon E5-2690v3 24 core (2 chip) 2600 MHz",
+		"category": "Project Platform Candidates","processor": "Xeon E5-2690v3","nCores": 24,"nChips": 2,"mhz": 2600,"spec": 1100,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Xeon E5-2697v3 28 core (2 chip) 2600 MHz",
+		"category": "Project Platform Candidates","processor": "Xeon E5-2697v3","nCores": 28,"nChips": 2,"mhz": 2600,"spec": 1210,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "2015 Xeon E5-2667v3 16 core (2 chip) 3200 MHz",
+		"category": "Platform Performance Candidates","processor": "2015 Xeon E5-2667v3","nCores": 16,"nChips": 2,"mhz": 3200,"spec": 816,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "2015 Xeon E5-2637v3 4 core (1 chip) 3500 MHz",
+		"category": "Platform Performance Candidates","processor": "2015 Xeon E5-2637v3","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 235,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "2014 Xeon E5-2637v2 4 core (1 chip) 3500 MHz",
+		"category": "Platform Performance Candidates","processor": "2014 Xeon E5-2637v2","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 211,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "2013 Xeon E3-1280V2 4 core (1 chip) 3600 MHz",
+		"category": "Platform Performance Candidates","processor": "2013 Xeon E3-1280V2","nCores": 4,"nChips": 1,"mhz": 3600,"spec": 192,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "2012 Xeon E5-2643 4 core (1 chip) 3300 MHz",
+		"category": "Platform Performance Candidates","processor": "2012 Xeon E5-2643","nCores": 4,"nChips": 1,"mhz": 3300,"spec": 180,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "2011 Xeon E3-1280 4 core (1 chip) 3500 MHz",
+		"category": "Platform Performance Candidates","processor": "2011 Xeon E3-1280","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 160,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "2010 Xeon X5677 4 core (1 chip) 3467 MHz",
+		"category": "Platform Performance Candidates","processor": "2010 Xeon X5677","nCores": 4,"nChips": 1,"mhz": 3467,"spec": 142,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Xeon E5-2637v3 4 core (1 chip) 3500 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2637v3","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 235,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "Xeon E5-2637v3 8 core (2 chip) 3500 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2637v3","nCores": 8,"nChips": 2,"mhz": 3500,"spec": 459,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "Xeon E5-2643v3 6 core (1 chip) 3400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2643v3","nCores": 6,"nChips": 1,"mhz": 3400,"spec": 344,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "Xeon E5-2643v3 12 core (2 chip) 3400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2643v3","nCores": 12,"nChips": 2,"mhz": 3400,"spec": 671,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "Xeon E3-1231v3 4 core (1 chip) 3400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E3-1231v3","nCores": 4,"nChips": 1,"mhz": 3400,"spec": 210,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "Xeon E5-2623v3 8 core (2 chip) 3000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2623v3","nCores": 8,"nChips": 2,"mhz": 3000,"spec": 411,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "Xeon E5-2623v3 16 core (2 chip) 3000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2623v3","nCores": 16,"nChips": 2,"mhz": 3000,"spec": 805,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "Xeon E5-2667v3 8 core (1 chip) 3200 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2667v3","nCores": 8,"nChips": 1,"mhz": 3200,"spec": 417,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "Xeon E5-2667v3 16 core (2 chip) 3200 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2667v3","nCores": 16,"nChips": 2,"mhz": 3200,"spec": 816,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "Xeon E5-2687Wv3 20 core (2 chip) 3100 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2687Wv3","nCores": 20,"nChips": 2,"mhz": 3100,"spec": 954,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "Xeon E5-2680v3 12 core (1 chip) 2500 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2680v3","nCores": 12,"nChips": 1,"mhz": 2500,"spec": 532,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "Xeon E5-2690v3 24 core (2 chip) 2600 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2690v3","nCores": 24,"nChips": 2,"mhz": 2600,"spec": 1100,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "Xeon E5-2660v3 10 core (1 chip) 2600 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2660v3","nCores": 10,"nChips": 1,"mhz": 2600,"spec": 450,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "Xeon E5-2660v3 20 core (2 chip) 2600 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2660v3","nCores": 20,"nChips": 2,"mhz": 2600,"spec": 893,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "Xeon E5-2640v3 16 core (2 chip) 2600 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2640v3","nCores": 16,"nChips": 2,"mhz": 2600,"spec": 703,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "Xeon E5-2697v3 28 core (2 chip) 2600 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2697v3","nCores": 28,"nChips": 2,"mhz": 2600,"spec": 1210,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "Xeon E3-1270v3 4 core (1 chip) 3500 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E3-1270v3","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 212,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "Xeon E5-2637v2 4 core (1 chip) 3500 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2637v2","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 211,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "Xeon E5-2637v2 8 core (2 chip) 3500 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2637v2","nCores": 8,"nChips": 2,"mhz": 3500,"spec": 412,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "Xeon E5-2643v2 12 core (2 chip) 3500 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2643v2","nCores": 12,"nChips": 2,"mhz": 3500,"spec": 617,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "Xeon E5-2667v2 16 core (2 chip) 3300 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2667v2","nCores": 16,"nChips": 2,"mhz": 3300,"spec": 785,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "Xeon E5-2690v2 20 core (2 chip) 3000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2690v2","nCores": 20,"nChips": 2,"mhz": 3000,"spec": 871,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "Xeon E5-2680v2 20 core (2 chip) 2800 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2680v2","nCores": 20,"nChips": 2,"mhz": 2800,"spec": 830,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "Xeon E7-8893v2 24 core (2 chip) 3400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-8893v2","nCores": 24,"nChips": 2,"mhz": 3400,"spec": 1150,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "Xeon E7-2890v2 30 core (2 chip) 2800 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-2890v2","nCores": 30,"nChips": 2,"mhz": 2800,"spec": 1170,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "Xeon E7-4890v2 60 core (4 chip) 2800 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-4890v2","nCores": 60,"nChips": 4,"mhz": 2800,"spec": 2320,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "Xeon E7-8891v2 40 core (4 chip) 3200 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-8891v2","nCores": 40,"nChips": 4,"mhz": 3200,"spec": 1750,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "Xeon E7-8890v2 120 core (8 chip) 2800 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-8890v2","nCores": 120,"nChips": 8,"mhz": 2800,"spec": 4570,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "Xeon E3-1290V2 4 core (1 chip) 3700 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E3-1290V2","nCores": 4,"nChips": 1,"mhz": 3700,"spec": 197,"platform": "Intel","refYear": 2013
+		},
+		{
+		"name": "Xeon E3-1280V2 4 core (1 chip) 3600 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E3-1280V2","nCores": 4,"nChips": 1,"mhz": 3600,"spec": 192,"platform": "Intel","refYear": 2013
+		},
+		{
+		"name": "Xeon E3-1270V2 4 core (1 chip) 3500 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E3-1270V2","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 191,"platform": "Intel","refYear": 2013
+		},
+		{
+		"name": "Xeon E5-1620V2 4 core (1 chip) 3700 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-1620V2","nCores": 4,"nChips": 1,"mhz": 3700,"spec": 207,"platform": "Intel","refYear": 2013
+		},
+		{
+		"name": "Xeon E3-1270V2 20 core (2 chip) 2500 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E3-1270V2","nCores": 20,"nChips": 2,"mhz": 2500,"spec": 788,"platform": "Intel","refYear": 2013
+		},
+		{
+		"name": "Xeon E5-2637 8 core (2 chip) 3000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2637","nCores": 8,"nChips": 2,"mhz": 3000,"spec": 188,"platform": "Intel","refYear": 2013
+		},
+		{
+		"name": "Xeon E5-2643 4 core (1 chip) 3300 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2643","nCores": 4,"nChips": 1,"mhz": 3300,"spec": 185,"platform": "Intel","refYear": 2013
+		},
+		{
+		"name": "Xeon E5-2670 16 core (2 chip) 2600 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2670","nCores": 16,"nChips": 2,"mhz": 2600,"spec": 632,"platform": "Intel","refYear": 2013
+		},
+		{
+		"name": "Xeon E5-2690 16 core (2 chip) 2900 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2690","nCores": 16,"nChips": 2,"mhz": 2900,"spec": 669,"platform": "Intel","refYear": 2013
+		},
+		{
+		"name": "Xeon E5-2690 8 core (1 chip) 2900 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2690","nCores": 8,"nChips": 1,"mhz": 2900,"spec": 331,"platform": "Intel","refYear": 2013
+		},
+		{
+		"name": "Xeon E5-2697v2 24 core (2 chip) 2400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2697v2","nCores": 24,"nChips": 2,"mhz": 2400,"spec": 889,"platform": "Intel","refYear": 2013
+		},
+		{
+		"name": "Xeon E5-1620 4 core (1 chip) 3600 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-1620","nCores": 4,"nChips": 1,"mhz": 3600,"spec": 198,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2637 4 core (2 chip) 3000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2637","nCores": 4,"nChips": 2,"mhz": 3000,"spec": 185,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-1620 4 core (1 chip) 3600 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-1620","nCores": 4,"nChips": 1,"mhz": 3600,"spec": 198,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2400 8 core (2 chip) 2200 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2400","nCores": 8,"nChips": 2,"mhz": 2200,"spec": 200,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2403 4 core (1 chip) 1800 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2403","nCores": 4,"nChips": 1,"mhz": 1800,"spec": 85,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2403 8 core (2 chip) 1800 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2403","nCores": 8,"nChips": 2,"mhz": 1800,"spec": 167,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2407 4 core (1 chip) 2200 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2407","nCores": 4,"nChips": 1,"mhz": 2200,"spec": 102,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2407 8 core (2 chip) 2200 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2407","nCores": 8,"nChips": 2,"mhz": 2200,"spec": 200,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2418 8 core (2 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2418","nCores": 8,"nChips": 2,"mhz": 2000,"spec": 223,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2420 6 core (1 chip) 1900 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2420","nCores": 6,"nChips": 1,"mhz": 1900,"spec": 181,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2420 12 core (2 chip) 1900 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2420","nCores": 12,"nChips": 2,"mhz": 1900,"spec": 354,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2428 12 core (2 chip) 1800 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2428","nCores": 12,"nChips": 2,"mhz": 1800,"spec": 294,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2430 6 core (1 chip) 2200 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2430","nCores": 6,"nChips": 1,"mhz": 2200,"spec": 204,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2430 12 core (2 chip) 2200 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2430","nCores": 12,"nChips": 2,"mhz": 2200,"spec": 395,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2430L 12 core (2 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2430L","nCores": 12,"nChips": 2,"mhz": 2000,"spec": 369,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2440 6 core (1 chip) 2400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2440","nCores": 6,"nChips": 1,"mhz": 2400,"spec": 215,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2440 12 core (2 chip) 2400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2440","nCores": 12,"nChips": 2,"mhz": 2400,"spec": 422,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2448L 16 core (2 chip) 1800 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2448L","nCores": 16,"nChips": 2,"mhz": 1800,"spec": 385,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2450 16 core (2 chip) 2100 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2450","nCores": 16,"nChips": 2,"mhz": 2100,"spec": 536,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2450L 16 core (2 chip) 1800 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2450L","nCores": 16,"nChips": 2,"mhz": 1800,"spec": 428,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2470 16 core (2 chip) 2300 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2470","nCores": 16,"nChips": 2,"mhz": 2300,"spec": 567,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2643 4 core (1 chip) 3300 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2643","nCores": 4,"nChips": 1,"mhz": 3300,"spec": 180,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2643 8 core (2 chip) 3300 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2643","nCores": 8,"nChips": 2,"mhz": 3300,"spec": 362,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2609 8 core (2 chip) 2400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2609","nCores": 8,"nChips": 2,"mhz": 2400,"spec": 217,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2603 8 core (2 chip) 1600 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2603","nCores": 8,"nChips": 2,"mhz": 1600,"spec": 167,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-1660 6 core (1 chip) 3300 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-1660","nCores": 6,"nChips": 1,"mhz": 3300,"spec": 282,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-1650 6 core (1 chip) 3200 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-1650","nCores": 6,"nChips": 1,"mhz": 3200,"spec": 269,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2667 6 core (1 chip) 2900 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2667","nCores": 6,"nChips": 1,"mhz": 2900,"spec": 251,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2667 12 core (2 chip) 2900 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2667","nCores": 12,"nChips": 2,"mhz": 2900,"spec": 506,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2640 12 core (2 chip) 2500 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2640","nCores": 12,"nChips": 2,"mhz": 2500,"spec": 443,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2630 12 core (2 chip) 2300 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2630","nCores": 12,"nChips": 2,"mhz": 2300,"spec": 416,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2620 12 core (2 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2620","nCores": 12,"nChips": 2,"mhz": 2000,"spec": 375,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2630L 12 core (2 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2630L","nCores": 12,"nChips": 2,"mhz": 2000,"spec": 374,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2687W 16 core (2 chip) 3100 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2687W","nCores": 16,"nChips": 2,"mhz": 3100,"spec": 683,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2690 16 core (2 chip) 2900 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2690","nCores": 16,"nChips": 2,"mhz": 2900,"spec": 667,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2690 8 core (1 chip) 2900 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2690","nCores": 8,"nChips": 1,"mhz": 2900,"spec": 331,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2680 16 core (2 chip) 2700 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2680","nCores": 16,"nChips": 2,"mhz": 2700,"spec": 638,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2680 8 core (1 chip) 2700 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2680","nCores": 8,"nChips": 1,"mhz": 2700,"spec": 315,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2687W 16 core (2 chip) 3100 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2687W","nCores": 16,"nChips": 2,"mhz": 3100,"spec": 683,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2660 16 core (2 chip) 2200 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2660","nCores": 16,"nChips": 2,"mhz": 2200,"spec": 575,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2665 16 core (2 chip) 2400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2665","nCores": 16,"nChips": 2,"mhz": 2400,"spec": 592,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2670 16 core (2 chip) 2600 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2670","nCores": 16,"nChips": 2,"mhz": 2600,"spec": 618,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2648L 16 core (2 chip) 1800 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2648L","nCores": 16,"nChips": 2,"mhz": 1800,"spec": 401,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2650 16 core (2 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2650","nCores": 16,"nChips": 2,"mhz": 2000,"spec": 516,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2650L 16 core (2 chip) 1800 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2650L","nCores": 16,"nChips": 2,"mhz": 1800,"spec": 440,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-2658 16 core (2 chip) 2100 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-2658","nCores": 16,"nChips": 2,"mhz": 2100,"spec": 462,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E7-2850 20 core (2 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-2850","nCores": 20,"nChips": 2,"mhz": 2000,"spec": 462,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E7-2860 20 core (2 chip) 2267 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-2860","nCores": 20,"nChips": 2,"mhz": 2267,"spec": 519,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-4603 16 core (4 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-4603","nCores": 16,"nChips": 4,"mhz": 2000,"spec": 440,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-4607 24 core (4 chip) 2200 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-4607","nCores": 24,"nChips": 4,"mhz": 2200,"spec": 686,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-4610 24 core (4 chip) 2400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-4610","nCores": 24,"nChips": 4,"mhz": 2400,"spec": 851,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-4617 24 core (4 chip) 2900 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-4617","nCores": 24,"nChips": 4,"mhz": 2900,"spec": 834,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-4620 32 core (4 chip) 2200 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-4620","nCores": 32,"nChips": 4,"mhz": 2200,"spec": 952,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-4640 32 core (4 chip) 2400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-4640","nCores": 32,"nChips": 4,"mhz": 2400,"spec": 1060,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-4650 32 core (4 chip) 2700 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-4650","nCores": 32,"nChips": 4,"mhz": 2700,"spec": 1190,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-4650 1024 core (128 chip) 2700 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-4650","nCores": 1024,"nChips": 128,"mhz": 2700,"spec": 31100,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E5-4650L 32 core (4 chip) 2600 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5-4650L","nCores": 32,"nChips": 4,"mhz": 2600,"spec": 1150,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E7-4807 24 core (4 chip) 1867 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-4807","nCores": 24,"nChips": 4,"mhz": 1867,"spec": 492,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E7-8837 32 core (4 chip) 2667 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-8837","nCores": 32,"nChips": 4,"mhz": 2667,"spec": 772,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E7-4850 40 core (4 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-4850","nCores": 40,"nChips": 4,"mhz": 2000,"spec": 864,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E7-4870 20 core (2 chip) 2400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-4870","nCores": 20,"nChips": 2,"mhz": 2400,"spec": 536,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E7-4870 40 core (4 chip) 2400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-4870","nCores": 40,"nChips": 4,"mhz": 2400,"spec": 1100,"platform": "Intel","refYear": 2012
+		},
+		{
+		"name": "Xeon E3-1280 4 core (1 chip) 3500 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E3-1280","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 160,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Xeon E3-1270 4 core (1 chip) 3400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E3-1270","nCores": 4,"nChips": 1,"mhz": 3400,"spec": 156,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Xeon E3-1240 4 core (1 chip) 3333 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E3-1240","nCores": 4,"nChips": 1,"mhz": 3333,"spec": 154,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Xeon E3-1230 4 core (1 chip) 3200 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E3-1230","nCores": 4,"nChips": 1,"mhz": 3200,"spec": 152,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Xeon E3-1220 4 core (1 chip) 3100 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E3-1220","nCores": 4,"nChips": 1,"mhz": 3100,"spec": 126,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Xeon E7-2870 20 core (2 chip) 2400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-2870","nCores": 20,"nChips": 2,"mhz": 2400,"spec": 508,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Xeon E7-4870 40 core (4 chip) 2400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-4870","nCores": 40,"nChips": 4,"mhz": 2400,"spec": 1010,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Xeon E7-4860 40 core (4 chip) 2267 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-4860","nCores": 40,"nChips": 4,"mhz": 2267,"spec": 950,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Xeon E7-4850 40 core (4 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-4850","nCores": 40,"nChips": 4,"mhz": 2000,"spec": 851,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Xeon E7-8837 32 core (4 chip) 2667 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-8837","nCores": 32,"nChips": 4,"mhz": 2667,"spec": 743,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Xeon E7-4830 32 core (4 chip) 2133 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-4830","nCores": 32,"nChips": 4,"mhz": 2133,"spec": 736,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Xeon E7-4820 32 core (4 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7-4820","nCores": 32,"nChips": 4,"mhz": 2000,"spec": 684,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Xeon X5687 8 core (2 chip) 3600 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5687","nCores": 8,"nChips": 2,"mhz": 3600,"spec": 307,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Xeon X5687 4 core (1 chip) 3600 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5687","nCores": 4,"nChips": 1,"mhz": 3600,"spec": 154,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Xeon X5672 8 core (2 chip) 3200 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5672","nCores": 8,"nChips": 2,"mhz": 3200,"spec": 289,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Xeon X5672 4 core (1 chip) 3200 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5672","nCores": 4,"nChips": 1,"mhz": 3200,"spec": 144,"platform": "Intel","refYear": 2011
+		},
+		{
+		"name": "Xeon X5690 12 core (2 chip) 3466 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5690","nCores": 12,"nChips": 2,"mhz": 3466,"spec": 386,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon X5677 8 core (2 chip) 3467 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5677","nCores": 8,"nChips": 2,"mhz": 3467,"spec": 283,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon X5677 4 core (1 chip) 3467 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5677","nCores": 4,"nChips": 1,"mhz": 3467,"spec": 142,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon X5667 8 core (2 chip) 3067 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5667","nCores": 8,"nChips": 2,"mhz": 3067,"spec": 267,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon X3480 4 core (1 chip) 3067 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X3480","nCores": 4,"nChips": 1,"mhz": 3067,"spec": 123,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon E5640 8 core (2 chip) 2667 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5640","nCores": 8,"nChips": 2,"mhz": 2667,"spec": 224,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon E5640 4 core (1 chip) 2667 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5640","nCores": 4,"nChips": 1,"mhz": 2667,"spec": 112,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon E5620 4 core (1 chip) 2400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5620","nCores": 4,"nChips": 1,"mhz": 2400,"spec": 106,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon X5690 12 core (2 chip) 3466 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5690","nCores": 12,"nChips": 2,"mhz": 3466,"spec": 385,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon X5680 12 core (2 chip) 3333 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5680","nCores": 12,"nChips": 2,"mhz": 3333,"spec": 355,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon X5680 6 core (1 chip) 3333 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5680","nCores": 6,"nChips": 1,"mhz": 3333,"spec": 178,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon X5675 12 core (2 chip) 3067 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5675","nCores": 12,"nChips": 2,"mhz": 3067,"spec": 367,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon X5675 6 core (1 chip) 3067 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5675","nCores": 6,"nChips": 1,"mhz": 3067,"spec": 185,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon X5670 12 core (2 chip) 2933 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5670","nCores": 12,"nChips": 2,"mhz": 2933,"spec": 340,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon X5660 12 core (2 chip) 2800 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5660","nCores": 12,"nChips": 2,"mhz": 2800,"spec": 327,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon X5650 12 core (2 chip) 2667 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5650","nCores": 12,"nChips": 2,"mhz": 2667,"spec": 318,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon L5640 12 core (2 chip) 2267 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon L5640","nCores": 12,"nChips": 2,"mhz": 2267,"spec": 261,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon L5640 6 core (1 chip) 2267 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon L5640","nCores": 6,"nChips": 1,"mhz": 2267,"spec": 130,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon E7560 E 64 core (8 chip) 2266 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7560 E","nCores": 64,"nChips": 8,"mhz": 2266,"spec": 1400,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon E7560 32 core (4 chip) 2267 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7560","nCores": 32,"nChips": 4,"mhz": 2267,"spec": 710,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon E7550 32 core (4 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7550","nCores": 32,"nChips": 4,"mhz": 2000,"spec": 640,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon L7555 32 core (4 chip) 1867 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon L7555","nCores": 32,"nChips": 4,"mhz": 1867,"spec": 604,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon X6550 16 core (2 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X6550","nCores": 16,"nChips": 2,"mhz": 2000,"spec": 321,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon E7540 24 core (4 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7540","nCores": 24,"nChips": 4,"mhz": 2000,"spec": 493,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon L7545 24 core (4 chip) 1867 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon L7545","nCores": 24,"nChips": 4,"mhz": 1867,"spec": 466,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon E7530 24 core (4 chip) 1866 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7530","nCores": 24,"nChips": 4,"mhz": 1866,"spec": 447,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon E7520 16 core (4 chip) 1867 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7520","nCores": 16,"nChips": 4,"mhz": 1867,"spec": 314,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "Xeon X5570 8 core (2 chip) 2933 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5570","nCores": 8,"nChips": 2,"mhz": 2933,"spec": 232,"platform": "Intel","refYear": 2009
+		},
+		{
+		"name": "Xeon X5570 4 core (1 chip) 2933 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5570","nCores": 4,"nChips": 1,"mhz": 2933,"spec": 116,"platform": "Intel","refYear": 2009
+		},
+		{
+		"name": "Xeon X5560 8 core (2 chip) 2800 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5560","nCores": 8,"nChips": 2,"mhz": 2800,"spec": 228,"platform": "Intel","refYear": 2009
+		},
+		{
+		"name": "Xeon X5550 8 core (2 chip) 2667 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5550","nCores": 8,"nChips": 2,"mhz": 2667,"spec": 226,"platform": "Intel","refYear": 2009
+		},
+		{
+		"name": "Xeon X3330 4 core (1 chip) 2666 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X3330","nCores": 4,"nChips": 1,"mhz": 2666,"spec": 65,"platform": "Intel","refYear": 2009
+		},
+		{
+		"name": "Xeon X5540 8 core (2 chip) 2533 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5540","nCores": 8,"nChips": 2,"mhz": 2533,"spec": 201,"platform": "Intel","refYear": 2009
+		},
+		{
+		"name": "Xeon X5540 4 core (1 chip) 2533 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5540","nCores": 4,"nChips": 1,"mhz": 2533,"spec": 100,"platform": "Intel","refYear": 2009
+		},
+		{
+		"name": "Xeon X5530 8 core (2 chip) 2400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5530","nCores": 8,"nChips": 2,"mhz": 2400,"spec": 194,"platform": "Intel","refYear": 2009
+		},
+		{
+		"name": "Xeon X5520 8 core (2 chip) 2267 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5520","nCores": 8,"nChips": 2,"mhz": 2267,"spec": 187,"platform": "Intel","refYear": 2009
+		},
+		{
+		"name": "Xeon X5506 8 core (2 chip) 2133 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5506","nCores": 8,"nChips": 2,"mhz": 2133,"spec": 132,"platform": "Intel","refYear": 2009
+		},
+		{
+		"name": "Xeon X5504 8 core (2 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5504","nCores": 8,"nChips": 2,"mhz": 2000,"spec": 127,"platform": "Intel","refYear": 2009
+		},
+		{
+		"name": "Xeon X5270 4 core (2 chip) 3500 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5270","nCores": 4,"nChips": 2,"mhz": 3500,"spec": 85,"platform": "Intel","refYear": 2008
+		},
+		{
+		"name": "Xeon X5470 8 core (2 chip) 3333 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5470","nCores": 8,"nChips": 2,"mhz": 3333,"spec": 139,"platform": "Intel","refYear": 2008
+		},
+		{
+		"name": "Xeon X5470 4 core (1 chip) 3333 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5470","nCores": 4,"nChips": 1,"mhz": 3333,"spec": 70,"platform": "Intel","refYear": 2008
+		},
+		{
+		"name": "Xeon X5460 8 core (2 chip) 3166 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5460","nCores": 8,"nChips": 2,"mhz": 3166,"spec": 114,"platform": "Intel","refYear": 2008
+		},
+		{
+		"name": "Xeon X5450 8 core (2 chip) 3000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5450","nCores": 8,"nChips": 2,"mhz": 3000,"spec": 108,"platform": "Intel","refYear": 2008
+		},
+		{
+		"name": "Xeon E5440 8 core (2 chip) 2833 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5440","nCores": 8,"nChips": 2,"mhz": 2833,"spec": 107,"platform": "Intel","refYear": 2008
+		},
+		{
+		"name": "Xeon E5440 4 core (1 chip) 2833 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5440","nCores": 4,"nChips": 1,"mhz": 2833,"spec": 54,"platform": "Intel","refYear": 2008
+		},
+		{
+		"name": "Xeon E5430 8 core (2 chip) 2666 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5430","nCores": 8,"nChips": 2,"mhz": 2666,"spec": 120,"platform": "Intel","refYear": 2008
+		},
+		{
+		"name": "Xeon E5430 4 core (1 chip) 2666 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5430","nCores": 4,"nChips": 1,"mhz": 2666,"spec": 60,"platform": "Intel","refYear": 2008
+		},
+		{
+		"name": "Xeon X5260 4 core (2 chip) 3333 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5260","nCores": 4,"nChips": 2,"mhz": 3333,"spec": 70,"platform": "Intel","refYear": 2007
+		},
+		{
+		"name": "Xeon X5260 2 core (2 chip) 3333 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5260","nCores": 2,"nChips": 2,"mhz": 3333,"spec": 36,"platform": "Intel","refYear": 2007
+		},
+		{
+		"name": "Xeon X5365 8 core (2 chip) 3000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5365","nCores": 8,"nChips": 2,"mhz": 3000,"spec": 98,"platform": "Intel","refYear": 2007
+		},
+		{
+		"name": "Xeon X7350 16 core (4 chip) 2933 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X7350","nCores": 16,"nChips": 4,"mhz": 2933,"spec": 178,"platform": "Intel","refYear": 2007
+		},
+		{
+		"name": "Xeon X5355 8 core (2 chip) 2666 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon X5355","nCores": 8,"nChips": 2,"mhz": 2666,"spec": 81,"platform": "Intel","refYear": 2007
+		},
+		{
+		"name": "Xeon E5345 8 core (2 chip) 2333 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5345","nCores": 8,"nChips": 2,"mhz": 2333,"spec": 75,"platform": "Intel","refYear": 2007
+		},
+		{
+		"name": "Xeon E5335 8 core (2 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5335","nCores": 8,"nChips": 2,"mhz": 2000,"spec": 69,"platform": "Intel","refYear": 2007
+		},
+		{
+		"name": "Xeon E5320 8 core (2 chip) 1866 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5320","nCores": 8,"nChips": 2,"mhz": 1866,"spec": 60,"platform": "Intel","refYear": 2007
+		},
+		{
+		"name": "Xeon E5310 8 core (2 chip) 1600 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E5310","nCores": 8,"nChips": 2,"mhz": 1600,"spec": 55,"platform": "Intel","refYear": 2007
+		},
+		{
+		"name": "Xeon E7220 2 core (1 chip) 2933 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7220","nCores": 2,"nChips": 1,"mhz": 2933,"spec": 30,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Xeon 3070 2 core (1 chip) 2667 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon 3070","nCores": 2,"nChips": 1,"mhz": 2667,"spec": 29,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Xeon E7210 2 core (1 chip) 2400 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon E7210","nCores": 2,"nChips": 1,"mhz": 2400,"spec": 27,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Xeon 5160 4 core (2 chip) 3000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon 5160","nCores": 4,"nChips": 2,"mhz": 3000,"spec": 54,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Xeon 5150 4 core (2 chip) 2666 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon 5150","nCores": 4,"nChips": 2,"mhz": 2666,"spec": 52,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Xeon 3050 2 core (1 chip) 2133 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon 3050","nCores": 2,"nChips": 1,"mhz": 2133,"spec": 23,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Xeon 5140 4 core (2 chip) 2333 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon 5140","nCores": 4,"nChips": 2,"mhz": 2333,"spec": 45,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Xeon 5130 4 core (2 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon 5130","nCores": 4,"nChips": 2,"mhz": 2000,"spec": 41,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Xeon 5120 4 core (2 chip) 1866 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon 5120","nCores": 4,"nChips": 2,"mhz": 1866,"spec": 36,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Xeon 5110 4 core (2 chip) 1600 MHz",
+		"category": "Platform Performance Candidates","processor": "Xeon 5110","nCores": 4,"nChips": 2,"mhz": 1600,"spec": 33,"platform": "Intel","refYear": 2006
+		},
+		{
+		"name": "Intel Xeon 4 core (2 chip) 3200 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon","nCores": 4,"nChips": 2,"mhz": 3200,"spec": 35,"platform": "Intel","refYear": 2005
+		},
+		{
+		"name": "Intel Xeon 2 core (1 chip) 3400 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon","nCores": 2,"nChips": 1,"mhz": 3400,"spec": 20,"platform": "Intel","refYear": 2005
+		},
+		{
+		"name": "Intel Xeon 2 core (1 chip) 3600 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon","nCores": 2,"nChips": 1,"mhz": 3600,"spec": 21,"platform": "Intel","refYear": 2005
+		},
+		{
+		"name": "Intel Xeon MP 2 core (2 chip) 3666 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon MP","nCores": 2,"nChips": 2,"mhz": 3666,"spec": 15,"platform": "Intel","refYear": 2005
+		},
+		{
+		"name": "Intel Xeon MP 4 core (4 chip) 3666 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon MP","nCores": 4,"nChips": 4,"mhz": 3666,"spec": 27,"platform": "Intel","refYear": 2005
+		},
+		{
+		"name": "Intel Xeon 2 core (1 chip) 3730 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon","nCores": 2,"nChips": 1,"mhz": 3730,"spec": 21,"platform": "Intel","refYear": 2005
+		},
+		{
+		"name": "Intel Xeon 4 core (2 chip) 3730 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon","nCores": 4,"nChips": 2,"mhz": 3730,"spec": 39,"platform": "Intel","refYear": 2005
+		},
+		{
+		"name": "Intel Xeon MP 2 core (2 chip) 3000 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon MP","nCores": 2,"nChips": 2,"mhz": 3000,"spec": 17,"platform": "Intel","refYear": 2004
+		},
+		{
+		"name": "Intel Xeon MP 4 core (4 chip) 3000 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon MP","nCores": 4,"nChips": 4,"mhz": 3000,"spec": 29,"platform": "Intel","refYear": 2004
+		},
+		{
+		"name": "Intel Xeon MP 8 core (8 chip) 3000 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon MP","nCores": 8,"nChips": 8,"mhz": 3000,"spec": 51,"platform": "Intel","refYear": 2004
+		},
+		{
+		"name": "Intel Xeon MP 4 core (4 chip) 3330 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon MP","nCores": 4,"nChips": 4,"mhz": 3330,"spec": 34,"platform": "Intel","refYear": 2004
+		},
+		{
+		"name": "Intel Xeon 1 core (1 chip) 3400 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon","nCores": 1,"nChips": 1,"mhz": 3400,"spec": 10,"platform": "Intel","refYear": 2004
+		},
+		{
+		"name": "Intel Xeon 2 core (2 chip) 3400 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon","nCores": 2,"nChips": 2,"mhz": 3400,"spec": 19,"platform": "Intel","refYear": 2004
+		},
+		{
+		"name": "Intel Xeon 1 core (1 chip) 3600 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon","nCores": 1,"nChips": 1,"mhz": 3600,"spec": 10,"platform": "Intel","refYear": 2004
+		},
+		{
+		"name": "Intel Xeon 2 core (2 chip) 3600 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon","nCores": 2,"nChips": 2,"mhz": 3600,"spec": 19,"platform": "Intel","refYear": 2004
+		},
+		{
+		"name": "Intel Xeon 1 core (1 chip) 3800 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon","nCores": 1,"nChips": 1,"mhz": 3800,"spec": 11,"platform": "Intel","refYear": 2004
+		},
+		{
+		"name": "Intel Xeon 2 core (2 chip) 3800 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon","nCores": 2,"nChips": 2,"mhz": 3800,"spec": 20,"platform": "Intel","refYear": 2004
+		},
+		{
+		"name": "Intel Xeon MP 1 core (1 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon MP","nCores": 1,"nChips": 1,"mhz": 2000,"spec": 5,"platform": "Intel","refYear": 2003
+		},
+		{
+		"name": "Intel Xeon MP 2 core (2 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon MP","nCores": 2,"nChips": 2,"mhz": 2000,"spec": 9,"platform": "Intel","refYear": 2003
+		},
+		{
+		"name": "Intel Xeon MP 4 core (4 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon MP","nCores": 4,"nChips": 4,"mhz": 2000,"spec": 17,"platform": "Intel","refYear": 2003
+		},
+		{
+		"name": "Intel Xeon MP 6 core (6 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon MP","nCores": 6,"nChips": 6,"mhz": 2000,"spec": 20,"platform": "Intel","refYear": 2003
+		},
+		{
+		"name": "Intel Xeon MP 8 core (8 chip) 2000 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon MP","nCores": 8,"nChips": 8,"mhz": 2000,"spec": 24,"platform": "Intel","refYear": 2003
+		},
+		{
+		"name": "Intel Xeon 2 core (1 chip) 2667 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon","nCores": 2,"nChips": 1,"mhz": 2667,"spec": 13,"platform": "Intel","refYear": 2003
+		},
+		{
+		"name": "Intel Xeon 1 core (1 chip) 2800 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon","nCores": 1,"nChips": 1,"mhz": 2800,"spec": 8,"platform": "Intel","refYear": 2003
+		},
+		{
+		"name": "Intel PentiumD 2 core (1 chip) 2800 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel PentiumD","nCores": 2,"nChips": 1,"mhz": 2800,"spec": 17,"platform": "Intel","refYear": 2003
+		},
+		{
+		"name": "Intel Xeon 2 core (2 chip) 2800 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon","nCores": 2,"nChips": 2,"mhz": 2800,"spec": 15,"platform": "Intel","refYear": 2003
+		},
+		{
+		"name": "Intel Xeon 2 core (1 chip) 2800 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon","nCores": 2,"nChips": 1,"mhz": 2800,"spec": 17,"platform": "Intel","refYear": 2003
+		},
+		{
+		"name": "Intel Xeon 4 core (2 chip) 2800 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon","nCores": 4,"nChips": 2,"mhz": 2800,"spec": 28,"platform": "Intel","refYear": 2003
+		},
+		{
+		"name": "Intel PentiumD 2 core (1 chip) 3000 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel PentiumD","nCores": 2,"nChips": 1,"mhz": 3000,"spec": 18,"platform": "Intel","refYear": 2003
+		},
+		{
+		"name": "Intel Xeon 1 core (1 chip) 3200 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon","nCores": 1,"nChips": 1,"mhz": 3200,"spec": 9,"platform": "Intel","refYear": 2003
+		},
+		{
+		"name": "Intel Xeon 2 core (2 chip) 3200 MHz",
+		"category": "Platform Performance Candidates","processor": "Intel Xeon","nCores": 2,"nChips": 2,"mhz": 3200,"spec": 18,"platform": "Intel","refYear": 2003
+		},
+		{
+		"name": "AMD Opteron 6338P 24 core (2 chip) 2300 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6338P","nCores": 24,"nChips": 2,"mhz": 2300,"spec": 357,"platform": "AMD","refYear": 2013
+		},
+		{
+		"name": "AMD Opteron 6338P 48 core (4 chip) 2300 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6338P","nCores": 48,"nChips": 4,"mhz": 2300,"spec": 708,"platform": "AMD","refYear": 2013
+		},
+		{
+		"name": "AMD Opteron 6370P 32 core (2 chip) 2000 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6370P","nCores": 32,"nChips": 2,"mhz": 2000,"spec": 410,"platform": "AMD","refYear": 2013
+		},
+		{
+		"name": "AMD Opteron 6370P 64 core (4 chip) 2000 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6370P","nCores": 64,"nChips": 4,"mhz": 2000,"spec": 817,"platform": "AMD","refYear": 2013
+		},
+		{
+		"name": "AMD Opteron 6309 4 core (1 chip) 3500 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6309","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 89,"platform": "AMD","refYear": 2013
+		},
+		{
+		"name": "AMD Opteron 6308 8 core (2 chip) 3500 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6308","nCores": 8,"nChips": 2,"mhz": 3500,"spec": 178,"platform": "AMD","refYear": 2013
+		},
+		{
+		"name": "AMD Opteron 6308 16 core (4 chip) 3500 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6308","nCores": 16,"nChips": 4,"mhz": 3500,"spec": 355,"platform": "AMD","refYear": 2013
+		},
+		{
+		"name": "AMD Opteron 4340 12 core (2 chip) 3400 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 4340","nCores": 12,"nChips": 2,"mhz": 3400,"spec": 245,"platform": "AMD","refYear": 2013
+		},
+		{
+		"name": "AMD Opteron 6328 32 core (4 chip) 3200 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6328","nCores": 32,"nChips": 4,"mhz": 3200,"spec": 650,"platform": "AMD","refYear": 2013
+		},
+		{
+		"name": "AMD Opteron 6348 24 core (2 chip) 2800 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6348","nCores": 24,"nChips": 2,"mhz": 2800,"spec": 427,"platform": "AMD","refYear": 2013
+		},
+		{
+		"name": "AMD Opteron 6348 48 core (4 chip) 2800 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6348","nCores": 48,"nChips": 4,"mhz": 2800,"spec": 835,"platform": "AMD","refYear": 2013
+		},
+		{
+		"name": "AMD Opteron 6386 SE 64 core (4 chip) 2800 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6386 SE","nCores": 64,"nChips": 4,"mhz": 2800,"spec": 1070,"platform": "AMD","refYear": 2013
+		},
+		{
+		"name": "AMD Phenom II X4 B97 4 core (1 chip) 3200 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Phenom II X4 B97","nCores": 4,"nChips": 1,"mhz": 3200,"spec": 81,"platform": "AMD","refYear": 2012
+		},
+		{
+		"name": "AMD Opteron 4240 12 core (2 chip) 3400 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 4240","nCores": 12,"nChips": 2,"mhz": 3400,"spec": 228,"platform": "AMD","refYear": 2012
+		},
+		{
+		"name": "AMD Opteron 6328 16 core (2 chip) 3200 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6328","nCores": 16,"nChips": 2,"mhz": 3200,"spec": 327,"platform": "AMD","refYear": 2012
+		},
+		{
+		"name": "AMD Opteron 6220 32 core (4 chip) 3000 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6220","nCores": 32,"nChips": 4,"mhz": 3000,"spec": 554,"platform": "AMD","refYear": 2012
+		},
+		{
+		"name": "AMD Opteron 6344 24 core (2 chip) 2600 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6344","nCores": 24,"nChips": 2,"mhz": 2600,"spec": 395,"platform": "AMD","refYear": 2012
+		},
+		{
+		"name": "AMD Opteron 6344 48 core (4 chip) 2600 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6344","nCores": 48,"nChips": 4,"mhz": 2600,"spec": 785,"platform": "AMD","refYear": 2012
+		},
+		{
+		"name": "AMD Opteron 6380 64 core (4 chip) 2500 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6380","nCores": 64,"nChips": 4,"mhz": 2500,"spec": 975,"platform": "AMD","refYear": 2012
+		},
+		{
+		"name": "AMD Phenom II X4 975 4 core (1 chip) 3600 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Phenom II X4 975","nCores": 4,"nChips": 1,"mhz": 3600,"spec": 82,"platform": "AMD","refYear": 2011
+		},
+		{
+		"name": "AMD Opteron 6204 8 core (2 chip) 3300 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6204","nCores": 8,"nChips": 2,"mhz": 3300,"spec": 160,"platform": "AMD","refYear": 2011
+		},
+		{
+		"name": "AMD Opteron 4184 12 core (2 chip) 2800 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 4184","nCores": 12,"nChips": 2,"mhz": 2800,"spec": 205,"platform": "AMD","refYear": 2011
+		},
+		{
+		"name": "AMD Opteron 6204 16 core (2 chip) 3300 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6204","nCores": 16,"nChips": 2,"mhz": 3300,"spec": 310,"platform": "AMD","refYear": 2011
+		},
+		{
+		"name": "AMD Opteron 6140 32 core (4 chip) 2600 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6140","nCores": 32,"nChips": 4,"mhz": 2600,"spec": 536,"platform": "AMD","refYear": 2011
+		},
+		{
+		"name": "AMD Opteron 6180 SE 24 core (2 chip) 2500 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6180 SE","nCores": 24,"nChips": 2,"mhz": 2500,"spec": 371,"platform": "AMD","refYear": 2011
+		},
+		{
+		"name": "AMD Opteron 6238 48 core (4 chip) 2600 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6238","nCores": 48,"nChips": 4,"mhz": 2600,"spec": 728,"platform": "AMD","refYear": 2011
+		},
+		{
+		"name": "AMD Opteron 6282 SE 64 core (4 chip) 2600 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opteron 6282 SE","nCores": 64,"nChips": 4,"mhz": 2600,"spec": 923,"platform": "AMD","refYear": 2011
+		},
+		{
+		"name": "AMD Opt 6174 24 core (2 chip) 2200 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 6174","nCores": 24,"nChips": 2,"mhz": 2200,"spec": 303,"platform": "AMD","refYear": 2010
+		},
+		{
+		"name": "AMD Opt 6176SE 24 core (2 chip) 2300 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 6176SE","nCores": 24,"nChips": 2,"mhz": 2300,"spec": 353,"platform": "AMD","refYear": 2010
+		},
+		{
+		"name": "AMD Opt 6136 48 core (4 chip) 2200 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 6136","nCores": 48,"nChips": 4,"mhz": 2200,"spec": 675,"platform": "AMD","refYear": 2010
+		},
+		{
+		"name": "AMD Opt 6174 48 core (4 chip) 2200 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 6174","nCores": 48,"nChips": 4,"mhz": 2200,"spec": 675,"platform": "AMD","refYear": 2010
+		},
+		{
+		"name": "AMD Opt 2389 8 core (2 chip) 2970 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 2389","nCores": 8,"nChips": 2,"mhz": 2970,"spec": 117,"platform": "AMD","refYear": 2009
+		},
+		{
+		"name": "AMD Opt 2389 8 core (2 chip) 2970 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 2389","nCores": 8,"nChips": 2,"mhz": 2970,"spec": 117,"platform": "AMD","refYear": 2009
+		},
+		{
+		"name": "AMD Opt 2386 8 core (2 chip) 2800 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 2386","nCores": 8,"nChips": 2,"mhz": 2800,"spec": 116,"platform": "AMD","refYear": 2009
+		},
+		{
+		"name": "AMD Opt 2384 4 core (1 chip) 2700 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 2384","nCores": 4,"nChips": 1,"mhz": 2700,"spec": 57,"platform": "AMD","refYear": 2009
+		},
+		{
+		"name": "AMD Opt 2384 8 core (2 chip) 2700 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 2384","nCores": 8,"nChips": 2,"mhz": 2700,"spec": 112,"platform": "AMD","refYear": 2009
+		},
+		{
+		"name": "AMD Opt 2382 8 core (2 chip) 2600 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 2382","nCores": 8,"nChips": 2,"mhz": 2600,"spec": 110,"platform": "AMD","refYear": 2009
+		},
+		{
+		"name": "AMD Opt 2380 8 core (2 chip) 2500 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 2380","nCores": 8,"nChips": 2,"mhz": 2500,"spec": 105,"platform": "AMD","refYear": 2009
+		},
+		{
+		"name": "AMD Opt 8435 24 core (4 chip) 2600 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 8435","nCores": 24,"nChips": 4,"mhz": 2600,"spec": 313,"platform": "AMD","refYear": 2009
+		},
+		{
+		"name": "AMD Opt 8431 24 core (4 chip) 2400 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 8431","nCores": 24,"nChips": 4,"mhz": 2400,"spec": 296,"platform": "AMD","refYear": 2009
+		},
+		{
+		"name": "AMD Opt 8435 48 core (8 chip) 2600 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 8435","nCores": 48,"nChips": 8,"mhz": 2600,"spec": 574,"platform": "AMD","refYear": 2009
+		},
+		{
+		"name": "AMD Opt 2384 4 core (1 chip) 2700 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 2384","nCores": 4,"nChips": 1,"mhz": 2700,"spec": 57,"platform": "AMD","refYear": 2008
+		},
+		{
+		"name": "AMD Opt 2384 8 core (2 chip) 2700 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 2384","nCores": 8,"nChips": 2,"mhz": 2700,"spec": 112,"platform": "AMD","refYear": 2008
+		},
+		{
+		"name": "AMD Opt 2222 2 core (1 chip) 3000 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 2222","nCores": 2,"nChips": 1,"mhz": 3000,"spec": 28,"platform": "AMD","refYear": 2008
+		},
+		{
+		"name": "AMD Opt 2222 4 core (2 chip) 3000 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 2222","nCores": 4,"nChips": 2,"mhz": 3000,"spec": 55,"platform": "AMD","refYear": 2008
+		},
+		{
+		"name": "AMD Opt 2224 4 core (2 chip) 3200 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 2224","nCores": 4,"nChips": 2,"mhz": 3200,"spec": 56,"platform": "AMD","refYear": 2007
+		},
+		{
+		"name": "AMD Opt 2224 2 core (1 chip) 3200 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 2224","nCores": 2,"nChips": 1,"mhz": 3200,"spec": 27,"platform": "AMD","refYear": 2007
+		},
+		{
+		"name": "AMD Opt 8356 8 core (2 chip) 2300 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 8356","nCores": 8,"nChips": 2,"mhz": 2300,"spec": 89,"platform": "AMD","refYear": 2007
+		},
+		{
+		"name": "AMD Opt 8356 16 core (4 chip) 2300 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD Opt 8356","nCores": 16,"nChips": 4,"mhz": 2300,"spec": 160,"platform": "AMD","refYear": 2007
+		},
+		{
+		"name": "AMD 8222SE 4 core (2 chip) 3000 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD 8222SE","nCores": 4,"nChips": 2,"mhz": 3000,"spec": 50,"platform": "AMD","refYear": 2006
+		},
+		{
+		"name": "AMD 8222SE 8 core (4 chip) 3000 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD 8222SE","nCores": 8,"nChips": 4,"mhz": 3000,"spec": 96,"platform": "AMD","refYear": 2006
+		},
+		{
+		"name": "AMD 1 core (1 chip) 3000 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD","nCores": 1,"nChips": 1,"mhz": 3000,"spec": 11,"platform": "AMD","refYear": 2006
+		},
+		{
+		"name": "AMD 2 core (2 chip) 3000 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD","nCores": 2,"nChips": 2,"mhz": 3000,"spec": 22,"platform": "AMD","refYear": 2006
+		},
+		{
+		"name": "AMD 8220 8 core (4 chip) 2800 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD 8220","nCores": 8,"nChips": 4,"mhz": 2800,"spec": 89,"platform": "AMD","refYear": 2006
+		},
+		{
+		"name": "AMD 8220SE 8 core (4 chip) 2800 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD 8220SE","nCores": 8,"nChips": 4,"mhz": 2800,"spec": 87,"platform": "AMD","refYear": 2006
+		},
+		{
+		"name": "AMD 8218 8 core (4 chip) 2600 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD 8218","nCores": 8,"nChips": 4,"mhz": 2600,"spec": 86,"platform": "AMD","refYear": 2006
+		},
+		{
+		"name": "AMD 2 core (1 chip) 2800 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD","nCores": 2,"nChips": 1,"mhz": 2800,"spec": 22,"platform": "AMD","refYear": 2006
+		},
+		{
+		"name": "AMD 4 core (2 chip) 2800 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD","nCores": 4,"nChips": 2,"mhz": 2800,"spec": 43,"platform": "AMD","refYear": 2006
+		},
+		{
+		"name": "AMD 8216 8 core (4 chip) 2400 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD 8216","nCores": 8,"nChips": 4,"mhz": 2400,"spec": 80,"platform": "AMD","refYear": 2006
+		},
+		{
+		"name": "AMD 1 core (1 chip) 2800 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD","nCores": 1,"nChips": 1,"mhz": 2800,"spec": 11,"platform": "AMD","refYear": 2005
+		},
+		{
+		"name": "AMD 2 core (2 chip) 2800 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD","nCores": 2,"nChips": 2,"mhz": 2800,"spec": 21,"platform": "AMD","refYear": 2005
+		},
+		{
+		"name": "AMD 4 core (4 chip) 2800 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD","nCores": 4,"nChips": 4,"mhz": 2800,"spec": 40,"platform": "AMD","refYear": 2005
+		},
+		{
+		"name": "AMD 2 core (1 chip) 2600 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD","nCores": 2,"nChips": 1,"mhz": 2600,"spec": 19,"platform": "AMD","refYear": 2005
+		},
+		{
+		"name": "AMD 4 core (2 chip) 2600 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD","nCores": 4,"nChips": 2,"mhz": 2600,"spec": 39,"platform": "AMD","refYear": 2005
+		},
+		{
+		"name": "AMD 1 core (1 chip) 2600 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD","nCores": 1,"nChips": 1,"mhz": 2600,"spec": 10,"platform": "AMD","refYear": 2005
+		},
+		{
+		"name": "AMD 2 core (2 chip) 2600 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD","nCores": 2,"nChips": 2,"mhz": 2600,"spec": 19,"platform": "AMD","refYear": 2005
+		},
+		{
+		"name": "AMD 4 core (4 chip) 2600 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD","nCores": 4,"nChips": 4,"mhz": 2600,"spec": 37,"platform": "AMD","refYear": 2005
+		},
+		{
+		"name": "AMD 4 core (2 chip) 2400 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD","nCores": 4,"nChips": 2,"mhz": 2400,"spec": 36,"platform": "AMD","refYear": 2005
+		},
+		{
+		"name": "AMD 2 core (1 chip) 2400 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD","nCores": 2,"nChips": 1,"mhz": 2400,"spec": 18,"platform": "AMD","refYear": 2005
+		},
+		{
+		"name": "AMD 8 core (4 chip) 2400 MHz",
+		"category": "AMD Windows Server Candidates","processor": "AMD","nCores": 8,"nChips": 4,"mhz": 2400,"spec": 69,"platform": "AMD","refYear": 2005
+		},
+		{
+		"name": "Sun SPARC64 VII 4 core (1 chip) 2750 MHz",
+		"category": "Sun Solaris Candidates","processor": "Sun SPARC64 VII","nCores": 4,"nChips": 1,"mhz": 2750,"spec": 45,"platform": "Sun SPARC","refYear": 2010
+		},
+		{
+		"name": "Sun SPARC64 VII 64 core (16 chip) 2880 MHz",
+		"category": "Sun Solaris Candidates","processor": "Sun SPARC64 VII","nCores": 64,"nChips": 16,"mhz": 2880,"spec": 706,"platform": "Sun SPARC","refYear": 2009
+		},
+		{
+		"name": "Sun SPARC64 VII 32 core (8 chip) 2530 MHz",
+		"category": "Sun Solaris Candidates","processor": "Sun SPARC64 VII","nCores": 32,"nChips": 8,"mhz": 2530,"spec": 267,"platform": "Sun SPARC","refYear": 2009
+		},
+		{
+		"name": "Sun UltraSPARC T2Plus 8 core (1 chip) 1582 MHz",
+		"category": "Sun Solaris Candidates","processor": "Sun UltraSPARC T2Plus","nCores": 8,"nChips": 1,"mhz": 1582,"spec": 89,"platform": "Sun SPARC","refYear": 2009
+		},
+		{
+		"name": "Sun UltraSPARC T2Plus 32 core (4 chip) 1596 MHz",
+		"category": "Sun Solaris Candidates","processor": "Sun UltraSPARC T2Plus","nCores": 32,"nChips": 4,"mhz": 1596,"spec": 338,"platform": "Sun SPARC","refYear": 2009
+		},
+		{
+		"name": "Sun SPARC64 VII 4 core (1 chip) 2520 MHz",
+		"category": "Sun Solaris Candidates","processor": "Sun SPARC64 VII","nCores": 4,"nChips": 1,"mhz": 2520,"spec": 37,"platform": "Sun SPARC","refYear": 2008
+		},
+		{
+		"name": "Sun SPARC64 VII 64 core (16 chip) 2520 MHz",
+		"category": "Sun Solaris Candidates","processor": "Sun SPARC64 VII","nCores": 64,"nChips": 16,"mhz": 2520,"spec": 565,"platform": "Sun SPARC","refYear": 2008
+		},
+		{
+		"name": "Sun SPARC64 VII 32 core (8 chip) 2400 MHz",
+		"category": "Sun Solaris Candidates","processor": "Sun SPARC64 VII","nCores": 32,"nChips": 8,"mhz": 2400,"spec": 232,"platform": "Sun SPARC","refYear": 2008
+		},
+		{
+		"name": "Sun UltraSPARC T2Plus 16 core (2 chip) 1415 MHz",
+		"category": "Sun Solaris Candidates","processor": "Sun UltraSPARC T2Plus","nCores": 16,"nChips": 2,"mhz": 1415,"spec": 147,"platform": "Sun SPARC","refYear": 2008
+		},
+		{
+		"name": "Sun UltraSPARC T2 8 core (1 chip) 1417 MHz",
+		"category": "Sun Solaris Candidates","processor": "Sun UltraSPARC T2","nCores": 8,"nChips": 1,"mhz": 1417,"spec": 76,"platform": "Sun SPARC","refYear": 2007
+		},
+		{
+		"name": "Sun SPARC64 VI 32 core (16 chip) 2400 MHz",
+		"category": "Sun Solaris Candidates","processor": "Sun SPARC64 VI","nCores": 32,"nChips": 16,"mhz": 2400,"spec": 298,"platform": "Sun SPARC","refYear": 2007
+		},
+		{
+		"name": "Sun SPARC64 VI 16 core (8 chip) 2150 MHz",
+		"category": "Sun Solaris Candidates","processor": "Sun SPARC64 VI","nCores": 16,"nChips": 8,"mhz": 2150,"spec": 134,"platform": "Sun SPARC","refYear": 2007
+		},
+		{
+		"name": "Sun UltraSPARC IV+ 16 core (8 chip) 2100 MHz",
+		"category": "Sun Solaris Candidates","processor": "Sun UltraSPARC IV+","nCores": 16,"nChips": 8,"mhz": 2100,"spec": 141,"platform": "Sun SPARC","refYear": 2007
+		},
+		{
+		"name": "Sun UltraSPARC IV+ 24 core (12 chip) 1950 MHz",
+		"category": "Sun Solaris Candidates","processor": "Sun UltraSPARC IV+","nCores": 24,"nChips": 12,"mhz": 1950,"spec": 200,"platform": "Sun SPARC","refYear": 2007
+		},
+		{
+		"name": "Sun UltraSPARC IV+ 144 core (72 chip) 1500 MHz",
+		"category": "Sun Solaris Candidates","processor": "Sun UltraSPARC IV+","nCores": 144,"nChips": 72,"mhz": 1500,"spec": 23,"platform": "Sun SPARC","refYear": 2006
+		},
+		{
+		"name": "Sun UltraSPARC II 2 core (2 chip) 296 MHz",
+		"category": "Sun Solaris Candidates","processor": "Sun UltraSPARC II","nCores": 2,"nChips": 2,"mhz": 296,"spec": 1,"platform": "Sun SPARC","refYear": 2006
+		},
+		{
+		"name": "Itanium 2 9350 32 core (8 chip) 1730 MHz",
+		"category": "HPUX Candidates","processor": "Itanium 2 9350","nCores": 32,"nChips": 8,"mhz": 1730,"spec": 507,"platform": "Itanium","refYear": 2010
+		},
+		{
+		"name": "Itanium 2 9140M 4 core (2 chip) 1666 MHz",
+		"category": "HPUX Candidates","processor": "Itanium 2 9140M","nCores": 4,"nChips": 2,"mhz": 1666,"spec": 15,"platform": "Itanium","refYear": 2009
+		},
+		{
+		"name": "Itanium 2 9140M 4 core (2 chip) 1666 MHz",
+		"category": "HPUX Candidates","processor": "Itanium 2 9140M","nCores": 4,"nChips": 2,"mhz": 1666,"spec": 15,"platform": "Itanium","refYear": 2007
+		},
+		{
+		"name": "Itanium 2 9015 4 core (2 chip) 1400 MHz",
+		"category": "HPUX Candidates","processor": "Itanium 2 9015","nCores": 4,"nChips": 2,"mhz": 1400,"spec": 40,"platform": "Itanium","refYear": 2006
+		},
+		{
+		"name": "Itanium 2 9040 64 core (32 chip) 1600 MHz",
+		"category": "HPUX Candidates","processor": "Itanium 2 9040","nCores": 64,"nChips": 32,"mhz": 1600,"spec": 744,"platform": "Itanium","refYear": 2006
+		},
+		{
+		"name": "Itanium 2 9040 128 core (64 chip) 1600 MHz",
+		"category": "HPUX Candidates","processor": "Itanium 2 9040","nCores": 128,"nChips": 64,"mhz": 1600,"spec": 1478,"platform": "Itanium","refYear": 2006
+		},
+		{
+		"name": "Itanium 24 core (24 chip) 1600 MHz",
+		"category": "HPUX Candidates","processor": "Itanium","nCores": 24,"nChips": 24,"mhz": 1600,"spec": 195,"platform": "Itanium","refYear": 2005
+		},
+		{
+		"name": "Itanium 8 core (8 chip) 1600 MHz",
+		"category": "HPUX Candidates","processor": "Itanium","nCores": 8,"nChips": 8,"mhz": 1600,"spec": 64,"platform": "Itanium","refYear": 2005
+		},
+		{
+		"name": "Itanium 12 core (12 chip) 1600 MHz",
+		"category": "HPUX Candidates","processor": "Itanium","nCores": 12,"nChips": 12,"mhz": 1600,"spec": 95,"platform": "Itanium","refYear": 2005
+		},
+		{
+		"name": "Itanium 16 core (16 chip) 1600 MHz",
+		"category": "HPUX Candidates","processor": "Itanium","nCores": 16,"nChips": 16,"mhz": 1600,"spec": 127,"platform": "Itanium","refYear": 2005
+		},
+		{
+		"name": "Itanium 3 core (3 chip) 1600 MHz",
+		"category": "HPUX Candidates","processor": "Itanium","nCores": 3,"nChips": 3,"mhz": 1600,"spec": 17,"platform": "Itanium","refYear": 2005
+		},
+		{
+		"name": "Itanium 12 core (12 chip) 1600 MHz",
+		"category": "HPUX Candidates","processor": "Itanium","nCores": 12,"nChips": 12,"mhz": 1600,"spec": 80,"platform": "Itanium","refYear": 2005
+		},
+		{
+		"name": "PA-8801 8 core (4 chip) 1000 MHz",
+		"category": "HPUX Candidates","processor": "PA-8801","nCores": 8,"nChips": 4,"mhz": 1000,"spec": 35,"platform": "PARisc","refYear": 2005
+		},
+		{
+		"name": "PA-8802 16 core (8 chip) 1000 MHz",
+		"category": "HPUX Candidates","processor": "PA-8802","nCores": 16,"nChips": 8,"mhz": 1000,"spec": 67,"platform": "PARisc","refYear": 2005
+		},
+		{
+		"name": "PA-8800 4 core (4 chip) 875 MHz",
+		"category": "HPUX Candidates","processor": "PA-8800","nCores": 4,"nChips": 4,"mhz": 875,"spec": 13,"platform": "PARisc","refYear": 2005
+		},
+		{
+		"name": "IBM p7 32 core (8 chip) 4140 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p7","nCores": 32,"nChips": 8,"mhz": 4140,"spec": 1310,"platform": "IBM pSeries","refYear": 2010
+		},
+		{
+		"name": "IBM p7 64 core (8 chip) 3860 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p7","nCores": 64,"nChips": 8,"mhz": 3860,"spec": 2340,"platform": "IBM pSeries","refYear": 2010
+		},
+		{
+		"name": "IBM p7 16 core (2 chip) 3000 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p7","nCores": 16,"nChips": 2,"mhz": 3000,"spec": 586,"platform": "IBM pSeries","refYear": 2010
+		},
+		{
+		"name": "IBM p7 64 core (8 chip) 3860 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p7","nCores": 64,"nChips": 8,"mhz": 3860,"spec": 2299,"platform": "IBM pSeries","refYear": 2010
+		},
+		{
+		"name": "IBM p6+ 8 core (4 chip) 5000 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p6+","nCores": 8,"nChips": 4,"mhz": 5000,"spec": 216,"platform": "IBM pSeries","refYear": 2009
+		},
+		{
+		"name": "IBM p6+ 4 core (2 chip) 4700 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p6+","nCores": 4,"nChips": 2,"mhz": 4700,"spec": 102,"platform": "IBM pSeries","refYear": 2009
+		},
+		{
+		"name": "IBM p6+ 16 core (8 chip) 5000 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p6+","nCores": 16,"nChips": 8,"mhz": 5000,"spec": 466,"platform": "IBM pSeries","refYear": 2008
+		},
+		{
+		"name": "IBM p6+ 32 core (16 chip) 4200 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p6+","nCores": 32,"nChips": 16,"mhz": 4200,"spec": 673,"platform": "IBM pSeries","refYear": 2008
+		},
+		{
+		"name": "IBM p6 2 core (1 chip) 4700 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p6","nCores": 2,"nChips": 1,"mhz": 4700,"spec": 53,"platform": "IBM pSeries","refYear": 2007
+		},
+		{
+		"name": "IBM p6 4 core (2 chip) 4700 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p6","nCores": 4,"nChips": 2,"mhz": 4700,"spec": 106,"platform": "IBM pSeries","refYear": 2007
+		},
+		{
+		"name": "IBM p6 8 core (4 chip) 4700 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p6","nCores": 8,"nChips": 4,"mhz": 4700,"spec": 206,"platform": "IBM pSeries","refYear": 2007
+		},
+		{
+		"name": "IBM p6 16 core (8 chip) 4700 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p6","nCores": 16,"nChips": 8,"mhz": 4700,"spec": 410,"platform": "IBM pSeries","refYear": 2007
+		},
+		{
+		"name": "IBM p575 8 core (8 chip) 2200 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p575","nCores": 8,"nChips": 8,"mhz": 2200,"spec": 95,"platform": "IBM pSeries","refYear": 2006
+		},
+		{
+		"name": "IBM p595 64 core (32 chip) 2300 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p595","nCores": 64,"nChips": 32,"mhz": 2300,"spec": 720,"platform": "IBM pSeries","refYear": 2006
+		},
+		{
+		"name": "IBM p550 4 core (2 chip) 2100 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p550","nCores": 4,"nChips": 2,"mhz": 2100,"spec": 43,"platform": "IBM pSeries","refYear": 2006
+		},
+		{
+		"name": "IBM p570 4 core (2 chip) 1900 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p570","nCores": 4,"nChips": 2,"mhz": 1900,"spec": 36,"platform": "IBM pSeries","refYear": 2006
+		},
+		{
+		"name": "IBM p570 8 core (4 chip) 1900 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p570","nCores": 8,"nChips": 4,"mhz": 1900,"spec": 71,"platform": "IBM pSeries","refYear": 2006
+		},
+		{
+		"name": "IBM p570 16 core (8 chip) 1900 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p570","nCores": 16,"nChips": 8,"mhz": 1900,"spec": 140,"platform": "IBM pSeries","refYear": 2006
+		},
+		{
+		"name": "IBM p570 64 core (32 chip) 1900 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p570","nCores": 64,"nChips": 32,"mhz": 1900,"spec": 546,"platform": "IBM pSeries","refYear": 2006
+		},
+		{
+		"name": "IBM p570 56 core (28 chip) 1900 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p570","nCores": 56,"nChips": 28,"mhz": 1900,"spec": 476,"platform": "IBM pSeries","refYear": 2006
+		},
+		{
+		"name": "IBM p570 48 core (24 chip) 1900 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p570","nCores": 48,"nChips": 24,"mhz": 1900,"spec": 405,"platform": "IBM pSeries","refYear": 2006
+		},
+		{
+		"name": "IBM p570 40 core (20 chip) 1900 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p570","nCores": 40,"nChips": 20,"mhz": 1900,"spec": 334,"platform": "IBM pSeries","refYear": 2006
+		},
+		{
+		"name": "IBM p570 32 core (16 chip) 1900 MHz",
+		"category": "IBM AIX Candidates","processor": "IBM p570","nCores": 32,"nChips": 16,"mhz": 1900,"spec": 264,"platform": "IBM pSeries","refYear": 2006
+		},
+		{
+		"name": "Xeon E5-2676v3 36 core (2 chip) 2400 MHz",
+		"category": "Amazon Host Platforms","processor": "Xeon E5-2676v3","nCores": 36,"nChips": 2,"mhz": 2400,"spec": 1534,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Xeon E5-2670 16 core (2 chip) 2600 MHz",
+		"category": "Amazon Host Platforms","processor": "Xeon E5-2670","nCores": 16,"nChips": 2,"mhz": 2600,"spec": 632,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Xeon E5-2680v2 20 core (2 chip) 2800 MHz",
+		"category": "Amazon Host Platforms","processor": "Xeon E5-2680v2","nCores": 20,"nChips": 2,"mhz": 2800,"spec": 830,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Xeon E5-2666v3 20 core (2 chip) 3200 MHz",
+		"category": "Amazon Host Platforms","processor": "Xeon E5-2666v3","nCores": 20,"nChips": 2,"mhz": 3200,"spec": 1062,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Xeon E5-2670v2 20 core (2 chip) 2500 MHz",
+		"category": "Amazon Host Platforms","processor": "Xeon E5-2670v2","nCores": 20,"nChips": 2,"mhz": 2500,"spec": 788,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "AMI i2.xlarge  4 core (14 CU) 30.5 GB",
+		"category": "Amazon Machines Instance","processor": "AMI i2.xlarge ","nCores": 4,"nChips": 1,"mhz": 14,"spec": 158,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "AMI i2.2xlarge  8 core (27 CU) 61 GB",
+		"category": "Amazon Machines Instance","processor": "AMI i2.2xlarge ","nCores": 8,"nChips": 1,"mhz": 27,"spec": 315,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "AMI i2.4xlarge  16 core (53 CU) 122 GB",
+		"category": "Amazon Machines Instance","processor": "AMI i2.4xlarge ","nCores": 16,"nChips": 1,"mhz": 53,"spec": 630,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "AMI i2.8xlarge  32 core (53 CU) 244 GB",
+		"category": "Amazon Machines Instance","processor": "AMI i2.8xlarge ","nCores": 32,"nChips": 1,"mhz": 53,"spec": 1261,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "AMI m3.large  2 core (6.5 CU) 7.5 GB",
+		"category": "Amazon Machines Instance","processor": "AMI m3.large ","nCores": 2,"nChips": 1,"mhz": 6.5,"spec": 79,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "AMI m3.xlarge  4 core (13 CU) 15 GB",
+		"category": "Amazon Machines Instance","processor": "AMI m3.xlarge ","nCores": 4,"nChips": 1,"mhz": 13,"spec": 158,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "AMI m3.2xlarge  8 core (26 CU) 30 GB",
+		"category": "Amazon Machines Instance","processor": "AMI m3.2xlarge ","nCores": 8,"nChips": 1,"mhz": 26,"spec": 315,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "AMI r3.large  2 core (6.5 CU) 15 GB",
+		"category": "Amazon Machines Instance","processor": "AMI r3.large ","nCores": 2,"nChips": 1,"mhz": 6.5,"spec": 79,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "AMI r3.xlarge  4 core (13 CU) 30.5 GB",
+		"category": "Amazon Machines Instance","processor": "AMI r3.xlarge ","nCores": 4,"nChips": 1,"mhz": 13,"spec": 158,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "AMI r3.2xlarge  8 core (26 CU) 61 GB",
+		"category": "Amazon Machines Instance","processor": "AMI r3.2xlarge ","nCores": 8,"nChips": 1,"mhz": 26,"spec": 315,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "AMI r3.4xlarge  16 core (52 CU) 122 GB",
+		"category": "Amazon Machines Instance","processor": "AMI r3.4xlarge ","nCores": 16,"nChips": 1,"mhz": 52,"spec": 630,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "AMI r3.8xlarge  32 core (104 CU) 244 GB",
+		"category": "Amazon Machines Instance","processor": "AMI r3.8xlarge ","nCores": 32,"nChips": 1,"mhz": 104,"spec": 1261,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "AMI d2.xlarge 4 core (14 CU) 17.1 GB",
+		"category": "Amazon Machines Instance","processor": "AMI d2.xlarge","nCores": 4,"nChips": 1,"mhz": 14,"spec": 170,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "AMI d2.2xlarge 8 core (28 CU) 34.2 GB",
+		"category": "Amazon Machines Instance","processor": "AMI d2.2xlarge","nCores": 8,"nChips": 1,"mhz": 28,"spec": 341,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "AMI d2.4xlarge 16 core (56 CU) 68.4 GB",
+		"category": "Amazon Machines Instance","processor": "AMI d2.4xlarge","nCores": 16,"nChips": 1,"mhz": 56,"spec": 682,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "AMI d2.8xlarge 36 core (116 CU) 68.4 GB",
+		"category": "Amazon Machines Instance","processor": "AMI d2.8xlarge","nCores": 36,"nChips": 1,"mhz": 116,"spec": 1534,"platform": "Intel","refYear": 2015
+		},
+		{
+		"name": "AMI i2.xlarge  4 core (14 CU) 30.5 GB",
+		"category": "Amazon Machines Instance","processor": "AMI i2.xlarge ","nCores": 4,"nChips": 1,"mhz": 14,"spec": 168,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "AMI i2.2xlarge  8 core (27 CU) 61 GB",
+		"category": "Amazon Machines Instance","processor": "AMI i2.2xlarge ","nCores": 8,"nChips": 1,"mhz": 27,"spec": 324,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "AMI i2.4xlarge  16 core (53 CU) 122 GB",
+		"category": "Amazon Machines Instance","processor": "AMI i2.4xlarge ","nCores": 16,"nChips": 1,"mhz": 53,"spec": 636,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "AMI m3.large  2 core (6.5 CU) 7.5 GB",
+		"category": "Amazon Machines Instance","processor": "AMI m3.large ","nCores": 2,"nChips": 1,"mhz": 6.5,"spec": 78,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "AMI m3.xlarge  4 core (13 CU) 15 GB",
+		"category": "Amazon Machines Instance","processor": "AMI m3.xlarge ","nCores": 4,"nChips": 1,"mhz": 13,"spec": 156,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "AMI m3.2xlarge  8 core (26 CU) 30 GB",
+		"category": "Amazon Machines Instance","processor": "AMI m3.2xlarge ","nCores": 8,"nChips": 1,"mhz": 26,"spec": 312,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "AMI m2.xlarge  2 core (6.5 CU) 17.1 GB",
+		"category": "Amazon Machines Instance","processor": "AMI m2.xlarge ","nCores": 2,"nChips": 1,"mhz": 6.5,"spec": 78,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "AMI m2.2xlarge  4 core (13 CU) 34.2 GB",
+		"category": "Amazon Machines Instance","processor": "AMI m2.2xlarge ","nCores": 4,"nChips": 1,"mhz": 13,"spec": 156,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "AMI m2.4xlarge  8 core (26 CU) 68.4 GB",
+		"category": "Amazon Machines Instance","processor": "AMI m2.4xlarge ","nCores": 8,"nChips": 1,"mhz": 26,"spec": 312,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "AMI r3.large  2 core (6.5 CU) 15 GB",
+		"category": "Amazon Machines Instance","processor": "AMI r3.large ","nCores": 2,"nChips": 1,"mhz": 6.5,"spec": 78,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "AMI r3.xlarge  4 core (13 CU) 30.5 GB",
+		"category": "Amazon Machines Instance","processor": "AMI r3.xlarge ","nCores": 4,"nChips": 1,"mhz": 13,"spec": 156,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "AMI r3.2xlarge  8 core (26 CU) 61 GB",
+		"category": "Amazon Machines Instance","processor": "AMI r3.2xlarge ","nCores": 8,"nChips": 1,"mhz": 26,"spec": 312,"platform": "Intel","refYear": 2014
+		},
+		{
+		"name": "AMI HM Extra Large Instance 2 core (6.5 CU) 17.1 GB",
+		"category": "Amazon Machines Instance","processor": "AMI HM Extra Large Instance","nCores": 2,"nChips": 1,"mhz": 6.5,"spec": 58,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "AMI HM Double Extra Large Instance 4 core (13 CU) 34.2 GB",
+		"category": "Amazon Machines Instance","processor": "AMI HM Double Extra Large Instance","nCores": 4,"nChips": 1,"mhz": 13,"spec": 117,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "AMI HM Quadrupal Extra Large Instance 8 core (26 CU) 68.4 GB",
+		"category": "Amazon Machines Instance","processor": "AMI HM Quadrupal Extra Large Instance","nCores": 8,"nChips": 1,"mhz": 26,"spec": 234,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "AMI Small Instance 1 core (1 CU) 1.7 GB",
+		"category": "Amazon Machines Instance","processor": "AMI Small Instance","nCores": 1,"nChips": 1,"mhz": 1,"spec": 9,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "AMI Large Instance 2 core (4 CU) 7.5 GB",
+		"category": "Amazon Machines Instance","processor": "AMI Large Instance","nCores": 2,"nChips": 2,"mhz": 4,"spec": 36,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "AMI Extra Large Instance 4 core (8 CU) 15 GB",
+		"category": "Amazon Machines Instance","processor": "AMI Extra Large Instance","nCores": 4,"nChips": 1,"mhz": 8,"spec": 72,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "AMI High-CPU Medium Instance 2 core (5 CU) 1.7 GB",
+		"category": "Amazon Machines Instance","processor": "AMI High-CPU Medium Instance","nCores": 2,"nChips": 1,"mhz": 5,"spec": 45,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "AMI High-CPU Extra Large Instance 8 core (20 CU) 7 GB",
+		"category": "Amazon Machines Instance","processor": "AMI High-CPU Extra Large Instance","nCores": 8,"nChips": 1,"mhz": 20,"spec": 180,"platform": "Intel","refYear": 2010
+		},
+		{
+		"name": "DELL Xeon E3-1281v3 4 core (1 chip) 3700 MHz",
+		"category": "SADS Exercise 1 Server Candidates","processor": "DELL Xeon E3-1281v3","nCores": 4,"nChips": 1,"mhz": 3700,"spec": 222,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "HP E3-1271v3 4 core (1 chip) 3600 MHz",
+		"category": "SADS Exercise 1 Server Candidates","processor": "HP E3-1271v3","nCores": 4,"nChips": 1,"mhz": 3600,"spec": 217,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "IBM Xeon E3-1270v3 4 core (1 chip) 3500 MHz",
+		"category": "SADS Exercise 1 Server Candidates","processor": "IBM Xeon E3-1270v3","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 212,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "2010 Xeon X5677 4 core (1 chip) 3467 MHz",
+		"category": "SADS Exercise 1 Server Candidates","processor": "2010 Xeon X5677","nCores": 4,"nChips": 1,"mhz": 3467,"spec": 142,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "BB_Xeon E5-2637v3 4 core (1 chip) 3500 MHz",
+		"category": "SADS Exercise 8 Best Buy","processor": "BB_Xeon E5-2637v3","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 235,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "BB_Xeon E5-2637v3 8 core (2 chip) 3500 MHz",
+		"category": "SADS Exercise 8 Best Buy","processor": "BB_Xeon E5-2637v3","nCores": 8,"nChips": 2,"mhz": 3500,"spec": 456,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "BB_Xeon E5-2643v3 12 core (2 chip) 3400 MHz",
+		"category": "SADS Exercise 8 Best Buy","processor": "BB_Xeon E5-2643v3","nCores": 12,"nChips": 2,"mhz": 3400,"spec": 671,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "BB_Xeon E5-2667v3 16 core (2 chip) 3200 MHz",
+		"category": "SADS Exercise 8 Best Buy","processor": "BB_Xeon E5-2667v3","nCores": 16,"nChips": 2,"mhz": 3200,"spec": 816,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "BB_Xeon E5-2687Wv3 20 core (2 chip) 3100 MHz",
+		"category": "SADS Exercise 8 Best Buy","processor": "BB_Xeon E5-2687Wv3","nCores": 20,"nChips": 2,"mhz": 3100,"spec": 954,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "BB_Xeon E5-2690v3 24 core (2 chip) 2600 MHz",
+		"category": "SADS Exercise 8 Best Buy","processor": "BB_Xeon E5-2690v3","nCores": 24,"nChips": 2,"mhz": 2600,"spec": 1100,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "BB_Xeon E5-2697v3 28 core (2 chip) 2600 MHz",
+		"category": "SADS Exercise 8 Best Buy","processor": "BB_Xeon E5-2697v3","nCores": 28,"nChips": 2,"mhz": 2600,"spec": 1210,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "2015 Xeon E5-2667v3 16 core (2 chip) 3200 MHz",
+		"category": "SADS Exercise 8 Server History","processor": "2015 Xeon E5-2667v3","nCores": 16,"nChips": 2,"mhz": 3200,"spec": 816,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "2015 Xeon E5-2637v3 4 core (1 chip) 3500 MHz",
+		"category": "SADS Exercise 8 Server History","processor": "2015 Xeon E5-2637v3","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 235,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "2014 Xeon E5-2637v2 4 core (1 chip) 3500 MHz",
+		"category": "SADS Exercise 8 Server History","processor": "2014 Xeon E5-2637v2","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 211,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "2013 Xeon E3-1280V2 4 core (1 chip) 3600 MHz",
+		"category": "SADS Exercise 8 Server History","processor": "2013 Xeon E3-1280V2","nCores": 4,"nChips": 1,"mhz": 3600,"spec": 192,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "2012 Xeon E5-2643 4 core (1 chip) 3300 MHz",
+		"category": "SADS Exercise 8 Server History","processor": "2012 Xeon E5-2643","nCores": 4,"nChips": 1,"mhz": 3300,"spec": 185,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "2011 Xeon E3-1280 4 core (1 chip) 3500 MHz",
+		"category": "SADS Exercise 8 Server History","processor": "2011 Xeon E3-1280","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 160,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "2010 Xeon X5677 4 core (1 chip) 3467 MHz",
+		"category": "SADS Exercise 8 Server History","processor": "2010 Xeon X5677","nCores": 4,"nChips": 1,"mhz": 3467,"spec": 142,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Q2_Xeon E5-2637v3 2 core (0.5 chip) 3500 MHz",
+		"category": "SADS Demo 10 Queue","processor": "Q2_Xeon E5-2637v3","nCores": 2,"nChips": 1,"mhz": 3500,"spec": 118,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Q4_Xeon E5-2637v3 4 core (1 chip) 3500 MHz",
+		"category": "SADS Demo 10 Queue","processor": "Q4_Xeon E5-2637v3","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 235,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Q8_Xeon E5-2637v3 8 core (2 chip) 3500 MHz",
+		"category": "SADS Demo 10 Queue","processor": "Q8_Xeon E5-2637v3","nCores": 8,"nChips": 2,"mhz": 3500,"spec": 470,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Arc15 Baseline 4 core (1 chip) 3500 MHz",
+		"category": "Performance Baselines","processor": "Arc15 Baseline","nCores": 4,"nChips": 1,"mhz": 3500,"spec": 232,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Arc14 Baseline 4 core (1 chip) 3600 MHz",
+		"category": "Performance Baselines","processor": "Arc14 Baseline","nCores": 4,"nChips": 1,"mhz": 3600,"spec": 212,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Arc13 Baseline 4 core (1 chip) 3600 MHz",
+		"category": "Performance Baselines","processor": "Arc13 Baseline","nCores": 4,"nChips": 1,"mhz": 3600,"spec": 200,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Arc12 Baseline 4 core (1 chip) 3600 MHz",
+		"category": "Performance Baselines","processor": "Arc12 Baseline","nCores": 4,"nChips": 1,"mhz": 3600,"spec": 180,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Arc11 Baseline 4 core (1 chip) 3600 MHz",
+		"category": "Performance Baselines","processor": "Arc11 Baseline","nCores": 4,"nChips": 1,"mhz": 3600,"spec": 160,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Arc10 Baseline 4 core (1 chip) 3467 MHz",
+		"category": "Performance Baselines","processor": "Arc10 Baseline","nCores": 4,"nChips": 1,"mhz": 3467,"spec": 140,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Arc09 Baseline 4 core (1 chip) 2933 MHz",
+		"category": "Performance Baselines","processor": "Arc09 Baseline","nCores": 4,"nChips": 1,"mhz": 2933,"spec": 120,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Arc08 Baseline 4 core (2 chip) 3300 MHz",
+		"category": "Performance Baselines","processor": "Arc08 Baseline","nCores": 4,"nChips": 2,"mhz": 3300,"spec": 70,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Arc07 Baseline 4 core (2 chip) 3000 MHz",
+		"category": "Performance Baselines","processor": "Arc07 Baseline","nCores": 4,"nChips": 2,"mhz": 3000,"spec": 56,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Arc06 Baseline 2 core (2 chip) 3800 MHz",
+		"category": "Performance Baselines","processor": "Arc06 Baseline","nCores": 2,"nChips": 2,"mhz": 3800,"spec": 21,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Arc04/05 Baseline 2 core (2 chip) 3200 MHz",
+		"category": "Performance Baselines","processor": "Arc04/05 Baseline","nCores": 2,"nChips": 2,"mhz": 3200,"spec": 17,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Arc03 Baseline 2 core (2 chip) 2000 MHz",
+		"category": "Performance Baselines","processor": "Arc03 Baseline","nCores": 2,"nChips": 2,"mhz": 2000,"spec": 9,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "GE Intel Core i7-860 Tboost 4 core (1 chip) 2800 MHz",
+		"category": "GeoEvent test platforms","processor": "GE Intel Core i7-860 Tboost","nCores": 4,"nChips": 1,"mhz": 2800,"spec": 121,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "GE Xeon E5-1620v2 4 core (1 chip) 3700 MHz",
+		"category": "GeoEvent test platforms","processor": "GE Xeon E5-1620v2","nCores": 4,"nChips": 1,"mhz": 3700,"spec": 207,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "GE Xeon E5-2666v3 20 core (2 chip) 3200 MHz",
+		"category": "GeoEvent test platforms","processor": "GE Xeon E5-2666v3","nCores": 20,"nChips": 2,"mhz": 3200,"spec": 1062,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "VMXeon X5650 12 core (2 chip) 2667 MHz",
+		"category": "Test Lab Platforms","processor": "VMXeon X5650","nCores": 12,"nChips": 2,"mhz": 2667,"spec": 318,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "VMXeon X5650 8 core (2 chip) 2667 MHz",
+		"category": "Test Lab Platforms","processor": "VMXeon X5650","nCores": 8,"nChips": 2,"mhz": 2667,"spec": 212,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "VMXeon E5-2620 12 core (2 chip) 2000 MHz",
+		"category": "Test Lab Platforms","processor": "VMXeon E5-2620","nCores": 12,"nChips": 2,"mhz": 2000,"spec": 375,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Test400 8 core (2 chip)  MHz",
+		"category": "Test Lab Platforms","processor": "Test400","nCores": 8,"nChips": 2,"mhz": 0,"spec": 400,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Test200 4 core (1 chip)  MHz",
+		"category": "Test Lab Platforms","processor": "Test200","nCores": 4,"nChips": 1,"mhz": 0,"spec": 200,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Test100 2 core (0.5 chip)  MHz",
+		"category": "Test Lab Platforms","processor": "Test100","nCores": 2,"nChips": 1,"mhz": 0,"spec": 100,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Xeon E5-2697v2 24 core (2 chip) 2400 MHz",
+		"category": "Test Lab Platforms","processor": "Xeon E5-2697v2","nCores": 24,"nChips": 2,"mhz": 2400,"spec": 889,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Test platform 4 core (1 chip) 2800 MHz",
+		"category": "Test Lab Platforms","processor": "Test platform","nCores": 4,"nChips": 1,"mhz": 2800,"spec": 110,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "HP Workstation 4100 1 core (1 chip) 2800 MHz",
+		"category": "Test Lab Platforms","processor": "HP Workstation 4100","nCores": 1,"nChips": 1,"mhz": 2800,"spec": 6,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "HP DL380 Intel Xeon 2 core (2 chip) 3200 MHz",
+		"category": "Test Lab Platforms","processor": "HP DL380 Intel Xeon","nCores": 2,"nChips": 2,"mhz": 3200,"spec": 13,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Dell Xeon 1 core (1 chip) 3400 MHz",
+		"category": "Test Lab Platforms","processor": "Dell Xeon","nCores": 1,"nChips": 1,"mhz": 3400,"spec": 10,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Dell Xeon X5450 2 core (0.5 chip) 3000 MHz",
+		"category": "Test Lab Platforms","processor": "Dell Xeon X5450","nCores": 2,"nChips": 1,"mhz": 3000,"spec": 27,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Dell Xeon X5450 4 core (1 chip) 3000 MHz",
+		"category": "Test Lab Platforms","processor": "Dell Xeon X5450","nCores": 4,"nChips": 1,"mhz": 3000,"spec": 54,"platform": "Intel","refYear": 0
+		},
+		{
+		"name": "Dell Xeon X5450 8 core (2 chip) 3000 MHz",
+		"category": "Test Lab Platforms","processor": "Dell Xeon X5450","nCores": 8,"nChips": 2,"mhz": 3000,"spec": 107,"platform": "Intel","refYear": 0
+		}
+	]
+}
