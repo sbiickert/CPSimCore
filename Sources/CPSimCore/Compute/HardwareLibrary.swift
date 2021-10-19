@@ -9,8 +9,10 @@ import Foundation
 
 struct HardwareLibrary {
 	static let PATH = "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/hardware.json"
+	static let GITHUB_URL = "https://raw.githubusercontent.com/sbiickert/CPSimCore/main/Library/hardware.json"
+	
 	static func defaultHardware() throws -> HardwareLibrary {
-		return try HardwareLibrary(at: PATH)
+		return try HardwareLibrary(at: URL(string: GITHUB_URL)!)
 	}
 	
 	var aliases = Dictionary<String, String>()
@@ -20,6 +22,10 @@ struct HardwareLibrary {
 	
 	init(at path: String) throws {
 		let url = URL(fileURLWithPath: path)
+		try self.init(at: url)
+	}
+	
+	init(at url: URL) throws {
 		if let jsonData = try? Data(contentsOf: url),
 		   let jsonResult = try? JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
 		{

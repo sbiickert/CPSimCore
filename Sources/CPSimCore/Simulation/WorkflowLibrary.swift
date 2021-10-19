@@ -9,8 +9,9 @@ import Foundation
 
 struct WorkflowLibrary {
 	static let PATH = "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/workflows.json"
+	static let GITHUB_URL = "https://raw.githubusercontent.com/sbiickert/CPSimCore/main/Library/workflows.json"
 	static func defaultWorkflows() throws -> WorkflowLibrary {
-		return try WorkflowLibrary(at: PATH)
+		return try WorkflowLibrary(at: URL(string: GITHUB_URL)!)
 	}
 
 	var aliases = Dictionary<String, String>()
@@ -18,6 +19,10 @@ struct WorkflowLibrary {
 	
 	init(at path:String) throws {
 		let url = URL(fileURLWithPath: path)
+		try self.init(at: url)
+	}
+	
+	init(at url:URL) throws {
 		if let jsonData = try? Data(contentsOf: url),
 		   let workflowData = try? JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
 		{
