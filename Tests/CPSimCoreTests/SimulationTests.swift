@@ -5,6 +5,7 @@ final class SimulationTests: XCTestCase {
 	private enum TestDesign: String {
 		case simple = "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_00_v0.3.json"
 		case waDMZ = "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_01_v0.3.json"
+		case ha = "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_02_v0.3.json"
 	}
 	
 	static var exampleClientRequest: ClientRequest? {
@@ -132,9 +133,74 @@ final class SimulationTests: XCTestCase {
 		let localViewZone = design.findZone(containing: localView!)
 		XCTAssert(localViewZone != nil)
 	}
+	
+	func testHADesignLoad() throws {
+		let design = try Design(at: TestDesign.ha.rawValue)
+		XCTAssert(design.name == "Design 02 (HA)")
+		XCTAssert(design.zones.count == 4)
+		
+		let internet = design.findZone(named: "Internet")
+		XCTAssert(internet != nil)
+		XCTAssert(internet!.hosts.count == 0)
+		
+		let lan = design.findZone(named: "LAN")
+		XCTAssert(lan != nil)
+		XCTAssert(lan!.hosts.count == 6)
+		XCTAssert(lan!.hosts.filter({$0 is PhysicalHost}).count == 2)
+		XCTAssert(lan!.hosts.filter({$0 is VirtualHost}).count == 4)
+		
+		let dmz = design.findZone(named: "DMZ")
+		XCTAssert(dmz != nil)
+		XCTAssert(dmz!.hosts.count == 2)
+		XCTAssert(dmz!.hosts.filter({$0 is PhysicalHost}).count == 1)
+		XCTAssert(dmz!.hosts.filter({$0 is VirtualHost}).count == 1)
+
+		let agol = design.findZone(named: "ArcGIS Online")
+		XCTAssert(agol != nil)
+		XCTAssert(agol!.hosts.count == 1)
+		XCTAssert(agol!.hosts[0].name == "AGOL AMI")
+		
+		XCTAssert(design.tiers.count == 6)
+		let dbTier = design.tiers.first(where: {$0.name == "DBMS"})
+		XCTAssert(dbTier != nil)
+		XCTAssert(design.defaultTiers[.dbms] === dbTier)
+		let gisTier = design.tiers.first(where: {$0.name == "GIS"})
+		XCTAssert(gisTier != nil)
+		XCTAssert(gisTier!.nodes.count == 2)
+		XCTAssert(gisTier!.roles.count == 3)
+		XCTAssert(gisTier!.roles.contains(.gis))
+		let portalTier = design.tiers.first(where: {$0.name == "Portal"})
+		XCTAssert(portalTier != nil)
+		XCTAssert(portalTier!.nodes.count == 1)
+		XCTAssert(portalTier!.roles.count == 1)
+		XCTAssert(portalTier!.roles.contains(.portal))
+		let citrixTier = design.tiers.first(where: {$0.name == "Citrix"})
+		XCTAssert(citrixTier != nil)
+		XCTAssert(citrixTier!.nodes.count == 1)
+		XCTAssert(citrixTier!.roles.count == 1)
+		XCTAssert(citrixTier!.roles.contains(.wts))
+		let webTier = design.tiers.first(where: {$0.name == "Web"})
+		XCTAssert(webTier != nil)
+		XCTAssert(webTier!.nodes.count == 1)
+		XCTAssert(webTier!.roles.count == 1)
+		XCTAssert(webTier!.roles.contains(.web))
+
+		XCTAssert(design.configuredWorkflows.count == 2)
+		let localView = design.configuredWorkflows.first(where: {$0.name == "Local View"})
+		XCTAssert(localView != nil)
+		//XCTAssert(localView!.tps == 20000.0 / 60.0 / 60.0)
+		XCTAssert(localView!.tiers[.dbms] === dbTier)
+		XCTAssert(localView!.tiers[.gis] === gisTier)
+		XCTAssert(localView!.tiers[.portal] === portalTier)
+		XCTAssert(localView!.tiers[.geoevent] == nil)
+		XCTAssert(localView!.definition.serviceTimes[.gis]! > 0)
+		
+		let localViewZone = design.findZone(containing: localView!)
+		XCTAssert(localViewZone != nil)
+	}
 
 	func testSingleMapRequest() throws {
-		let design = try Design(at: TestDesign.waDMZ.rawValue)
+		let design = try Design(at: TestDesign.ha.rawValue)
 		
 		var clock = 0.0
 		let cw = design.configuredWorkflows.first(where: {$0.name == "Local View"})
@@ -167,7 +233,7 @@ final class SimulationTests: XCTestCase {
 	}
 	
 	func testSingleMapRequestWithCache() throws {
-		let design = try Design(at: TestDesign.waDMZ.rawValue)
+		let design = try Design(at: TestDesign.ha.rawValue)
 		
 		var clock = 0.0
 		let cw = design.configuredWorkflows.first(where: {$0.name == "Local View"})
@@ -236,7 +302,7 @@ final class SimulationTests: XCTestCase {
 	
 	func testSimulation() throws {
 		let simulator = Simulator()
-		let design = try Design(at: TestDesign.waDMZ.rawValue)
+		let design = try Design(at: TestDesign.ha.rawValue)
 		simulator.design = design
 		
 		simulator.start()
