@@ -7,10 +7,10 @@
 
 import Foundation
 
-class ConfiguredWorkflow: ObjectIdentity {
-	var id:String = UUID().uuidString
-	var name: String
-	var description: String?
+public class ConfiguredWorkflow: ObjectIdentity {
+	public var id:String = UUID().uuidString
+	public var name: String
+	public var description: String?
 	
 	var userCount = 0
 	var productivity = 0.0

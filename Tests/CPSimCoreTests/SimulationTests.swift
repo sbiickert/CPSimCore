@@ -47,6 +47,11 @@ final class SimulationTests: XCTestCase {
 		XCTAssert(bob!.clientServiceTime > 0)
 	}
 	
+	func testEmptyDesign() throws {
+		let design = Design()
+		XCTAssert(design.isValid == false)
+	}
+	
 	func testDesignLoad() throws {
 		let design = try Design(from: TestDesign.simple.designData!)
 		XCTAssert(design.name == "Design 00 (Simple)")

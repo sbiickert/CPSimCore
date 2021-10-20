@@ -9,7 +9,7 @@ import Foundation
 
 typealias QueueMetric = (clock: Double, requestCount: Int)
 
-struct MultiQueueMetrics {
+public struct MultiQueueMetrics {
 	var channelCount: UInt {
 		didSet {
 			assert(channelCount > 0)

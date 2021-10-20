@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ClientRequestSolution {
+public struct ClientRequestSolution {
 	private var _steps = [ClientRequestSolutionStep]()
 	
 	var stepCount: Int {
@@ -31,14 +31,14 @@ struct ClientRequestSolution {
 	}
 }
 
-struct ClientRequestSolutionStep {
+public struct ClientRequestSolutionStep {
 	let calculator: ServiceTimeCalculator
 	let isResponse: Bool
 	let computeRole: ComputeRole
 	let dataSize: Double
 }
 
-class ClientRequestSolutionFactory {
+public class ClientRequestSolutionFactory {
 	static func createSolution(for cr:ClientRequest, in design:Design) throws -> ClientRequestSolution? {
 		var solution = ClientRequestSolution()
 		var computeNodeStack = [ComputeNode]()
@@ -223,7 +223,7 @@ class ClientRequestSolutionFactory {
 	}
 }
 
-class NetworkRouteFinder {
+private class NetworkRouteFinder {
 	let fromZone: NetworkZone
 	let toZone: NetworkZone
 	private var breadcrumbs = NetworkRoute()

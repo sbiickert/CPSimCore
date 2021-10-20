@@ -7,17 +7,17 @@
 
 import Foundation
 
-class Client: ObjectIdentity, ComputeNode {
-	var id: String = UUID().uuidString
-	var name: String = "" {
+public class Client: ObjectIdentity, ComputeNode {
+	public var id: String = UUID().uuidString
+	public var name: String = "" {
 		didSet {
 			self.queue.name = name
 		}
 	}
-	var description: String?
+	public var description: String?
 	
-	var hardware: HardwareDefinition?
-	var queue: MultiQueue
+	public var hardware: HardwareDefinition?
+	public var queue: MultiQueue
 
 	init(_ hardware: HardwareDefinition) {
 		self.hardware = hardware
@@ -26,11 +26,11 @@ class Client: ObjectIdentity, ComputeNode {
 		self.queue.mode = .processing
 	}
 	
-	func handle(request: ClientRequest, clock: Double) {
+	public func handle(request: ClientRequest, clock: Double) {
 		queue.enqueue(request, clock: clock)
 	}
 	
-	func calculateServiceTime(for request: ClientRequest) -> Double {
+	public func calculateServiceTime(for request: ClientRequest) -> Double {
 		var serviceTime = ClientRequest.requestTime
 		if let step = request.solution?.currentStep {
 			serviceTime = request.serviceTimes[step.computeRole] ?? 0.0
@@ -40,11 +40,11 @@ class Client: ObjectIdentity, ComputeNode {
 		return serviceTime
 	}
 	
-	func calculateLatency(for request: ClientRequest) -> Double {
+	public func calculateLatency(for request: ClientRequest) -> Double {
 		return 0.0
 	}
 	
-	func adjustedServiceTime(_ workflowServiceTime: Double) -> Double {
+	public func adjustedServiceTime(_ workflowServiceTime: Double) -> Double {
 		guard hardware != nil else { return -1.0 }
 		return workflowServiceTime * (HardwareDefinition.baselineRatingPerCore / hardware!.specRatingPerCore)
 	}

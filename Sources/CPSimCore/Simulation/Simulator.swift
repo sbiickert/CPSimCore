@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Simulator {
+public class Simulator {
 	// Multiplies the clock run speed to slow or speed up simulation
 	var clockScale: Double = 1.0 {
 		didSet {

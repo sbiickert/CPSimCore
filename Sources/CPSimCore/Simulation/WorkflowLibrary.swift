@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct WorkflowLibrary {
+public struct WorkflowLibrary {
 	static let PATH = "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/workflows.json"
 	static let GITHUB_URL = "https://raw.githubusercontent.com/sbiickert/CPSimCore/main/Library/workflows.json"
 	static func defaultWorkflows() throws -> WorkflowLibrary {
@@ -47,12 +47,12 @@ struct WorkflowLibrary {
 	}
 }
 
-struct WorkflowDefinition: ObjectIdentity {
+public struct WorkflowDefinition: ObjectIdentity {
 	static let cacheServiceTime = 0.001
 	
-	var id: String = UUID().uuidString
-	var name: String
-	var description: String?
+	public var id: String = UUID().uuidString
+	public var name: String
+	public var description: String?
 
 	var serviceTimes = Dictionary<ComputeRole, Double>()
 	var category: String?
@@ -101,7 +101,7 @@ struct WorkflowDefinition: ObjectIdentity {
 	}
 }
 
-enum ServiceType: String, CaseIterable {
+public enum ServiceType: String, CaseIterable {
 	case map = "map"
 	case cache = "$$"
 	case feature = "feature"

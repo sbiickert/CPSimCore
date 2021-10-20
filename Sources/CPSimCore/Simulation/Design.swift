@@ -1,9 +1,9 @@
 import Foundation
 
-struct Design: ObjectIdentity {
-	var id: String = UUID().uuidString
-	var name: String = ""
-	var description: String?
+public struct Design: ObjectIdentity {
+	public var id: String = UUID().uuidString
+	public var name: String = ""
+	public var description: String?
 	var zones = [NetworkZone]()
 	var tiers = [Tier]()
 	var defaultTiers = Dictionary<ComputeRole, Tier>()

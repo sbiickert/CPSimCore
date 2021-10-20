@@ -8,7 +8,7 @@
 
 import Foundation
 
-class MultiQueue {
+public class MultiQueue {
 	var delegate: ServiceTimeCalculator?
 	
 	var name: String = "Unnnamed"

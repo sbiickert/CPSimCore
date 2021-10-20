@@ -7,10 +7,10 @@
 
 import Foundation
 
-class NetworkZone: ObjectIdentity {
-	var id: String =  UUID().uuidString
-	var name: String = ""
-	var description: String?
+public class NetworkZone: ObjectIdentity {
+	public var id: String =  UUID().uuidString
+	public var name: String = ""
+	public var description: String?
 	
 	var localBandwidth: UInt = 1000
 	var connections = [NetworkConnection]()

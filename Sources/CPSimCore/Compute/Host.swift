@@ -7,19 +7,19 @@
 
 import Foundation
 
-protocol Host: ObjectIdentity, ComputeNode {}
+public protocol Host: ObjectIdentity, ComputeNode {}
 
-class PhysicalHost: Host {
-	var id: String = UUID().uuidString
-	var name: String = "" {
+public class PhysicalHost: Host {
+	public var id: String = UUID().uuidString
+	public var name: String = "" {
 		didSet {
 			self.queue.name = name
 		}
 	}
-	var description: String?
+	public var description: String?
 	
-	var hardware: HardwareDefinition?
-	var queue: MultiQueue
+	public var hardware: HardwareDefinition?
+	public var queue: MultiQueue
 	
 	var virtualHosts = [VirtualHost]()
 
@@ -30,17 +30,17 @@ class PhysicalHost: Host {
 		self.queue.mode = .processing
 	}
 
-	func adjustedServiceTime(_ workflowServiceTime: Double) -> Double {
+	public func adjustedServiceTime(_ workflowServiceTime: Double) -> Double {
 		guard hardware != nil else { return -1.0 }
 		return workflowServiceTime * (HardwareDefinition.baselineRatingPerCore / hardware!.specRatingPerCore)
 	}
 	
-	func handle(request: ClientRequest, clock: Double) {
+	public func handle(request: ClientRequest, clock: Double) {
 		queue.enqueue(request, clock: clock)
 	}
 	
 	
-	func calculateServiceTime(for request: ClientRequest) -> Double {
+	public func calculateServiceTime(for request: ClientRequest) -> Double {
 		var serviceTime = ClientRequest.requestTime
 		if let step = request.solution?.currentStep {
 			serviceTime = request.serviceTimes[step.computeRole] ?? 0.0
@@ -50,19 +50,19 @@ class PhysicalHost: Host {
 		return serviceTime
 	}
 	
-	func calculateLatency(for request: ClientRequest) -> Double {
+	public func calculateLatency(for request: ClientRequest) -> Double {
 		return 0.0
 	}
 }
 
-class VirtualHost: Host {
-	var id: String = UUID().uuidString
-	var name: String {
+public class VirtualHost: Host {
+	public var id: String = UUID().uuidString
+	public var name: String {
 		didSet {
 			self.queue.name = name
 		}
 	}
-	var description: String?
+	public var description: String?
 	
 	var vCpuCount: UInt
 	var vMemGB: UInt
@@ -76,7 +76,7 @@ class VirtualHost: Host {
 			}
 		}
 	}
-	var hardware: HardwareDefinition? {
+	public var hardware: HardwareDefinition? {
 		get {
 			return physicalHost.hardware
 		}
@@ -84,7 +84,7 @@ class VirtualHost: Host {
 			// Do nothing
 		}
 	}
-	var queue: MultiQueue
+	public var queue: MultiQueue
 
 	init(_ host: PhysicalHost, vCpus: UInt = 4, vMemGB: UInt = 16) {
 		self.name = ""
@@ -97,18 +97,18 @@ class VirtualHost: Host {
 		self.physicalHost.virtualHosts.append(self)
 	}
 
-	func adjustedServiceTime(_ workflowServiceTime: Double) -> Double {
+	public func adjustedServiceTime(_ workflowServiceTime: Double) -> Double {
 		guard hardware != nil else { return -1.0 }
 		return workflowServiceTime * (HardwareDefinition.baselineRatingPerCore / hardware!.specRatingPerCore)
 	}
 	
-	func handle(request: ClientRequest, clock: Double) {
+	public func handle(request: ClientRequest, clock: Double) {
 		queue.enqueue(request, clock: clock)
 
 	}
 	
 	
-	func calculateServiceTime(for request: ClientRequest) -> Double {
+	public func calculateServiceTime(for request: ClientRequest) -> Double {
 		var serviceTime = ClientRequest.requestTime
 		if let step = request.solution?.currentStep {
 			serviceTime = request.serviceTimes[step.computeRole] ?? 0.0
@@ -118,7 +118,7 @@ class VirtualHost: Host {
 		return serviceTime
 	}
 	
-	func calculateLatency(for request: ClientRequest) -> Double {
+	public func calculateLatency(for request: ClientRequest) -> Double {
 		return 0.0
 	}
 }

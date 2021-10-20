@@ -7,10 +7,10 @@
 
 import Foundation
 
-class Tier: ObjectIdentity {
-	var id: String = UUID().uuidString
-	var name: String = ""
-	var description: String?
+public class Tier: ObjectIdentity {
+	public var id: String = UUID().uuidString
+	public var name: String = ""
+	public var description: String?
 	
 	var nodes = [ComputeNode]()
 	var roles = Set<ComputeRole>()

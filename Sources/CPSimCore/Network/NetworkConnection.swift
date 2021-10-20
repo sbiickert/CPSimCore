@@ -7,10 +7,10 @@
 
 import Foundation
 
-class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
-	var id: String = UUID().uuidString
-	var name: String = ""
-	var description: String?
+public class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
+	public var id: String = UUID().uuidString
+	public var name: String = ""
+	public var description: String?
 	
 	var source: NetworkZone {
 		willSet {
@@ -31,7 +31,7 @@ class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
 	var bandwidth: UInt
 	var latency: UInt
 
-	var queue: MultiQueue
+	public var queue: MultiQueue
 
 	var isLocalConnection: Bool {
 		return source === destination
@@ -63,7 +63,7 @@ class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
 								 latencyMilliSeconds: self.latency)
 	}
 	
-	func calculateServiceTime(for request: ClientRequest) -> Double {
+	public func calculateServiceTime(for request: ClientRequest) -> Double {
 		var serviceTime = 0.0
 		if let step = request.solution?.currentStep {
 			// data (Mb) / bandwidth (Mb/s) = transfer time in seconds
@@ -75,7 +75,7 @@ class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
 		return serviceTime
 	}
 
-	func calculateLatency(for request: ClientRequest) -> Double {
+	public func calculateLatency(for request: ClientRequest) -> Double {
 		// TODO: should this be more complex, and simulate sending (chatter) packets of data?
 		// chatter * latency (milliseconds) * 0.001 = latency time in seconds
 		var result = 0.0

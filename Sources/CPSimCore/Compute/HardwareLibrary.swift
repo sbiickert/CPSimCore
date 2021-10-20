@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct HardwareLibrary {
+public struct HardwareLibrary {
 	static let PATH = "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/hardware.json"
 	static let GITHUB_URL = "https://raw.githubusercontent.com/sbiickert/CPSimCore/main/Library/hardware.json"
 	
@@ -50,12 +50,12 @@ struct HardwareLibrary {
 	}
 }
 
-struct HardwareDefinition: ObjectIdentity, Equatable {
+public struct HardwareDefinition: ObjectIdentity, Equatable {
 	static var baselineRatingPerCore: Double = 50.0
 
-	var id: String = UUID().uuidString
-	var name: String
-	var description: String?
+	public var id: String = UUID().uuidString
+	public var name: String
+	public var description: String?
 	
 	var category: String?
 	var processor: String = ""
@@ -90,7 +90,7 @@ struct HardwareDefinition: ObjectIdentity, Equatable {
 
 }
 
-enum Platform: String {
+public enum Platform: String {
 	case intel = "Intel"
 	case amd = "AMD"
 	case sparc = "Sun SPARC"

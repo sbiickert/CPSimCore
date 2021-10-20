@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ComputeRole: String, CaseIterable {
+public enum ComputeRole: String, CaseIterable {
 	case client = "client"
 	case wts = "wts"
 	case web = "web"
@@ -32,14 +32,14 @@ enum ComputeRole: String, CaseIterable {
 	}
 }
 
-protocol ComputeNode: ServiceTimeCalculator {
+public protocol ComputeNode: ServiceTimeCalculator {
 	var hardware: HardwareDefinition? {get set}
 	var queue: MultiQueue {get set}
 	func adjustedServiceTime(_ workflowServiceTime: Double) -> Double
 	func handle(request: ClientRequest, clock: Double)
 }
 
-enum DataSourceType: String {
+public enum DataSourceType: String {
 	case DBMS = "DB"
 	case SmallFileGDB = "SFG"
 	case LargeFileGDB = "LFG"

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ClientRequestMetrics {
+public class ClientRequestMetrics {
 	static let NETWORK_KEY = "network"
 	private var metrics = Dictionary<String, Metric>()
 	

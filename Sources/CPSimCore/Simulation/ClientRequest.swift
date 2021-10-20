@@ -7,8 +7,8 @@
 
 import Foundation
 
-class ClientRequest: ObjectIdentity, Equatable {
-	static func == (lhs: ClientRequest, rhs: ClientRequest) -> Bool {
+public class ClientRequest: ObjectIdentity, Equatable {
+	public static func == (lhs: ClientRequest, rhs: ClientRequest) -> Bool {
 		return lhs.id == rhs.id
 	}
 	static let requestTime = 0.0001 // seconds
@@ -19,9 +19,9 @@ class ClientRequest: ObjectIdentity, Equatable {
 		return "CR-\(_counter)"
 	}
 
-	var id: String = ClientRequest.nextID
-	var name: String = ""
-	var description: String?
+	public var id: String = ClientRequest.nextID
+	public var name: String = ""
+	public var description: String?
 
 	// Definition of the request
 	let configuredWorkflow: ConfiguredWorkflow!
