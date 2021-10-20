@@ -36,6 +36,14 @@ class NetworkZone: ObjectIdentity {
 		_ = NetworkConnection(sourceZone: self, destZone: self, bandwidth: localBandwidth, latencyMilliSeconds: 0) // localConnection
 	}
 	
+	func toDictionary() -> NSDictionary {
+		let nzDict = NSMutableDictionary()
+		nzDict.setValue(self.name, forKey: JsonKeys.name)
+		nzDict.setValue(self.description ?? "", forKey: JsonKeys.desc)
+		nzDict.setValue(self.localConnection?.bandwidth ?? 0, forKey: JsonKeys.bw)
+		return nzDict
+	}
+	
 	var localConnection: NetworkConnection? {
 		return connections.first(where: {$0.isLocalConnection})
 	}

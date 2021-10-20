@@ -80,6 +80,20 @@ final class SimulationTests: XCTestCase {
 		XCTAssert(localViewZone != nil)
 	}
 	
+	func testDesignSave() throws {
+		let design1 = try Design(at: TestDesign.simple.rawValue)
+		let dict = design1.toDictionary()
+		
+		XCTAssert(dict["name"] != nil)
+		XCTAssert((dict["name"] as! String ) == "Design 00 (Simple)")
+		
+		let design2 = try Design(from: dict)
+		
+		XCTAssert(design1.configuredWorkflows.count == design2.configuredWorkflows.count)
+		XCTAssert(design1.zones.count == design2.zones.count)
+		XCTAssert(design1.tiers.count == design2.tiers.count)
+	}
+	
 	func testWADMZDesignLoad() throws {
 		let design = try Design(at: TestDesign.waDMZ.rawValue)
 		XCTAssert(design.name == "Design 01 (WA to DMZ)")

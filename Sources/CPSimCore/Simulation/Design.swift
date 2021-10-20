@@ -7,6 +7,8 @@ struct Design: ObjectIdentity {
 	var zones = [NetworkZone]()
 	var tiers = [Tier]()
 	var defaultTiers = Dictionary<ComputeRole, Tier>()
+	var hardwareLibrary: HardwareLibrary!
+	var workflowLibrary: WorkflowLibrary!
 	
 	init(at path:String) throws {
 		let url = URL(fileURLWithPath: path)
@@ -23,6 +25,9 @@ struct Design: ObjectIdentity {
 	init(from designData: NSDictionary) throws {
 		name = designData[JsonKeys.name] as? String ?? ""
 		
+		hardwareLibrary = try HardwareLibrary.defaultHardware()
+		workflowLibrary = try WorkflowLibrary.defaultWorkflows()
+
 		// Network Zones
 		if let zoneInfos = designData[JsonKeys.networkZones] as? NSArray {
 			for zInfo in zoneInfos {
@@ -50,11 +55,10 @@ struct Design: ObjectIdentity {
 			}
 		}
 		// Hardware
-		var hwLib = try HardwareLibrary.defaultHardware()
 		if let aliases = designData[JsonKeys.hwAliases] as? NSDictionary {
 			for case let hwAlias as String in aliases.allKeys {
 				if let hwName = aliases[hwAlias] as? String {
-					hwLib.aliases[hwAlias] = hwName
+					hardwareLibrary.aliases[hwAlias] = hwName
 				}
 			}
 		}
@@ -65,7 +69,7 @@ struct Design: ObjectIdentity {
 				if let hwType = cInfo[JsonKeys.hwType] as? String,
 				   let name = cInfo[JsonKeys.name] as? String,
 				   let desc = cInfo[JsonKeys.desc] as? String,
-				   let hw = hwLib.findHardware(hwType) {
+				   let hw = hardwareLibrary.findHardware(hwType) {
 					let client = Client(hw)
 					client.name = name
 					client.description = desc
@@ -79,7 +83,7 @@ struct Design: ObjectIdentity {
 				if let hwType = hInfo[JsonKeys.hwType] as? String,
 				   let name = hInfo[JsonKeys.name] as? String,
 				   let desc = hInfo[JsonKeys.desc] as? String,
-				   let hw = hwLib.findHardware(hwType),
+				   let hw = hardwareLibrary.findHardware(hwType),
 				   let zName = hInfo[JsonKeys.zone] as? String,
 				   let zone = findZone(named: zName) {
 					let host = PhysicalHost(hw)
@@ -141,11 +145,10 @@ struct Design: ObjectIdentity {
 		}
 		
 		// Workflows
-		var wfLib = try WorkflowLibrary.defaultWorkflows()
 		if let aliases = designData[JsonKeys.wfAliases] as? NSDictionary {
 			for case let wfAlias as String in aliases.allKeys {
 				if let wfName = aliases[wfAlias] as? String {
-					wfLib.aliases[wfAlias] = wfName
+					workflowLibrary.aliases[wfAlias] = wfName
 				}
 			}
 		}
@@ -162,7 +165,7 @@ struct Design: ObjectIdentity {
 				   let cName = cwInfo[JsonKeys.client] as? String,
 				   let dsName = cwInfo[JsonKeys.dataSource] as? String,
 				   let zName = cwInfo[JsonKeys.zone] as? String,
-				   let wf = wfLib.findWorkflow(wfName),
+				   let wf = workflowLibrary.findWorkflow(wfName),
 				   let zone = findZone(named: zName),
 				   let client = clients.first(where: {$0.name == cName}) {
 					let cw = ConfiguredWorkflow(name: name, definition: wf, client: client)
@@ -190,6 +193,144 @@ struct Design: ObjectIdentity {
 		}
 	}
 	
+	func save(to path: String) {
+		let dict = self.toDictionary()
+		
+		// TODO: write to JSON file
+	}
+	
+	func toDictionary() -> NSDictionary {
+		let dict = NSMutableDictionary()
+		
+		dict.setValue(self.name, forKey: JsonKeys.name)
+		dict.setValue(0.3, forKey: JsonKeys.version)
+		
+		// Network zones
+		let nzArray = NSMutableArray()
+		for zone in self.zones {
+			let nzDict = zone.toDictionary()
+			nzArray.add(nzDict)
+		}
+		dict.setValue(nzArray, forKey: JsonKeys.networkZones)
+		
+		// Network connections
+		let ncArray = NSMutableArray()
+		for link in self.interZoneConnections {
+			let ncDict = NSMutableDictionary()
+			ncDict.setValue(link.0.name, forKey: JsonKeys.up)
+			ncDict.setValue(link.1.name, forKey: JsonKeys.down)
+			ncDict.setValue(link.0.bandwidth, forKey: JsonKeys.upBW)
+			ncDict.setValue(link.1.bandwidth, forKey: JsonKeys.dnBW)
+			ncDict.setValue(max(link.0.latency, link.1.latency), forKey: JsonKeys.latency)
+			ncArray.add(ncDict)
+		}
+		dict.setValue(ncArray, forKey: JsonKeys.networkConns)
+
+		// Hardware aliases
+		let hwaDict = NSMutableDictionary()
+		for alias in hardwareLibrary.aliases.keys {
+			hwaDict.setValue(hardwareLibrary.aliases[alias], forKey: alias)
+		}
+		dict.setValue(hwaDict, forKey: JsonKeys.hwAliases)
+		
+		// Clients
+		let cArray = NSMutableArray()
+		for client in clients {
+			let cDict = NSMutableDictionary()
+			cDict.setValue(client.name, forKey: JsonKeys.name)
+			cDict.setValue(client.description ?? "", forKey: JsonKeys.desc)
+			cDict.setValue(client.hardware?.name ?? "", forKey: JsonKeys.hwType)
+			cArray.add(cDict)
+		}
+		dict.setValue(cArray, forKey: JsonKeys.clients)
+		
+		// Physical hosts
+		let hArray = NSMutableArray()
+		let pHosts = hosts.compactMap({$0 as? PhysicalHost})
+		for host in pHosts {
+			let hDict = NSMutableDictionary()
+			hDict.setValue(host.name, forKey: JsonKeys.name)
+			hDict.setValue(host.description ?? "", forKey: JsonKeys.desc)
+			hDict.setValue(host.hardware?.name ?? "", forKey: JsonKeys.hwType)
+			let zone = self.findZone(containing: host)!
+			hDict.setValue(zone.name, forKey: JsonKeys.zone)
+			hArray.add(hDict)
+		}
+		dict.setValue(hArray, forKey: JsonKeys.hosts)
+		
+		// Virtual hosts
+		let vhArray = NSMutableArray()
+		let vHosts = hosts.compactMap({$0 as? VirtualHost})
+		for vHost in vHosts {
+			let vhDict = NSMutableDictionary()
+			vhDict.setValue(vHost.name, forKey: JsonKeys.name)
+			vhDict.setValue(vHost.description ?? "", forKey: JsonKeys.desc)
+			vhDict.setValue(vHost.physicalHost.name, forKey: JsonKeys.host)
+			vhDict.setValue(vHost.vCpuCount, forKey: JsonKeys.vCPU)
+			vhArray.add(vhDict)
+		}
+		dict.setValue(vhArray, forKey: JsonKeys.vHosts)
+		
+		// Tiers
+		let tArray = NSMutableArray()
+		for tier in tiers {
+			let tDict = NSMutableDictionary()
+			tDict.setValue(tier.name, forKey: JsonKeys.name)
+			tDict.setValue(tier.description ?? "", forKey: JsonKeys.desc)
+			let cnArray = NSMutableArray()
+			for cNode in tier.nodes {
+				cnArray.add((cNode as! Host).name)
+			}
+			tDict.setValue(cnArray, forKey: JsonKeys.cNodes)
+			let srArray = NSMutableArray()
+			for role in tier.roles {
+				srArray.add(role.rawValue)
+			}
+			tDict.setValue(srArray, forKey: JsonKeys.sRoles)
+			tArray.add(tDict)
+		}
+		dict.setValue(tArray, forKey: JsonKeys.tiers)
+		
+		// Default Tiers
+		let dtDict = NSMutableDictionary()
+		for (role, tier) in defaultTiers {
+			dtDict.setValue(tier.name, forKey: role.rawValue)
+		}
+		dict.setValue(dtDict, forKey: JsonKeys.defTiers)
+		
+		// Workflow aliases
+		let wfaDict = NSMutableDictionary()
+		for alias in workflowLibrary.aliases.keys {
+			wfaDict.setValue(workflowLibrary.aliases[alias], forKey: alias)
+		}
+		dict.setValue(wfaDict, forKey: JsonKeys.wfAliases)
+		
+		// Configured workflows
+		let cwArray = NSMutableArray()
+		for cw in configuredWorkflows {
+			let cwDict = NSMutableDictionary()
+			cwDict.setValue(cw.name, forKey: JsonKeys.name)
+			cwDict.setValue(cw.description ?? "", forKey: JsonKeys.desc)
+			cwDict.setValue(cw.definition.name, forKey: JsonKeys.workflow)
+			cwDict.setValue(cw.userCount, forKey: JsonKeys.uCount)
+			cwDict.setValue(cw.productivity, forKey: JsonKeys.productivity)
+			cwDict.setValue(cw.tph, forKey: JsonKeys.tph)
+			cwDict.setValue(cw.client.name, forKey: JsonKeys.client)
+			cwDict.setValue(cw.dataSource.rawValue, forKey: JsonKeys.dataSource)
+			let zone = self.findZone(containing: cw)!
+			cwDict.setValue(zone.name, forKey: JsonKeys.zone)
+			let tDict = NSMutableDictionary()
+			for (cRole, tier) in cw.tiers {
+				tDict.setValue(tier.name, forKey: cRole.rawValue)
+			}
+			cwDict.setValue(tDict, forKey: JsonKeys.tiers)
+			cwArray.add(cwDict)
+		}
+		dict.setValue(cwArray, forKey: JsonKeys.configuredWorkflows)
+		
+		return dict
+	}
+	
 	var isValid:Bool {
 		// TODO: improve evaluation of validity of the design
 		let bNetworkExists = self.zones.count > 0
@@ -205,6 +346,17 @@ struct Design: ObjectIdentity {
 			cw.append(contentsOf: zone.configuredWorkflows)
 		}
 		return cw
+	}
+	
+	var clients: [Client] {
+		var clientsByName = Dictionary<String, Client>()
+		
+		for cw in configuredWorkflows {
+			let c = cw.client
+			clientsByName[c.name] = c
+		}
+		
+		return [Client](clientsByName.values)
 	}
 	
 	var hosts: [Host] {
@@ -235,6 +387,24 @@ struct Design: ObjectIdentity {
 			conns.append(zone.localConnection!)
 		}
 		return conns
+	}
+	
+	var interZoneConnections: [(NetworkConnection, NetworkConnection)] {
+		var links = [(NetworkConnection, NetworkConnection)]()
+		let conns = self.networkConnections.filter({$0.source.id != $0.destination.id})
+		var ids = Set<String>()
+		
+		for conn in conns {
+			if ids.contains(conn.id) == false {
+				// Find the connection in the opposite direction
+				if let revConn = conns.first(where: {$0.destination.id == conn.source.id && $0.source.id == conn.destination.id}) {
+					links.append( (conn, revConn) )
+					ids.insert(conn.id)
+					ids.insert(revConn.id)
+				}
+			}
+		}
+		return links
 	}
 	
 	func findZone(named name:String) -> NetworkZone? {
@@ -273,6 +443,7 @@ struct Design: ObjectIdentity {
 	}
 	
 	private struct JsonKeys {
+		static let version = "version"
 		static let networkZones = "networkZones"
 		static let networkConns = "networkConnections"
 		static let up = "up"
