@@ -10,16 +10,7 @@ struct Design: ObjectIdentity {
 	var hardwareLibrary: HardwareLibrary!
 	var workflowLibrary: WorkflowLibrary!
 	
-	init(at path:String) throws {
-		let url = URL(fileURLWithPath: path)
-		if let jsonData = try? Data(contentsOf: url),
-		   let designData = try? JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
-		{
-			try self.init(from: designData)
-		}
-		else {
-			try self.init(from: NSDictionary())
-		}
+	init() {
 	}
 	
 	init(from designData: NSDictionary) throws {
@@ -191,12 +182,6 @@ struct Design: ObjectIdentity {
 				}
 			}
 		}
-	}
-	
-	func save(to path: String) {
-		let dict = self.toDictionary()
-		
-		// TODO: write to JSON file
 	}
 	
 	func toDictionary() -> NSDictionary {

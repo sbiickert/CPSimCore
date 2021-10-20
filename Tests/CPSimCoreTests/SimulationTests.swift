@@ -6,6 +6,16 @@ final class SimulationTests: XCTestCase {
 		case simple = "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_00_v0.3.json"
 		case waDMZ = "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_01_v0.3.json"
 		case ha = "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_02_v0.3.json"
+		
+		var designData: NSDictionary? {
+			let url = URL(fileURLWithPath: self.rawValue)
+			if let jsonData = try? Data(contentsOf: url),
+			   let designData = try? JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
+			{
+				return designData
+			}
+			return nil
+		}
 	}
 	
 	static var exampleClientRequest: ClientRequest? {
@@ -38,7 +48,7 @@ final class SimulationTests: XCTestCase {
 	}
 	
 	func testDesignLoad() throws {
-		let design = try Design(at: TestDesign.simple.rawValue)
+		let design = try Design(from: TestDesign.simple.designData!)
 		XCTAssert(design.name == "Design 00 (Simple)")
 		XCTAssert(design.zones.count == 3)
 		
@@ -81,7 +91,7 @@ final class SimulationTests: XCTestCase {
 	}
 	
 	func testDesignSave() throws {
-		let design1 = try Design(at: TestDesign.simple.rawValue)
+		let design1 = try Design(from: TestDesign.simple.designData!)
 		let dict = design1.toDictionary()
 		
 		XCTAssert(dict["name"] != nil)
@@ -95,7 +105,7 @@ final class SimulationTests: XCTestCase {
 	}
 	
 	func testWADMZDesignLoad() throws {
-		let design = try Design(at: TestDesign.waDMZ.rawValue)
+		let design = try Design(from: TestDesign.waDMZ.designData!)
 		XCTAssert(design.name == "Design 01 (WA to DMZ)")
 		XCTAssert(design.zones.count == 4)
 		
@@ -149,7 +159,7 @@ final class SimulationTests: XCTestCase {
 	}
 	
 	func testHADesignLoad() throws {
-		let design = try Design(at: TestDesign.ha.rawValue)
+		let design = try Design(from: TestDesign.ha.designData!)
 		XCTAssert(design.name == "Design 02 (HA)")
 		XCTAssert(design.zones.count == 4)
 		
@@ -214,7 +224,7 @@ final class SimulationTests: XCTestCase {
 	}
 
 	func testSingleMapRequest() throws {
-		let design = try Design(at: TestDesign.ha.rawValue)
+		let design = try Design(from: TestDesign.ha.designData!)
 		
 		var clock = 0.0
 		let cw = design.configuredWorkflows.first(where: {$0.name == "Local View"})
@@ -247,7 +257,7 @@ final class SimulationTests: XCTestCase {
 	}
 	
 	func testSingleMapRequestWithCache() throws {
-		let design = try Design(at: TestDesign.ha.rawValue)
+		let design = try Design(from: TestDesign.ha.designData!)
 		
 		var clock = 0.0
 		let cw = design.configuredWorkflows.first(where: {$0.name == "Local View"})
@@ -316,7 +326,7 @@ final class SimulationTests: XCTestCase {
 	
 	func testSimulation() throws {
 		let simulator = Simulator()
-		let design = try Design(at: TestDesign.ha.rawValue)
+		let design = try Design(from: TestDesign.ha.designData!)
 		simulator.design = design
 		
 		simulator.start()
