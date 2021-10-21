@@ -12,20 +12,20 @@ public class Tier: ObjectIdentity {
 	public var name: String = ""
 	public var description: String?
 	
-	var nodes = [ComputeNode]()
-	var roles = Set<ComputeRole>()
+	public var nodes = [ComputeNode]()
+	public var roles = Set<ComputeRole>()
 	
-	var nextEventTime: Double? {
+	public var nextEventTime: Double? {
 		let times = nodes.compactMap({$0.queue.nextEventTime}).sorted()
 		return times.first
 	}
 	
-	var coreCount: UInt {
+	public var coreCount: UInt {
 		return nodes.compactMap({$0.hardware?.coreCount}).reduce(0, +)
 	}
 	
 	private var _roundRobinIndex = 0
-	var roundRobinNode: ComputeNode? {
+	public var roundRobinNode: ComputeNode? {
 		guard nodes.isEmpty == false else { return nil }
 		_roundRobinIndex += 1
 		if _roundRobinIndex >= nodes.count {
@@ -34,7 +34,7 @@ public class Tier: ObjectIdentity {
 		return nodes[_roundRobinIndex]
 	}
 	
-	var isHA: Bool {
+	public var isHA: Bool {
 		get {
 			//TODO: If utilization is low enough that a node could be dropped
 			return false

@@ -12,13 +12,13 @@ public class NetworkZone: ObjectIdentity {
 	public var name: String = ""
 	public var description: String?
 	
-	var localBandwidth: UInt = 1000
-	var connections = [NetworkConnection]()
+	public var localBandwidth: UInt = 1000
+	public var connections = [NetworkConnection]()
 	
-	var configuredWorkflows = [ConfiguredWorkflow]()
-	var hosts = [Host]()
+	public var configuredWorkflows = [ConfiguredWorkflow]()
+	public var hosts = [Host]()
 	
-	init(bandwidth bw: UInt = 100) {
+	public init(bandwidth bw: UInt = 100) {
 		localBandwidth = bw
 		_ = NetworkConnection(sourceZone: self, destZone: self, bandwidth: bw, latencyMilliSeconds: 0) // localConnection
 	}
@@ -44,15 +44,15 @@ public class NetworkZone: ObjectIdentity {
 		return nzDict
 	}
 	
-	var localConnection: NetworkConnection? {
+	public var localConnection: NetworkConnection? {
 		return connections.first(where: {$0.isLocalConnection})
 	}
 	
-	var exitConnections: [NetworkConnection] {
+	public var exitConnections: [NetworkConnection] {
 		return connections.filter({$0.isLocalConnection == false})
 	}
 	
-	func exitConnection(to zone:NetworkZone) -> NetworkConnection? {
+	public func exitConnection(to zone:NetworkZone) -> NetworkConnection? {
 		let connections = exitConnections
 		for conn in connections {
 			if conn.destination === zone {

@@ -10,36 +10,36 @@ import Foundation
 public struct ClientRequestSolution {
 	private var _steps = [ClientRequestSolutionStep]()
 	
-	var stepCount: Int {
+	public var stepCount: Int {
 		return _steps.count
 	}
 	
-	mutating func addStep(_ step: ClientRequestSolutionStep) {
+	mutating public func addStep(_ step: ClientRequestSolutionStep) {
 		_steps.append(step)
 	}
 	
-	mutating func next() -> ClientRequestSolutionStep? {
+	mutating public func next() -> ClientRequestSolutionStep? {
 		return _steps.removeFirst()
 	}
 	
-	var currentStep: ClientRequestSolutionStep? {
+	public var currentStep: ClientRequestSolutionStep? {
 		return _steps.first
 	}
 	
-	var isFinished: Bool {
+	public var isFinished: Bool {
 		return currentStep == nil
 	}
 }
 
 public struct ClientRequestSolutionStep {
-	let calculator: ServiceTimeCalculator
-	let isResponse: Bool
-	let computeRole: ComputeRole
-	let dataSize: Double
+	public let calculator: ServiceTimeCalculator
+	public let isResponse: Bool
+	public let computeRole: ComputeRole
+	public let dataSize: Double
 }
 
 public class ClientRequestSolutionFactory {
-	static func createSolution(for cr:ClientRequest, in design:Design) throws -> ClientRequestSolution? {
+	public static func createSolution(for cr:ClientRequest, in design:Design) throws -> ClientRequestSolution? {
 		var solution = ClientRequestSolution()
 		var computeNodeStack = [ComputeNode]()
 

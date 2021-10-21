@@ -4,16 +4,16 @@ public struct Design: ObjectIdentity {
 	public var id: String = UUID().uuidString
 	public var name: String = ""
 	public var description: String?
-	var zones = [NetworkZone]()
-	var tiers = [Tier]()
-	var defaultTiers = Dictionary<ComputeRole, Tier>()
-	var hardwareLibrary: HardwareLibrary!
-	var workflowLibrary: WorkflowLibrary!
+	public var zones = [NetworkZone]()
+	public var tiers = [Tier]()
+	public var defaultTiers = Dictionary<ComputeRole, Tier>()
+	public var hardwareLibrary: HardwareLibrary!
+	public var workflowLibrary: WorkflowLibrary!
 	
-	init() {
+	public init() {
 	}
 	
-	init(from designData: NSDictionary) throws {
+	public init(from designData: NSDictionary) throws {
 		name = designData[JsonKeys.name] as? String ?? ""
 		
 		hardwareLibrary = try HardwareLibrary.defaultHardware()
@@ -184,7 +184,7 @@ public struct Design: ObjectIdentity {
 		}
 	}
 	
-	func toDictionary() -> NSDictionary {
+	public func toDictionary() -> NSDictionary {
 		let dict = NSMutableDictionary()
 		
 		dict.setValue(self.name, forKey: JsonKeys.name)
@@ -316,7 +316,7 @@ public struct Design: ObjectIdentity {
 		return dict
 	}
 	
-	var isValid:Bool {
+	public var isValid:Bool {
 		// TODO: improve evaluation of validity of the design
 		let bNetworkExists = self.zones.count > 0
 		let bHostExists = self.hosts.count > 0
@@ -325,7 +325,7 @@ public struct Design: ObjectIdentity {
 		return bNetworkExists && bHostExists && bConfiguredWorkflow
 	}
 
-	var configuredWorkflows: [ConfiguredWorkflow] {
+	public var configuredWorkflows: [ConfiguredWorkflow] {
 		var cw = [ConfiguredWorkflow]()
 		for zone in zones {
 			cw.append(contentsOf: zone.configuredWorkflows)
@@ -333,7 +333,7 @@ public struct Design: ObjectIdentity {
 		return cw
 	}
 	
-	var clients: [Client] {
+	public var clients: [Client] {
 		var clientsByName = Dictionary<String, Client>()
 		
 		for cw in configuredWorkflows {
@@ -344,7 +344,7 @@ public struct Design: ObjectIdentity {
 		return [Client](clientsByName.values)
 	}
 	
-	var hosts: [Host] {
+	public var hosts: [Host] {
 		var h = [Host]()
 		for zone in zones {
 			h.append(contentsOf: zone.hosts)
@@ -352,7 +352,7 @@ public struct Design: ObjectIdentity {
 		return h
 	}
 	
-	var computeNodes: [ComputeNode] {
+	public var computeNodes: [ComputeNode] {
 		var nodes = [ComputeNode]()
 		nodes.append(contentsOf: hosts)
 		for configuredWorkflow in configuredWorkflows {
@@ -361,7 +361,7 @@ public struct Design: ObjectIdentity {
 		return nodes
 	}
 	
-	var networkConnections: [NetworkConnection] {
+	public var networkConnections: [NetworkConnection] {
 		var conns = [NetworkConnection]()
 		for zone in zones {
 			let noDupes = zone.exitConnections.filter({a in
@@ -374,7 +374,7 @@ public struct Design: ObjectIdentity {
 		return conns
 	}
 	
-	var interZoneConnections: [(NetworkConnection, NetworkConnection)] {
+	public var interZoneConnections: [(NetworkConnection, NetworkConnection)] {
 		var links = [(NetworkConnection, NetworkConnection)]()
 		let conns = self.networkConnections.filter({$0.source.id != $0.destination.id})
 		var ids = Set<String>()
@@ -392,15 +392,15 @@ public struct Design: ObjectIdentity {
 		return links
 	}
 	
-	func findZone(named name:String) -> NetworkZone? {
+	public func findZone(named name:String) -> NetworkZone? {
 		return zones.first(where: {$0.name == name})
 	}
 	
-	func findZone(containing host: Host) -> NetworkZone? {
+	public func findZone(containing host: Host) -> NetworkZone? {
 		return findZone(containingHostNamed: host.name)
 	}
 	
-	func findZone(containingHostNamed name: String) -> NetworkZone? {
+	public func findZone(containingHostNamed name: String) -> NetworkZone? {
 		for zone in zones {
 			if zone.hosts.contains(where: {$0.name == name}) {
 				return zone
@@ -409,7 +409,7 @@ public struct Design: ObjectIdentity {
 		return nil
 	}
 	
-	func findZone(containing cw: ConfiguredWorkflow) -> NetworkZone? {
+	public func findZone(containing cw: ConfiguredWorkflow) -> NetworkZone? {
 		for zone in zones {
 			if zone.configuredWorkflows.contains(where: {$0.name == cw.name}) {
 				return zone
@@ -418,7 +418,7 @@ public struct Design: ObjectIdentity {
 		return nil
 	}
 	
-	func findHost(named name: String) -> Host? {
+	public func findHost(named name: String) -> Host? {
 		for zone in zones {
 			if let host = zone.hosts.first(where: {$0.name == name}) {
 				return host

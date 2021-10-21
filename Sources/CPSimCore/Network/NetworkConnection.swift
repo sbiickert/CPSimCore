@@ -12,7 +12,7 @@ public class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
 	public var name: String = ""
 	public var description: String?
 	
-	var source: NetworkZone {
+	public var source: NetworkZone {
 		willSet {
 			source.connections.removeAll(where: {$0 === self})
 		}
@@ -20,7 +20,7 @@ public class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
 			source.connections.append(self)
 		}
 	}
-	var destination: NetworkZone {
+	public var destination: NetworkZone {
 		willSet {
 			destination.connections.removeAll(where: {$0 === self})
 		}
@@ -28,16 +28,16 @@ public class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
 			destination.connections.append(self)
 		}
 	}
-	var bandwidth: UInt
-	var latency: UInt
+	public var bandwidth: UInt
+	public var latency: UInt
 
 	public var queue: MultiQueue
 
-	var isLocalConnection: Bool {
+	public var isLocalConnection: Bool {
 		return source === destination
 	}
 
-	init(sourceZone: NetworkZone, destZone: NetworkZone, bandwidth bw: UInt = 100, latencyMilliSeconds: UInt = 10) {
+	public init(sourceZone: NetworkZone, destZone: NetworkZone, bandwidth bw: UInt = 100, latencyMilliSeconds: UInt = 10) {
 		source = sourceZone
 		destination = destZone
 		bandwidth = bw
@@ -56,7 +56,7 @@ public class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
 		queue.name = "\(name) Q"
 	}
 	
-	func invert() -> NetworkConnection {
+	public func invert() -> NetworkConnection {
 		return NetworkConnection(sourceZone: self.destination,
 								 destZone: self.source,
 								 bandwidth: self.bandwidth,

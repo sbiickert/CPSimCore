@@ -11,11 +11,11 @@ public class ClientRequestMetrics {
 	static let NETWORK_KEY = "network"
 	private var metrics = Dictionary<String, Metric>()
 	
-	var keys: Dictionary<String, Metric>.Keys {
-		return metrics.keys
+	public var keys: [String] {
+		return [String](metrics.keys)
 	}
 	
-	var totalServiceTime: Double {
+	public var totalServiceTime: Double {
 		var total = 0.0
 		for (_, metric) in metrics {
 			total += metric.serviceTime
@@ -23,7 +23,7 @@ public class ClientRequestMetrics {
 		return total
 	}
 	
-	var totalQueueTime: Double {
+	public var totalQueueTime: Double {
 		var total = 0.0
 		for (_, metric) in metrics {
 			total += metric.queueTime
@@ -31,7 +31,7 @@ public class ClientRequestMetrics {
 		return total
 	}
 	
-	var totalLatencyTime: Double {
+	public var totalLatencyTime: Double {
 		var total = 0.0
 		for (_, metric) in metrics {
 			total += metric.latency
@@ -39,12 +39,12 @@ public class ClientRequestMetrics {
 		return total
 	}
 	
-	var responseTime: Double {
+	public var responseTime: Double {
 		return totalLatencyTime + totalServiceTime + totalQueueTime
 	}
 
 	@discardableResult
-	func add(serviceTime: Double, to key: String) -> Double {
+	public func add(serviceTime: Double, to key: String) -> Double {
 		assert(serviceTime >= 0.0)
 		if metrics.keys.contains(key) == false {
 			metrics[key] = Metric()
@@ -54,7 +54,7 @@ public class ClientRequestMetrics {
 	}
 	
 	@discardableResult
-	func add(queueTime: Double, to key: String) -> Double {
+	public func add(queueTime: Double, to key: String) -> Double {
 		assert(queueTime >= 0.0)
 		if metrics.keys.contains(key) == false {
 			metrics[key] = Metric()
@@ -64,7 +64,7 @@ public class ClientRequestMetrics {
 	}
 	
 	@discardableResult
-	func addLatency(_ time: Double) -> Double {
+	public func addLatency(_ time: Double) -> Double {
 		assert(time >= 0.0)
 		if metrics.keys.contains(ClientRequestMetrics.NETWORK_KEY) == false {
 			metrics[ClientRequestMetrics.NETWORK_KEY] = Metric()

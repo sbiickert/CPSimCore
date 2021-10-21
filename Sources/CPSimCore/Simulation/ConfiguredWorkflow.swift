@@ -12,24 +12,24 @@ public class ConfiguredWorkflow: ObjectIdentity {
 	public var name: String
 	public var description: String?
 	
-	var userCount = 0
-	var productivity = 0.0
-	var tph = 0
-	var dataSource = DataSourceType.DBMS
+	public var userCount = 0
+	public var productivity = 0.0
+	public var tph = 0
+	public var dataSource = DataSourceType.DBMS
 	
-	var definition: WorkflowDefinition
-	var client: Client
-	var tiers = Dictionary<ComputeRole, Tier>()
+	public var definition: WorkflowDefinition
+	public var client: Client
+	public var tiers = Dictionary<ComputeRole, Tier>()
 	
 	private(set) public var nextEventTime: Double?
 	
-	init(name: String, definition: WorkflowDefinition, client: Client) {
+	public init(name: String, definition: WorkflowDefinition, client: Client) {
 		self.name = name
 		self.definition = definition
 		self.client = client
 	}
 	
-	var tps: Double {
+	public var tps: Double {
 		if tph > 0 {
 			// This configured workflow's rate is in TPH
 			return Double(self.tph) / 3600
@@ -39,14 +39,14 @@ public class ConfiguredWorkflow: ObjectIdentity {
 	}
 	
 	@discardableResult
-	func calcNextEventTime(currentClock clock:Double) -> Double? {
+	public func calcNextEventTime(currentClock clock:Double) -> Double? {
 		let time = clock + (1.0/tps).randomAdjusted()
 		assert(time > 0.0)
 		self.nextEventTime = time
 		return self.nextEventTime
 	}
 
-	func copy() -> ConfiguredWorkflow {
+	public func copy() -> ConfiguredWorkflow {
 		let duplicate = ConfiguredWorkflow(name: self.name, definition: self.definition, client: self.client)
 		duplicate.description = self.description
 		duplicate.userCount = self.userCount

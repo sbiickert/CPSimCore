@@ -9,38 +9,38 @@
 import Foundation
 
 public class MultiQueue {
-	var delegate: ServiceTimeCalculator?
+	public var delegate: ServiceTimeCalculator?
 	
-	var name: String = "Unnnamed"
-	var mode: WaitMode = .queueing
+	public var name: String = "Unnnamed"
+	public var mode: WaitMode = .queueing
 	//var metricsKey: String = ""
 
 	private var _mainQueue = [WaitingRequest]()
 	private var _channels = [WaitingRequest?]()
 	private(set) var metrics: MultiQueueMetrics
 	
-	init(channelCount: UInt) {
+	public init(channelCount: UInt) {
 		for _ in 0..<channelCount {
 			_channels.append(nil)
 		}
 		metrics = MultiQueueMetrics(channelCount: channelCount)
 	}
 
-	var requestedChannelCount: Int?
-	var channelCount: Int {
+	public var requestedChannelCount: Int?
+	public var channelCount: Int {
 		get {
 			return _channels.count
 		}
 	}
-	var availableChannelCount: Int {
+	public var availableChannelCount: Int {
 		return _channels.filter({$0 == nil}).count
 	}
-	var requestCount: Int {
+	public var requestCount: Int {
 		return _mainQueue.count + _channels.filter({$0 != nil}).count
 	}
 	
 
-	var nextEventTime: Double? {
+	public var nextEventTime: Double? {
 		get {
 			return self._channels.compactMap({ $0?.waitEndTime }).sorted().first
 		}
@@ -136,7 +136,7 @@ public class MultiQueue {
 		return finishedRequests
 	}
 	
-	func isRequestBeingHandled(_ request: ClientRequest) -> Bool {
+	public func isRequestBeingHandled(_ request: ClientRequest) -> Bool {
 		if _mainQueue.contains(where: { $0.request == request} ) {
 			return true
 		}
@@ -149,7 +149,7 @@ public class MultiQueue {
 	}
 }
 
-enum WaitMode {
+public enum WaitMode {
 	case processing
 	case transmitting
 	case queueing

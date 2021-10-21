@@ -7,10 +7,10 @@
 
 import Foundation
 
-typealias QueueMetric = (clock: Double, requestCount: Int)
+public typealias QueueMetric = (clock: Double, requestCount: Int)
 
 public struct MultiQueueMetrics {
-	var channelCount: UInt {
+	public var channelCount: UInt {
 		didSet {
 			assert(channelCount > 0)
 			// If queue is resized, existing utilization values cleared
@@ -19,26 +19,26 @@ public struct MultiQueueMetrics {
 	}
 	private var _data = [QueueMetric]()
 	
-	init(channelCount: UInt) {
+	public init(channelCount: UInt) {
 		self.channelCount = channelCount
 	}
 	
-	var dataTimeWindow: Double? {
+	public var dataTimeWindow: Double? {
 		guard _data.count > 0 else {
 			return nil
 		}
 		return _data.last!.clock - _data.first!.clock
 	}
 	
-	var lastClock: Double? {
+	public var lastClock: Double? {
 		return _data.last?.clock
 	}
 	
-	mutating func add(dataPoint: QueueMetric) {
+	mutating public func add(dataPoint: QueueMetric) {
 		_data.append(dataPoint)
 	}
 	
-	func utilization(inPrevious time: Double?) -> Double {
+	public func utilization(inPrevious time: Double?) -> Double {
 		guard _data.count > 0 else {
 			return 0.0
 		}

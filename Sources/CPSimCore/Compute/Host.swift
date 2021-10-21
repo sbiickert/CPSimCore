@@ -64,9 +64,9 @@ public class VirtualHost: Host {
 	}
 	public var description: String?
 	
-	var vCpuCount: UInt
-	var vMemGB: UInt
-	weak var physicalHost: PhysicalHost! {
+	public var vCpuCount: UInt
+	public var vMemGB: UInt
+	public weak var physicalHost: PhysicalHost! {
 		willSet {
 			physicalHost.virtualHosts.removeAll(where: {$0.id == self.id})
 		}
@@ -86,7 +86,7 @@ public class VirtualHost: Host {
 	}
 	public var queue: MultiQueue
 
-	init(_ host: PhysicalHost, vCpus: UInt = 4, vMemGB: UInt = 16) {
+	public init(_ host: PhysicalHost, vCpus: UInt = 4, vMemGB: UInt = 16) {
 		self.name = ""
 		self.physicalHost = host
 		self.vCpuCount = vCpus

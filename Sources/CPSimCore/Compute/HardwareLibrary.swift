@@ -42,7 +42,7 @@ public struct HardwareLibrary {
 		}
 	}
 	
-	func findHardware(_ key: String) -> HardwareDefinition? {
+	public func findHardware(_ key: String) -> HardwareDefinition? {
 		if aliases.keys.contains(key) {
 			return self._hardware[aliases[key]!]
 		}

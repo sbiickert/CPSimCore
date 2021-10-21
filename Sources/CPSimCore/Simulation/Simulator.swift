@@ -9,7 +9,7 @@ import Foundation
 
 public class Simulator {
 	// Multiplies the clock run speed to slow or speed up simulation
-	var clockScale: Double = 1.0 {
+	public var clockScale: Double = 1.0 {
 		didSet {
 			if clockScale < 0.1 {
 				clockScale = 0.1
@@ -22,16 +22,16 @@ public class Simulator {
 	private(set) var clock: Double = 0.0
 	private(set) var isRunning:Bool = false
 	
-	var active = [ClientRequest]()
-	var handled = [ClientRequest]()
+	public var active = [ClientRequest]()
+	public var handled = [ClientRequest]()
 	
-	var design: Design? {
+	public var design: Design? {
 		didSet {
 			reset()
 		}
 	}
 	
-	func start() {
+	public func start() {
 		guard design != nil && design!.isValid else {
 			print("Could not start simulator. No valid design.")
 			return
@@ -45,12 +45,12 @@ public class Simulator {
 		isRunning = true
 	}
 	
-	func stop() {
+	public func stop() {
 		self.isRunning = false
 		self.reset()
 	}
 	
-	func pause() {
+	public func pause() {
 		self.isRunning = false
 	}
 	
@@ -60,7 +60,7 @@ public class Simulator {
 		handled.removeAll()
 	}
 	
-	func advanceTime(by seconds: Double) {
+	public func advanceTime(by seconds: Double) {
 		assert(seconds > 0.0, "Call to advanceTime:by: with zero or negative delta time.")
 		
 		// Clock scale speeds or slows the simulation advance
@@ -144,7 +144,7 @@ public class Simulator {
 		self.clock = toClock
 	}
 	
-	func moveRequestToHandled(request: ClientRequest) {
+	private func moveRequestToHandled(request: ClientRequest) {
 //		if request.name.contains("$$") == false {
 //			print("\(request.name) FINISHED [\(request.metrics.responseTime)]")
 //		}
@@ -155,7 +155,7 @@ public class Simulator {
 		}
 	}
 	
-	var nextEventTime: Double? {
+	public var nextEventTime: Double? {
 		var nextTime:Double?
 		guard design != nil else {
 			return nil

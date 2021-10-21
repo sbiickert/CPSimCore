@@ -11,9 +11,9 @@ public class ClientRequest: ObjectIdentity, Equatable {
 	public static func == (lhs: ClientRequest, rhs: ClientRequest) -> Bool {
 		return lhs.id == rhs.id
 	}
-	static let requestTime = 0.0001 // seconds
-	static let requestSize = 0.1 // Mb
-	static var _counter:Int = 0
+	public static let requestTime = 0.0001 // seconds
+	public static let requestSize = 0.1 // Mb
+	public static var _counter:Int = 0
 	static var nextID: String  {
 		_counter += 1
 		return "CR-\(_counter)"
@@ -24,21 +24,21 @@ public class ClientRequest: ObjectIdentity, Equatable {
 	public var description: String?
 
 	// Definition of the request
-	let configuredWorkflow: ConfiguredWorkflow!
+	public let configuredWorkflow: ConfiguredWorkflow!
 	
 	// The means to solve the request
-	var solution: ClientRequestSolution?
+	public var solution: ClientRequestSolution?
 	
 	// The traffic and service times for *this* request, randomly different from other requests
-	var cacheTraffic: Double!
-	var clientTraffic: Double!
-	var serverTraffic: Double!
-	var serviceTimes = Dictionary<ComputeRole, Double>()
+	public var cacheTraffic: Double!
+	public var clientTraffic: Double!
+	public var serverTraffic: Double!
+	public var serviceTimes = Dictionary<ComputeRole, Double>()
 	
 	// Execution Metrics
-	let metrics = ClientRequestMetrics()
+	public let metrics = ClientRequestMetrics()
 
-	init(configuredWorkflow cw: ConfiguredWorkflow) {
+	public init(configuredWorkflow cw: ConfiguredWorkflow) {
 		configuredWorkflow = cw
 		name = "\(id): \(cw.name)"
 		
@@ -68,7 +68,7 @@ public class ClientRequest: ObjectIdentity, Equatable {
 		}
 	}
 
-	var isFinished:Bool {
+	public var isFinished:Bool {
 		// If there is no solution, the request is finished.
 		return solution?.isFinished ?? true
 	}

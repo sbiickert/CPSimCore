@@ -10,19 +10,19 @@ import Foundation
 public struct WorkflowLibrary {
 	static let PATH = "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/workflows.json"
 	static let GITHUB_URL = "https://raw.githubusercontent.com/sbiickert/CPSimCore/main/Library/workflows.json"
-	static func defaultWorkflows() throws -> WorkflowLibrary {
+	public static func defaultWorkflows() throws -> WorkflowLibrary {
 		return try WorkflowLibrary(at: URL(string: GITHUB_URL)!)
 	}
 
-	var aliases = Dictionary<String, String>()
+	public var aliases = Dictionary<String, String>()
 	private var _workflows = Dictionary<String, WorkflowDefinition>()
 	
-	init(at path:String) throws {
+	public init(at path:String) throws {
 		let url = URL(fileURLWithPath: path)
 		try self.init(at: url)
 	}
 	
-	init(at url:URL) throws {
+	public init(at url:URL) throws {
 		if let jsonData = try? Data(contentsOf: url),
 		   let workflowData = try? JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
 		{
@@ -35,34 +35,34 @@ public struct WorkflowLibrary {
 		}
 	}
 	
-	func findWorkflow(_ key: String) -> WorkflowDefinition? {
+	public func findWorkflow(_ key: String) -> WorkflowDefinition? {
 		if aliases.keys.contains(key) {
 			return self._workflows[aliases[key]!]
 		}
 		return self._workflows[key]
 	}
 	
-	var count: Int {
+	public var count: Int {
 		return _workflows.count
 	}
 }
 
 public struct WorkflowDefinition: ObjectIdentity {
-	static let cacheServiceTime = 0.001
+	public static let cacheServiceTime = 0.001
 	
 	public var id: String = UUID().uuidString
 	public var name: String
 	public var description: String?
 
-	var serviceTimes = Dictionary<ComputeRole, Double>()
-	var category: String?
-	var serviceType = ServiceType.map
-	var chatter: UInt = 0
-	var clientTraffic: Double = 0.0
-	var serverTraffic: Double = 0.0
-	var thinkTime: UInt = 0
+	public var serviceTimes = Dictionary<ComputeRole, Double>()
+	public var category: String?
+	public var serviceType = ServiceType.map
+	public var chatter: UInt = 0
+	public var clientTraffic: Double = 0.0
+	public var serverTraffic: Double = 0.0
+	public var thinkTime: UInt = 0
 	
-	init(workflowData: NSDictionary) throws {
+	public init(workflowData: NSDictionary) throws {
 		if let id = workflowData.value(forKey: "id") as? String {
 			self.id = id
 		}
@@ -86,12 +86,12 @@ public struct WorkflowDefinition: ObjectIdentity {
 		serviceTimes[.cache] = WorkflowDefinition.cacheServiceTime
 	}
 	
-	var clientServiceTime: Double {
+	public var clientServiceTime: Double {
 		return serviceTimes[ComputeRole.client] ?? 0.0
 	}
 
 	
-	var hasCache: Bool {
+	public var hasCache: Bool {
 		get {
 			let nameHasCache = self.name.contains("+$$")
 			let descHasCache = self.description?.contains("+$$") ?? false
@@ -120,7 +120,7 @@ public enum ServiceType: String, CaseIterable {
 	case rasterAnalytics = "raster_analytics"
 	case geoAnalytics = "geo_analytics"
 	
-	static func from(string value:String) -> ServiceType {
+	public static func from(string value:String) -> ServiceType {
 		let lc = value.lowercased()
 		return ServiceType(rawValue: lc) ?? ServiceType.custom
 	}
