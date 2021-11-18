@@ -3,9 +3,9 @@ import XCTest
 
 final class SimulationTests: XCTestCase {
 	private enum TestDesign: String {
-		case simple = "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_00_v0.3.json"
-		case waDMZ = "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_01_v0.3.json"
-		case ha = "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/design_02_v0.3.json"
+		case simple = "/Users/sjb/Developer/Capacity Planning/CPSimCore/Config/design_00_v0.3.json"
+		case waDMZ = "/Users/sjb/Developer/Capacity Planning/CPSimCore/Config/design_01_v0.3.json"
+		case ha = "/Users/sjb/Developer/Capacity Planning/CPSimCore/Config/design_02_v0.3.json"
 		
 		var designData: NSDictionary? {
 			let url = URL(fileURLWithPath: self.rawValue)
