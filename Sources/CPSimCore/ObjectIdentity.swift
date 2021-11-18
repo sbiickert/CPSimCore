@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// Protocol for assigning id, name and description for all model objects.
 public protocol ObjectIdentity {
 	var id: String {get set}
 	var name: String {get set}

@@ -15,6 +15,9 @@ extension Double {
 		return (self * divisor).rounded() / divisor
 	}
 	
+	
+	/// A way to distribute standard values either higher or lower.
+	/// - Returns: The value multiplied by a random factor.
 	func randomAdjusted() -> Double {
 		let randomValue = Double.random(in: 0.0 ... 100.0)
 		var adjusted = self

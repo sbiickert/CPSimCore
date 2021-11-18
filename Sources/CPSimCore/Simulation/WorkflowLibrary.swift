@@ -7,21 +7,32 @@
 
 import Foundation
 
+/// A container for ``WorkflowDefinition`` objects loaded from the source JSON definition.
 public struct WorkflowLibrary {
-	static let PATH = "/Users/sjb/Code/Capacity Planning/CPSimCore/Config/workflows.json"
-	static let GITHUB_URL = "https://raw.githubusercontent.com/sbiickert/CPSimCore/main/Library/workflows.json"
+	static let PATH = "/Users/sjb/Developer/Capacity Planning/CPSimCore/Config/workflows.json"
+	/// The online location of the master copy of the workflow library.
+	public static let GITHUB_URL = "https://raw.githubusercontent.com/sbiickert/CPSimCore/main/Library/workflows.json"
+	
+	/// Creates a library based on the online location
 	public static func defaultWorkflows() throws -> WorkflowLibrary {
 		return try WorkflowLibrary(at: URL(string: GITHUB_URL)!)
 	}
 
+	/// Shorter alias names referencing the full names of workflow definitions
 	public var aliases = Dictionary<String, String>()
+	
+	/// Private storage of the workflow definitions by name
 	private var _workflows = Dictionary<String, WorkflowDefinition>()
 	
+	/// Convenience initializer for opening a local file
+	/// - Parameter path: The file path to read workflow definitions from.
 	public init(at path:String) throws {
 		let url = URL(fileURLWithPath: path)
 		try self.init(at: url)
 	}
 	
+	/// Initializer for opening the workflow definitions from a URL (file or Internet)
+	/// - Parameter url: The URL to read workflow definitions from.
 	public init(at url:URL) throws {
 		if let jsonData = try? Data(contentsOf: url),
 		   let workflowData = try? JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
@@ -35,6 +46,9 @@ public struct WorkflowLibrary {
 		}
 	}
 	
+	/// Searches the library for a workflow definition by either name or alias
+	/// - Parameter key: The workflow definition's name or alias
+	/// - Returns: The workflow definition if found. `nil` if not found.
 	public func findWorkflow(_ key: String) -> WorkflowDefinition? {
 		if aliases.keys.contains(key) {
 			return self._workflows[aliases[key]!]
@@ -42,11 +56,14 @@ public struct WorkflowLibrary {
 		return self._workflows[key]
 	}
 	
+	/// The number of workflows in the library.
 	public var count: Int {
 		return _workflows.count
 	}
 }
 
+/// Structure encapsulating the relevant attributes of a workflow
+/// Includes key values like service times, network traffic.
 public struct WorkflowDefinition: ObjectIdentity {
 	public static let cacheServiceTime = 0.001
 	

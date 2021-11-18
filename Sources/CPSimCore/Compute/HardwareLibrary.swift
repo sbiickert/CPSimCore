@@ -31,7 +31,7 @@ public struct HardwareLibrary {
 		try self.init(at: url)
 	}
 	
-	/// Initializer for opening the hardware definition from a URL (file or Internet)
+	/// Initializer for opening the hardware definitions from a URL (file or Internet)
 	/// - Parameter url: The URL to read hardware definitions from.
 	init(at url: URL) throws {
 		if let jsonData = try? Data(contentsOf: url),
