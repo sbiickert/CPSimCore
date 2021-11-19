@@ -25,15 +25,13 @@ public struct Design: ObjectIdentity {
 	public var workflowLibrary: WorkflowLibrary!
 	
 	/// Iniitializer. Creates a completely empty design.
-	public init() throws {
-		hardwareLibrary = try HardwareLibrary.defaultHardware()
-		workflowLibrary = try WorkflowLibrary.defaultWorkflows()
+	public init() {
 	}
 	
 	/// Initializer taking a parsed dictionary of a saved design.
 	/// - Parameter designData: Previously-saved design data.
 	public init(from designData: NSDictionary) throws {
-		try self.init()
+		try loadDefaultLibraries()
 		
 		name = designData[JsonKeys.name] as? String ?? ""
 		
@@ -200,6 +198,12 @@ public struct Design: ObjectIdentity {
 				}
 			}
 		}
+	}
+	
+	/// Initializes the hardware and workflow libraries based on the GitHub files.
+	public mutating func loadDefaultLibraries() throws {
+		self.hardwareLibrary = try HardwareLibrary.defaultHardware()
+		self.workflowLibrary = try WorkflowLibrary.defaultWorkflows()
 	}
 	
 	/// Method to save the design.
