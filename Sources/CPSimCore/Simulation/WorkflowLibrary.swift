@@ -65,20 +65,33 @@ public struct WorkflowLibrary {
 /// Structure encapsulating the relevant attributes of a workflow
 /// Includes key values like service times, network traffic.
 public struct WorkflowDefinition: ObjectIdentity {
+	/// Standard time in seconds for service times for cached operations.
 	public static let cacheServiceTime = 0.001
 	
+	/// A unique ID that is created when the object is created
 	public var id: String = UUID().uuidString
+	/// A name for the workflow (expected to be unique)
 	public var name: String
+	/// A friendly description of the workflow
 	public var description: String?
 
+	/// Mapping of the service times for the workflow. Workflows do not have service times for all roles.
 	public var serviceTimes = Dictionary<ComputeRole, Double>()
+	/// General categorization: standard, sample.
 	public var category: String?
+	/// The type of service associated with this workflow
 	public var serviceType = ServiceType.map
+	/// The amount of network chatter between the client and the system.
 	public var chatter: UInt = 0
+	/// The amount of network traffic after rendering. In Mb.
 	public var clientTraffic: Double = 0.0
+	/// The amount of network traffic before rendering. In Mb.
 	public var serverTraffic: Double = 0.0
+	/// The minimum amount of think time for the workflow in seconds.
 	public var thinkTime: UInt = 0
 	
+	/// Initalizer
+	/// - Parameter workflowData: The decoded information from workflows.json
 	public init(workflowData: NSDictionary) throws {
 		if let id = workflowData.value(forKey: "id") as? String {
 			self.id = id
@@ -103,11 +116,12 @@ public struct WorkflowDefinition: ObjectIdentity {
 		serviceTimes[.cache] = WorkflowDefinition.cacheServiceTime
 	}
 	
+	/// Convenience accessor to get the ``ComputeRole/client`` service time from ``serviceTimes``.
 	public var clientServiceTime: Double {
 		return serviceTimes[ComputeRole.client] ?? 0.0
 	}
 
-	
+	/// Returns `true` if the name has the `+$$` flag.
 	public var hasCache: Bool {
 		get {
 			let nameHasCache = self.name.contains("+$$")
@@ -118,6 +132,8 @@ public struct WorkflowDefinition: ObjectIdentity {
 	}
 }
 
+/// Enumeration of the known GIS service types
+/// Each service type is known to have a particular chain of software roles that work together to create a response.
 public enum ServiceType: String, CaseIterable {
 	case map = "map"
 	case cache = "$$"
@@ -137,11 +153,15 @@ public enum ServiceType: String, CaseIterable {
 	case rasterAnalytics = "raster_analytics"
 	case geoAnalytics = "geo_analytics"
 	
+	/// Convenience method to create a service type from a string.
+	/// - Parameter value: Case-independent way to pass a raw value.
+	/// - Returns: The corresponding service type. If the string does not evaluate to a known type, ``ServiceType/custom`` is returned.
 	public static func from(string value:String) -> ServiceType {
 		let lc = value.lowercased()
 		return ServiceType(rawValue: lc) ?? ServiceType.custom
 	}
 	
+	/// For a given service type, return the series of compute roles to create the response.
 	public var serverRoleChain: [ComputeRole] {
 		var chain = [ComputeRole]()
 		switch self {

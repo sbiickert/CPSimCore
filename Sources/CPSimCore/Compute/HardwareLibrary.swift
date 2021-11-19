@@ -42,7 +42,7 @@ public struct HardwareLibrary {
 			if let hwTypes = jsonResult["hardwareTypes"] as? NSArray {
 				for element in hwTypes {
 					if let hwInfo = element as? NSDictionary {
-						let hwDef = HardwareDefinition(info: hwInfo)
+						let hwDef = HardwareDefinition(hardwareData: hwInfo)
 						_hardware[hwDef.name] = hwDef
 					}
 				}
@@ -94,20 +94,20 @@ public struct HardwareDefinition: ObjectIdentity, Equatable {
 	
 	/// Initializer
 	/// - Parameter info: The decoded information from hardware.json
-	init(info: NSDictionary) {
-		if let id = info.value(forKey: "id") as? String {
+	init(hardwareData: NSDictionary) {
+		if let id = hardwareData.value(forKey: "id") as? String {
 			self.id = id
 		}
-		id = info["name"] as! String
-		name = info["name"] as! String
-		category = info["category"] as? String
-		processor = info["processor"] as! String
-		coreCount = info["nCores"] as! UInt
-		chipCount = info["nChips"] as! UInt
-		mhz = (info["mhz"] as? NSNumber)?.intValue ?? 1 // AMIs can have fractional mhz for some reason
-		specRating = info["spec"] as! UInt
-		platform = Platform(rawValue: info["platform"] as! String) ?? .intel
-		referenceYear = info["refYear"] as? UInt ?? 2000
+		id = hardwareData["name"] as! String
+		name = hardwareData["name"] as! String
+		category = hardwareData["category"] as? String
+		processor = hardwareData["processor"] as! String
+		coreCount = hardwareData["nCores"] as! UInt
+		chipCount = hardwareData["nChips"] as! UInt
+		mhz = (hardwareData["mhz"] as? NSNumber)?.intValue ?? 1 // AMIs can have fractional mhz for some reason
+		specRating = hardwareData["spec"] as! UInt
+		platform = Platform(rawValue: hardwareData["platform"] as! String) ?? .intel
+		referenceYear = hardwareData["refYear"] as? UInt ?? 2000
 	}
 	
 	/// The ``specRating`` divided by the total number of cores (``coreCount`` * ``chipCount``)

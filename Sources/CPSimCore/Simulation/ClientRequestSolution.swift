@@ -7,38 +7,59 @@
 
 import Foundation
 
+/// The set of steps the request needs to follow in order to be completed.
+/// Works as a FIFO queue.
 public struct ClientRequestSolution {
+	/// Internal storage of the steps, in order.
 	private var _steps = [ClientRequestSolutionStep]()
 	
+	/// The number of remaining steps in the solution.
 	public var stepCount: Int {
 		return _steps.count
 	}
 	
+	/// Appends a step to the end of the solution.
+	/// - Parameter step: The step to add to the solution.
 	mutating public func addStep(_ step: ClientRequestSolutionStep) {
 		_steps.append(step)
 	}
 	
+	/// Gets *and removes* the first step in the solution. **Destructive**
+	/// - Returns: The first step in the solution, now removed.
 	mutating public func next() -> ClientRequestSolutionStep? {
 		return _steps.removeFirst()
 	}
 	
+	/// The first step in the solution. **Non-destructive**
 	public var currentStep: ClientRequestSolutionStep? {
 		return _steps.first
 	}
 	
+	/// Returns `true` if there are no more steps.
 	public var isFinished: Bool {
 		return currentStep == nil
 	}
 }
 
+/// Struct representing a step in the solution.
 public struct ClientRequestSolutionStep {
+	/// The compute node or network connection that will be handling the step.
 	public let calculator: ServiceTimeCalculator
+	/// Is this on the outgoing (request) or incoming (response) leg of the solution.
 	public let isResponse: Bool
+	/// The compute role in the ``ServiceType/serverRoleChain`` that this step represents.
 	public let computeRole: ComputeRole
+	/// The data size transferring in this step.
 	public let dataSize: Double
 }
 
+/// Factory object with one responsibility: to create a solution for a request based on the ``Simulator/design``.
 public class ClientRequestSolutionFactory {
+	/// Method to create the solution.
+	/// - Parameters:
+	///   - cr: The request to create a solution for.
+	///   - design: The current design.
+	/// - Returns: The solution. Will return `nil` if no solution is possible.
 	public static func createSolution(for cr:ClientRequest, in design:Design) throws -> ClientRequestSolution? {
 		var solution = ClientRequestSolution()
 		var computeNodeStack = [ComputeNode]()
@@ -223,9 +244,13 @@ public class ClientRequestSolutionFactory {
 	}
 }
 
+/// Utility class to build a network route between network zones.
 private class NetworkRouteFinder {
+	/// The zone to navigate from.
 	let fromZone: NetworkZone
+	/// The zone to navigate to.
 	let toZone: NetworkZone
+	
 	private var breadcrumbs = NetworkRoute()
 	private var followedConnections = Dictionary<String, NetworkConnection>() // Should never follow the same connection twice
 	private var exploredZones = Dictionary<String, NetworkZone>() // Should never explore the same zone twice
@@ -236,10 +261,13 @@ private class NetworkRouteFinder {
 		toZone = tz
 	}
 	
+	/// Returns `true` if the from zone and to zone are the same.
 	var isLocalRoute: Bool {
 		return self.fromZone.id == self.toZone.id
 	}
-
+	
+	/// Method to find the network route.
+	/// - Returns: List of network connections to traverse in order to route through the network.
 	func find() -> [NetworkConnection]? {
 		if isLocalRoute {
 			return [fromZone.localConnection!]
@@ -257,6 +285,8 @@ private class NetworkRouteFinder {
 		return networkConnections(for: route!)
 	}
 	
+	/// Recursive worker function to find the route.
+	/// - Parameter currentZone: The current zone when tracing through the network.
 	private func rFind(currentZone: NetworkZone) {
 		// Add currentZone to the explored zones so that routes don't double back.
 		exploredZones[currentZone.id] = currentZone
@@ -281,6 +311,7 @@ private class NetworkRouteFinder {
 		breadcrumbs.pop()
 	}
 	
+	/// If the network tracing finds more than one route, this accessor will return the best.
 	private var bestRoute: NetworkRoute? {
 		if routes.count == 0 {
 			return nil

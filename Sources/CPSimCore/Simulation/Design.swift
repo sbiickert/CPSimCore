@@ -1,24 +1,42 @@
 import Foundation
 
+/// The top-level model object in ``CPSimCore``. The ``Simulator`` runs a configured design.
 public struct Design: ObjectIdentity {
+	/// A unique ID that is created when the object is created
 	public var id: String = UUID().uuidString
+	/// A name for the design
 	public var name: String = ""
+	/// A friendly description of the design
 	public var description: String?
+	
+	/// A list of network zones. All activity happens in a zone.
 	public var zones = [NetworkZone]()
+	
+	/// The clusters of compute nodes that provide software functionality.
 	public var tiers = [Tier]()
+	
+	/// The defaults for the design. ``ConfiguredWorkflow``s can specify non-default tiers.
 	public var defaultTiers = Dictionary<ComputeRole, Tier>()
+	
+	/// The library of hardware types available for the design.
 	public var hardwareLibrary: HardwareLibrary!
+	
+	/// The library of workflow types available for the design.
 	public var workflowLibrary: WorkflowLibrary!
 	
-	public init() {
-	}
-	
-	public init(from designData: NSDictionary) throws {
-		name = designData[JsonKeys.name] as? String ?? ""
-		
+	/// Iniitializer. Creates a completely empty design.
+	public init() throws {
 		hardwareLibrary = try HardwareLibrary.defaultHardware()
 		workflowLibrary = try WorkflowLibrary.defaultWorkflows()
-
+	}
+	
+	/// Initializer taking a parsed dictionary of a saved design.
+	/// - Parameter designData: Previously-saved design data.
+	public init(from designData: NSDictionary) throws {
+		try self.init()
+		
+		name = designData[JsonKeys.name] as? String ?? ""
+		
 		// Network Zones
 		if let zoneInfos = designData[JsonKeys.networkZones] as? NSArray {
 			for zInfo in zoneInfos {
@@ -184,6 +202,8 @@ public struct Design: ObjectIdentity {
 		}
 	}
 	
+	/// Method to save the design.
+	/// - Returns: Dictionary of the design, can be saved for future use.
 	public func toDictionary() -> NSDictionary {
 		let dict = NSMutableDictionary()
 		
@@ -316,6 +336,7 @@ public struct Design: ObjectIdentity {
 		return dict
 	}
 	
+	/// Is the design complete enough to run?
 	public var isValid:Bool {
 		// TODO: improve evaluation of validity of the design
 		let bNetworkExists = self.zones.count > 0
@@ -324,7 +345,8 @@ public struct Design: ObjectIdentity {
 		
 		return bNetworkExists && bHostExists && bConfiguredWorkflow
 	}
-
+	
+	/// List of all configured workflows.
 	public var configuredWorkflows: [ConfiguredWorkflow] {
 		var cw = [ConfiguredWorkflow]()
 		for zone in zones {
@@ -333,6 +355,7 @@ public struct Design: ObjectIdentity {
 		return cw
 	}
 	
+	/// List of all clients.
 	public var clients: [Client] {
 		var clientsByName = Dictionary<String, Client>()
 		
@@ -344,6 +367,7 @@ public struct Design: ObjectIdentity {
 		return [Client](clientsByName.values)
 	}
 	
+	/// List of all hosts.
 	public var hosts: [Host] {
 		var h = [Host]()
 		for zone in zones {
@@ -352,6 +376,7 @@ public struct Design: ObjectIdentity {
 		return h
 	}
 	
+	/// List of all compute nodes (i.e. hosts and clients).
 	public var computeNodes: [ComputeNode] {
 		var nodes = [ComputeNode]()
 		nodes.append(contentsOf: hosts)
@@ -361,6 +386,7 @@ public struct Design: ObjectIdentity {
 		return nodes
 	}
 	
+	/// List of all network connections
 	public var networkConnections: [NetworkConnection] {
 		var conns = [NetworkConnection]()
 		for zone in zones {
@@ -374,6 +400,7 @@ public struct Design: ObjectIdentity {
 		return conns
 	}
 	
+	/// List of all network connections that connect different network zones.
 	public var interZoneConnections: [(NetworkConnection, NetworkConnection)] {
 		var links = [(NetworkConnection, NetworkConnection)]()
 		let conns = self.networkConnections.filter({$0.source.id != $0.destination.id})
@@ -392,14 +419,23 @@ public struct Design: ObjectIdentity {
 		return links
 	}
 	
+	/// Method to find a network zone by name
+	/// - Parameter name: Name of the network zone.
+	/// - Returns: The named network zone if it exists.
 	public func findZone(named name:String) -> NetworkZone? {
 		return zones.first(where: {$0.name == name})
 	}
 	
+	/// Method to find a network zone that contains a given host.
+	/// - Parameter host: The host in the network zone
+	/// - Returns: The network zone containing the host if it exists.
 	public func findZone(containing host: Host) -> NetworkZone? {
 		return findZone(containingHostNamed: host.name)
 	}
 	
+	/// Method to find a network zone that contains a host with a given name.
+	/// - Parameter name: The name of the host.
+	/// - Returns: The network zone containing the named host if it exists.
 	public func findZone(containingHostNamed name: String) -> NetworkZone? {
 		for zone in zones {
 			if zone.hosts.contains(where: {$0.name == name}) {
@@ -409,6 +445,9 @@ public struct Design: ObjectIdentity {
 		return nil
 	}
 	
+	/// Method to find a network zone that contains a named configured workflow.
+	/// - Parameter cw: The name of the configured workflow.
+	/// - Returns: The network zone containing the named configured workflow if it exists.
 	public func findZone(containing cw: ConfiguredWorkflow) -> NetworkZone? {
 		for zone in zones {
 			if zone.configuredWorkflows.contains(where: {$0.name == cw.name}) {
@@ -418,6 +457,9 @@ public struct Design: ObjectIdentity {
 		return nil
 	}
 	
+	/// Method to find a named host.
+	/// - Parameter name: The name of the host to find.
+	/// - Returns: The named host if it exists.
 	public func findHost(named name: String) -> Host? {
 		for zone in zones {
 			if let host = zone.hosts.first(where: {$0.name == name}) {
@@ -427,6 +469,8 @@ public struct Design: ObjectIdentity {
 		return nil
 	}
 	
+	/// Constants for encoding/decoding the design information.
+	/// These are names of keys in the dictionary.
 	private struct JsonKeys {
 		static let version = "version"
 		static let networkZones = "networkZones"

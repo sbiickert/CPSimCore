@@ -48,7 +48,7 @@ final class SimulationTests: XCTestCase {
 	}
 	
 	func testEmptyDesign() throws {
-		let design = Design()
+		let design = try Design()
 		XCTAssert(design.isValid == false)
 	}
 	

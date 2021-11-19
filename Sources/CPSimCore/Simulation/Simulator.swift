@@ -7,8 +7,11 @@
 
 import Foundation
 
+/// The top-level object for simulating the system. The simulator has a design and runs workflows through it.
 public class Simulator {
-	// Multiplies the clock run speed to slow or speed up simulation
+	/// Multiplies the clock run speed to slow or speed up simulation
+	/// - minimum allowed value: 0.1 (10% speed)
+	/// - maximum allowed value: 10.0 (1000% speed)
 	public var clockScale: Double = 1.0 {
 		didSet {
 			if clockScale < 0.1 {
@@ -19,18 +22,25 @@ public class Simulator {
 			}
 		}
 	}
+	
+	/// The simulation time in seconds.
 	private(set) var clock: Double = 0.0
+	/// ``start()`` and ``stop()``  will set this.
 	private(set) var isRunning:Bool = false
 	
+	/// The list of requests that are currently being processed in the simulator.
 	public var active = [ClientRequest]()
+	/// The list of requests that have completed.
 	public var handled = [ClientRequest]()
 	
+	/// The design that is loaded in the simulator for running.
 	public var design: Design? {
 		didSet {
 			reset()
 		}
 	}
 	
+	/// Method to start the simulation running.
 	public func start() {
 		guard design != nil && design!.isValid else {
 			print("Could not start simulator. No valid design.")
@@ -45,21 +55,26 @@ public class Simulator {
 		isRunning = true
 	}
 	
+	/// Method to stop the simulator. Will reset, ready for a new clean run.
 	public func stop() {
 		self.isRunning = false
 		self.reset()
 	}
 	
+	/// Will stop the simulation without a reset.
 	public func pause() {
 		self.isRunning = false
 	}
 	
+	/// Returns the simulator back to an initial state.
 	private func reset() {
 		self.clock = 0.0
 		active.removeAll()
 		handled.removeAll()
 	}
 	
+	/// Moves the simulation time forward by a number of seconds.
+	/// - Parameter seconds: Number of seconds to advance the simulation time.
 	public func advanceTime(by seconds: Double) {
 		assert(seconds > 0.0, "Call to advanceTime:by: with zero or negative delta time.")
 		
@@ -70,6 +85,9 @@ public class Simulator {
 		_advanceTime(to: time)
 	}
 	
+	/// Moves the simulation time to a new value.
+	/// Processes all new, active and finished requests.
+	/// - Parameter toClock: The new simulation time.
 	private func _advanceTime(to toClock: Double) {
 		guard design != nil else {
 			return
@@ -144,6 +162,8 @@ public class Simulator {
 		self.clock = toClock
 	}
 	
+	/// Takes a finished request out of the simulator and puts them into the handled list.
+	/// - Parameter request: The finished request.
 	private func moveRequestToHandled(request: ClientRequest) {
 //		if request.name.contains("$$") == false {
 //			print("\(request.name) FINISHED [\(request.metrics.responseTime)]")
@@ -155,6 +175,9 @@ public class Simulator {
 		}
 	}
 	
+	/// Determines the next time that an event will happen in the simulator.
+	/// - a new request started in a configured workflow
+	/// - a queueing (compute, network) will be ended
 	public var nextEventTime: Double? {
 		var nextTime:Double?
 		guard design != nil else {
