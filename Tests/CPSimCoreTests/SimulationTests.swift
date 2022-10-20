@@ -3,12 +3,13 @@ import XCTest
 
 final class SimulationTests: XCTestCase {
 	private enum TestDesign: String {
-		case simple = "/Users/sjb/Developer/Capacity Planning/CPSimCore/Config/design_00_v0.3.json"
-		case waDMZ = "/Users/sjb/Developer/Capacity Planning/CPSimCore/Config/design_01_v0.3.json"
-		case ha = "/Users/sjb/Developer/Capacity Planning/CPSimCore/Config/design_02_v0.3.json"
+		case simple = "~/Developer/Capacity Planning/CPSimCore/Config/design_00_v0.3.json"
+		case waDMZ = "~/Developer/Capacity Planning/CPSimCore/Config/design_01_v0.3.json"
+		case ha = "~/Developer/Capacity Planning/CPSimCore/Config/design_02_v0.3.json"
 		
 		var designData: NSDictionary? {
-			let url = URL(fileURLWithPath: self.rawValue)
+			let expanded = NSString(string: self.rawValue).expandingTildeInPath
+			let url = URL(fileURLWithPath: expanded)
 			if let jsonData = try? Data(contentsOf: url),
 			   let designData = try? JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
 			{
