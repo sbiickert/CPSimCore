@@ -19,10 +19,10 @@ public struct Design: ObjectIdentity {
 	public var defaultTiers = Dictionary<ComputeRole, Tier>()
 	
 	/// The library of hardware types available for the design.
-	public var hardwareLibrary: HardwareLibrary!
+	public var hardwareLibrary: HardwareLibrary?
 	
 	/// The library of workflow types available for the design.
-	public var workflowLibrary: WorkflowLibrary!
+	public var workflowLibrary: WorkflowLibrary?
 	
 	/// Iniitializer. Creates a completely empty design.
 	public init() {
@@ -71,7 +71,7 @@ public struct Design: ObjectIdentity {
 		if let aliases = designData[JsonKeys.hwAliases] as? NSDictionary {
 			for case let hwAlias as String in aliases.allKeys {
 				if let hwName = aliases[hwAlias] as? String {
-					hardwareLibrary.aliases[hwAlias] = hwName
+					hardwareLibrary!.aliases[hwAlias] = hwName
 				}
 			}
 		}
@@ -82,7 +82,7 @@ public struct Design: ObjectIdentity {
 				if let hwType = cInfo[JsonKeys.hwType] as? String,
 				   let name = cInfo[JsonKeys.name] as? String,
 				   let desc = cInfo[JsonKeys.desc] as? String,
-				   let hw = hardwareLibrary.findHardware(hwType) {
+				   let hw = hardwareLibrary!.findHardware(hwType) {
 					let client = Client(hw)
 					client.name = name
 					client.description = desc
@@ -96,7 +96,7 @@ public struct Design: ObjectIdentity {
 				if let hwType = hInfo[JsonKeys.hwType] as? String,
 				   let name = hInfo[JsonKeys.name] as? String,
 				   let desc = hInfo[JsonKeys.desc] as? String,
-				   let hw = hardwareLibrary.findHardware(hwType),
+				   let hw = hardwareLibrary!.findHardware(hwType),
 				   let zName = hInfo[JsonKeys.zone] as? String,
 				   let zone = findZone(named: zName) {
 					let host = PhysicalHost(hw)
@@ -161,7 +161,7 @@ public struct Design: ObjectIdentity {
 		if let aliases = designData[JsonKeys.wfAliases] as? NSDictionary {
 			for case let wfAlias as String in aliases.allKeys {
 				if let wfName = aliases[wfAlias] as? String {
-					workflowLibrary.aliases[wfAlias] = wfName
+					workflowLibrary!.aliases[wfAlias] = wfName
 				}
 			}
 		}
@@ -178,7 +178,7 @@ public struct Design: ObjectIdentity {
 				   let cName = cwInfo[JsonKeys.client] as? String,
 				   let dsName = cwInfo[JsonKeys.dataSource] as? String,
 				   let zName = cwInfo[JsonKeys.zone] as? String,
-				   let wf = workflowLibrary.findWorkflow(wfName),
+				   let wf = workflowLibrary!.findWorkflow(wfName),
 				   let zone = findZone(named: zName),
 				   let client = clients.first(where: {$0.name == cName}) {
 					let cw = ConfiguredWorkflow(name: name, definition: wf, client: client)
@@ -207,9 +207,17 @@ public struct Design: ObjectIdentity {
 	}
 	
 	/// Initializes the hardware and workflow libraries based on the GitHub files.
+	private static var _hwlib: HardwareLibrary?
+	private static var _wflib: WorkflowLibrary?
 	public mutating func loadDefaultLibraries() throws {
-		self.hardwareLibrary = try HardwareLibrary.defaultHardware()
-		self.workflowLibrary = try WorkflowLibrary.defaultWorkflows()
+		if Design._hwlib == nil {
+			Design._hwlib = try HardwareLibrary.defaultHardware()
+		}
+		if Design._wflib == nil {
+			Design._wflib = try WorkflowLibrary.defaultWorkflows()
+		}
+		self.hardwareLibrary = Design._hwlib
+		self.workflowLibrary = Design._wflib
 	}
 	
 	/// Method to save the design.
@@ -243,8 +251,8 @@ public struct Design: ObjectIdentity {
 
 		// Hardware aliases
 		let hwaDict = NSMutableDictionary()
-		for alias in hardwareLibrary.aliases.keys {
-			hwaDict.setValue(hardwareLibrary.aliases[alias], forKey: alias)
+		for alias in hardwareLibrary!.aliases.keys {
+			hwaDict.setValue(hardwareLibrary!.aliases[alias], forKey: alias)
 		}
 		dict.setValue(hwaDict, forKey: JsonKeys.hwAliases)
 		
@@ -315,8 +323,8 @@ public struct Design: ObjectIdentity {
 		
 		// Workflow aliases
 		let wfaDict = NSMutableDictionary()
-		for alias in workflowLibrary.aliases.keys {
-			wfaDict.setValue(workflowLibrary.aliases[alias], forKey: alias)
+		for alias in workflowLibrary!.aliases.keys {
+			wfaDict.setValue(workflowLibrary!.aliases[alias], forKey: alias)
 		}
 		dict.setValue(wfaDict, forKey: JsonKeys.wfAliases)
 		
