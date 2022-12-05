@@ -26,6 +26,12 @@ public struct Design: ObjectIdentity {
 	
 	/// Iniitializer. Creates a completely empty design.
 	public init() {
+		do {
+			try loadDefaultLibraries()
+		}
+		catch {
+			print("Failed to load default libraries")
+		}
 	}
 	
 	/// Initializer taking a parsed dictionary of a saved design.
