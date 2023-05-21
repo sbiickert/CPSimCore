@@ -25,20 +25,20 @@ public struct Design: ObjectIdentity {
 	public var workflowLibrary: WorkflowLibrary?
 	
 	/// Iniitializer. Creates a completely empty design.
-	public init() {
-		do {
-			try loadDefaultLibraries()
-		}
-		catch {
-			print("Failed to load default libraries")
-		}
-	}
+	public init() {}
 	
 	/// Initializer taking a parsed dictionary of a saved design.
 	/// - Parameter designData: Previously-saved design data.
 	public init(from designData: NSDictionary) throws {
-		try loadDefaultLibraries()
-		
+		guard HardwareLibrary.defaultLibrary.isLoaded else {
+			return
+		}
+		guard WorkflowLibrary.defaultLibrary.isLoaded else {
+			return
+		}
+		self.hardwareLibrary = HardwareLibrary.defaultLibrary
+		self.workflowLibrary = WorkflowLibrary.defaultLibrary
+
 		name = designData[JsonKeys.name] as? String ?? ""
 		
 		// Network Zones
@@ -204,20 +204,6 @@ public struct Design: ObjectIdentity {
 				}
 			}
 		}
-	}
-	
-	/// Initializes the hardware and workflow libraries based on the GitHub files.
-	private static var _hwlib: HardwareLibrary?
-	private static var _wflib: WorkflowLibrary?
-	public mutating func loadDefaultLibraries() throws {
-		if Design._hwlib == nil {
-			Design._hwlib = try HardwareLibrary.defaultHardware()
-		}
-		if Design._wflib == nil {
-			Design._wflib = try WorkflowLibrary.defaultWorkflows()
-		}
-		self.hardwareLibrary = Design._hwlib
-		self.workflowLibrary = Design._wflib
 	}
 	
 	/// Method to save the design.

@@ -2,25 +2,34 @@ import XCTest
 @testable import CPSimCore
 
 final class QueueingTests: XCTestCase {
-	
+	private var hwLib = HardwareLibrary()
+	private var wfLib = WorkflowLibrary()
+
+	override func setUp() async throws {
+		try await HardwareLibrary.loadDefaultHardware()
+		hwLib = HardwareLibrary.defaultLibrary
+		try await WorkflowLibrary.loadDefaultWorkflows()
+		wfLib = WorkflowLibrary.defaultLibrary
+	}
+
 	func testQueue() throws {
 		let q = MultiQueue(channelCount: 2)
 		q.mode = .processing
 		
-		let r1 = SimulationTests.exampleClientRequest!
-		q.enqueue(r1, clock: 1.0)
+		let r1 = SimulationTests.exampleClientRequest(hwLib: hwLib, wfLib: wfLib)
+		q.enqueue(r1!, clock: 1.0)
 		
 		XCTAssert(q.requestCount == 1)
 		XCTAssert(q.availableChannelCount == 1)
 		
-		let r2 = SimulationTests.exampleClientRequest!
-		q.enqueue(r2, clock: 1.0)
+		let r2 = SimulationTests.exampleClientRequest(hwLib: hwLib, wfLib: wfLib)
+		q.enqueue(r2!, clock: 1.0)
 		
 		XCTAssert(q.requestCount == 2)
 		XCTAssert(q.availableChannelCount == 0)
 		
-		let r3 = SimulationTests.exampleClientRequest!
-		q.enqueue(r3, clock: 1.0)
+		let r3 = SimulationTests.exampleClientRequest(hwLib: hwLib, wfLib: wfLib)
+		q.enqueue(r3!, clock: 1.0)
 		
 		XCTAssert(q.requestCount == 3)
 		XCTAssert(q.availableChannelCount == 0)
@@ -48,8 +57,8 @@ final class QueueingTests: XCTestCase {
 		let q = MultiQueue(channelCount: 2)
 		q.mode = .processing
 		
-		let r1 = SimulationTests.exampleClientRequest!
-		q.enqueue(r1, clock: 1.01)
+		let r1 = SimulationTests.exampleClientRequest(hwLib: hwLib, wfLib: wfLib)
+		q.enqueue(r1!, clock: 1.01)
 		
 		XCTAssert(q.requestCount == 1)
 		XCTAssert(q.availableChannelCount == 1)

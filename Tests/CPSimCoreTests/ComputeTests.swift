@@ -2,9 +2,17 @@ import XCTest
 @testable import CPSimCore
 
 final class ComputeTests: XCTestCase {
+	private var hwLib = HardwareLibrary()
+	private var wfLib = WorkflowLibrary()
+	
+	override func setUp() async throws {
+		try await HardwareLibrary.loadDefaultHardware()
+		hwLib = HardwareLibrary.defaultLibrary
+		try await WorkflowLibrary.loadDefaultWorkflows()
+		wfLib = WorkflowLibrary.defaultLibrary
+	}
 	
 	func testHWLibraryLoad() throws {
-		var hwLib = try HardwareLibrary.defaultHardware()
 		XCTAssert(HardwareDefinition.baselineRatingPerCore == 58.0)
 		XCTAssert(hwLib.findHardware("Intel Core i7-4770 4 core (1 chip) 3400 MHz") != nil)
 		
@@ -14,9 +22,10 @@ final class ComputeTests: XCTestCase {
 	}
 	
 	func testClient() throws {
-		let request = SimulationTests.exampleClientRequest!
-		let client = request.configuredWorkflow.client
-		client.handle(request: request, clock: 1.0)
+		let request = SimulationTests.exampleClientRequest(hwLib: hwLib, wfLib: wfLib)
+		XCTAssert(request != nil)
+		let client = request!.configuredWorkflow.client
+		client.handle(request: request!, clock: 1.0)
 		
 		XCTAssert(client.queue.requestCount == 1)
 		
@@ -27,7 +36,6 @@ final class ComputeTests: XCTestCase {
 	}
 	
 	func testHost() throws {
-		let hwLib = try HardwareLibrary.defaultHardware()
 		let hw = hwLib.findHardware("Xeon E5-2430 12 core (2 chip) 2200 MHz")
 		let pHost = PhysicalHost(hw!)
 		_ = VirtualHost(pHost)
@@ -37,7 +45,6 @@ final class ComputeTests: XCTestCase {
 	}
 	
 	func testMigration() throws {
-		let hwLib = try HardwareLibrary.defaultHardware()
 		let hw = hwLib.findHardware("Xeon E5-2430 12 core (2 chip) 2200 MHz")
 		let pHost1 = PhysicalHost(hw!)
 		let pHost2 = PhysicalHost(hw!)

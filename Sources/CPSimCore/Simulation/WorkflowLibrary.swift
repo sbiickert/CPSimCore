@@ -14,8 +14,17 @@ public struct WorkflowLibrary {
 	public static let GITHUB_URL = "https://raw.githubusercontent.com/sbiickert/CPSimCore/main/Library/workflows.json"
 	
 	/// Creates a library based on the online location
-	public static func defaultWorkflows() throws -> WorkflowLibrary {
-		return try WorkflowLibrary(at: URL(string: GITHUB_URL)!)
+	public static func loadDefaultWorkflows() async throws {
+		guard _defaultLibrary == nil else {return}
+		var lib = WorkflowLibrary()
+		try await lib.loadDefault()
+		_defaultLibrary = lib
+	}
+	
+	/// Accessor for the default
+	private static var _defaultLibrary: WorkflowLibrary?
+	public static var defaultLibrary: WorkflowLibrary {
+		get { return _defaultLibrary ?? WorkflowLibrary()}
 	}
 
 	/// Shorter alias names referencing the full names of workflow definitions
@@ -24,16 +33,33 @@ public struct WorkflowLibrary {
 	/// Private storage of the workflow definitions by name
 	private var _workflows = Dictionary<String, WorkflowDefinition>()
 	
+	/// No-argument initializer. Does not load a set of workflows
+	init() {}
+
 	/// Convenience initializer for opening a local file
 	/// - Parameter path: The file path to read workflow definitions from.
-	public init(at path:String) throws {
+	public init(at path:String) async throws {
 		let url = URL(fileURLWithPath: path)
-		try self.init(at: url)
+		try await self.init(from: url)
 	}
 	
 	/// Initializer for opening the workflow definitions from a URL (file or Internet)
 	/// - Parameter url: The URL to read workflow definitions from.
-	public init(at url:URL) throws {
+	public init(from url:URL) async throws {
+		try await load(from: url)
+	}
+	
+	var isLoaded: Bool {
+		return _workflows.count > 0
+	}
+	
+	public mutating func loadDefault() async throws {
+		if let githubUrl = URL(string: WorkflowLibrary.GITHUB_URL) {
+			try await load(from: githubUrl)
+		}
+	}
+
+	public mutating func load(from url: URL) async throws {
 		if let jsonData = try? Data(contentsOf: url),
 		   let workflowData = try? JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
 		{

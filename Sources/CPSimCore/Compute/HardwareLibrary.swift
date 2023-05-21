@@ -14,26 +14,51 @@ public struct HardwareLibrary {
 	public static let GITHUB_URL = "https://raw.githubusercontent.com/sbiickert/CPSimCore/main/Library/hardware.json"
 	
 	/// Creates a library based on the online location
-	public static func defaultHardware() throws -> HardwareLibrary {
-		return try HardwareLibrary(at: URL(string: GITHUB_URL)!)
+	public static func loadDefaultHardware() async throws {
+		guard _defaultLibrary == nil else {return}
+		var lib = HardwareLibrary()
+		try await lib.loadDefault()
+		_defaultLibrary = lib
+	}
+	/// Accessor for the default
+	private static var _defaultLibrary: HardwareLibrary?
+	public static var defaultLibrary: HardwareLibrary {
+		get { return _defaultLibrary ?? HardwareLibrary() }
 	}
 	
 	/// Shorter alias names referencing the full names of hardware definitions
 	var aliases = Dictionary<String, String>()
+	
 	/// Private storage of the hardware definitions by name
 	private var _hardware = Dictionary<String, HardwareDefinition>()
 	
+	/// No-argument initializer. Does not load a set of hardware
+	init() {}
 	
 	/// Convenience initializer for opening a local file
 	/// - Parameter path: The file path to read hardware definitions from.
-	init(at path: String) throws {
+	init(at path: String) async throws {
 		let url = URL(fileURLWithPath: path)
-		try self.init(at: url)
+		try await self.init(from: url)
 	}
 	
 	/// Initializer for opening the hardware definitions from a URL (file or Internet)
 	/// - Parameter url: The URL to read hardware definitions from.
-	init(at url: URL) throws {
+	init(from url: URL) async throws {
+		try await load(from: url)
+	}
+	
+	public var isLoaded: Bool {
+		return _hardware.count > 0
+	}
+	
+	private mutating func loadDefault() async throws {
+		if let githubUrl = URL(string: HardwareLibrary.GITHUB_URL) {
+			try await load(from: githubUrl)
+		}
+	}
+	
+	private mutating func load(from url: URL) async throws {
 		if let jsonData = try? Data(contentsOf: url),
 		   let jsonResult = try? JSONSerialization.jsonObject(with: jsonData, options: JSONSerialization.ReadingOptions.mutableContainers) as? NSDictionary
 		{

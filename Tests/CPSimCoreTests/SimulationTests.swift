@@ -2,6 +2,16 @@ import XCTest
 @testable import CPSimCore
 
 final class SimulationTests: XCTestCase {
+	private static var hwLib = HardwareLibrary()
+	private static var wfLib = WorkflowLibrary()
+
+	override func setUp() async throws {
+		try await HardwareLibrary.loadDefaultHardware()
+		SimulationTests.hwLib = HardwareLibrary.defaultLibrary
+		try await WorkflowLibrary.loadDefaultWorkflows()
+		SimulationTests.wfLib = WorkflowLibrary.defaultLibrary
+	}
+	
 	private enum TestDesign: String {
 		case simple = "~/Developer/Capacity Planning/CPSimCore/Config/design_00_v0.3.json"
 		case waDMZ = "~/Developer/Capacity Planning/CPSimCore/Config/design_01_v0.3.json"
@@ -19,31 +29,23 @@ final class SimulationTests: XCTestCase {
 		}
 	}
 	
-	static var exampleClientRequest: ClientRequest? {
-		get {
-			do {
-				let hwLib = try HardwareLibrary.defaultHardware()
-				let hw = hwLib.findHardware("Intel Core i7-4770 4 core (1 chip) 3400 MHz")
-				let client = Client(hw!)
-				let wfLib = try WorkflowLibrary.defaultWorkflows()
-				let w = wfLib.findWorkflow("AGS101 REST 2D V Med 100%Dyn 13x7 PNG24")!
-				let cw = ConfiguredWorkflow(name: "test", definition: w, client: client)
-				return ClientRequest(configuredWorkflow: cw)
-			}
-			catch {
-				return nil
-			}
+	static func exampleClientRequest(hwLib: HardwareLibrary, wfLib: WorkflowLibrary) -> ClientRequest? {
+		if let hw = hwLib.findHardware("Intel Core i7-4770 4 core (1 chip) 3400 MHz"),
+		   let w = wfLib.findWorkflow("AGS101 REST 2D V Med 100%Dyn 13x7 PNG24") {
+			let client = Client(hw)
+			let cw = ConfiguredWorkflow(name: "test", definition: w, client: client)
+			return ClientRequest(configuredWorkflow: cw)
 		}
+		return nil
 	}
 	
 	func testWorkflowLibraryLoad() throws {
-		var wLib = try WorkflowLibrary.defaultWorkflows()
-		XCTAssert(wLib.count > 0)
-		XCTAssert(wLib.findWorkflow("AGD wkstn ArcMap 2D V Lite 100%Dyn 19x10 Feature") != nil)
+		XCTAssert(SimulationTests.wfLib.count > 0)
+		XCTAssert(SimulationTests.wfLib.findWorkflow("AGD wkstn ArcMap 2D V Lite 100%Dyn 19x10 Feature") != nil)
 		
-		wLib.aliases["bob"] = "AGS REST 2D V Med 100%Dyn 13x7 PNG24"
+		SimulationTests.wfLib.aliases["bob"] = "AGS REST 2D V Med 100%Dyn 13x7 PNG24"
 		
-		let bob = wLib.findWorkflow("bob")
+		let bob = SimulationTests.wfLib.findWorkflow("bob")
 		XCTAssert(bob != nil)
 		XCTAssert(bob!.clientServiceTime > 0)
 	}
