@@ -23,7 +23,7 @@ public class PhysicalHost: Host {
 		}
 	}
 	/// A friendly description of the host
-	public var description: String?
+	public var description: String = ""
 	
 	/// The physical hardware platform
 	public var hardware: HardwareDefinition?
@@ -92,7 +92,7 @@ public class VirtualHost: Host {
 		}
 	}
 	/// A friendly description of the host
-	public var description: String?
+	public var description: String = ""
 	
 	/// The number of virtual CPUs assigned to this virtual machine
 	public var vCpuCount: UInt

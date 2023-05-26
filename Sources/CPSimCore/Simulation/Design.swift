@@ -7,7 +7,7 @@ public struct Design: ObjectIdentity {
 	/// A name for the design
 	public var name: String = ""
 	/// A friendly description of the design
-	public var description: String?
+	public var description: String = ""
 	
 	/// A list of network zones. All activity happens in a zone.
 	public var zones = [NetworkZone]()
@@ -254,7 +254,7 @@ public struct Design: ObjectIdentity {
 		for client in clients {
 			let cDict = NSMutableDictionary()
 			cDict.setValue(client.name, forKey: JsonKeys.name)
-			cDict.setValue(client.description ?? "", forKey: JsonKeys.desc)
+			cDict.setValue(client.description, forKey: JsonKeys.desc)
 			cDict.setValue(client.hardware?.name ?? "", forKey: JsonKeys.hwType)
 			cArray.add(cDict)
 		}
@@ -266,7 +266,7 @@ public struct Design: ObjectIdentity {
 		for host in pHosts {
 			let hDict = NSMutableDictionary()
 			hDict.setValue(host.name, forKey: JsonKeys.name)
-			hDict.setValue(host.description ?? "", forKey: JsonKeys.desc)
+			hDict.setValue(host.description , forKey: JsonKeys.desc)
 			hDict.setValue(host.hardware?.name ?? "", forKey: JsonKeys.hwType)
 			let zone = self.findZone(containing: host)!
 			hDict.setValue(zone.name, forKey: JsonKeys.zone)
@@ -280,7 +280,7 @@ public struct Design: ObjectIdentity {
 		for vHost in vHosts {
 			let vhDict = NSMutableDictionary()
 			vhDict.setValue(vHost.name, forKey: JsonKeys.name)
-			vhDict.setValue(vHost.description ?? "", forKey: JsonKeys.desc)
+			vhDict.setValue(vHost.description , forKey: JsonKeys.desc)
 			vhDict.setValue(vHost.physicalHost.name, forKey: JsonKeys.host)
 			vhDict.setValue(vHost.vCpuCount, forKey: JsonKeys.vCPU)
 			vhArray.add(vhDict)
@@ -292,7 +292,7 @@ public struct Design: ObjectIdentity {
 		for tier in tiers {
 			let tDict = NSMutableDictionary()
 			tDict.setValue(tier.name, forKey: JsonKeys.name)
-			tDict.setValue(tier.description ?? "", forKey: JsonKeys.desc)
+			tDict.setValue(tier.description , forKey: JsonKeys.desc)
 			let cnArray = NSMutableArray()
 			for cNode in tier.nodes {
 				cnArray.add((cNode as! Host).name)
@@ -326,7 +326,7 @@ public struct Design: ObjectIdentity {
 		for cw in configuredWorkflows {
 			let cwDict = NSMutableDictionary()
 			cwDict.setValue(cw.name, forKey: JsonKeys.name)
-			cwDict.setValue(cw.description ?? "", forKey: JsonKeys.desc)
+			cwDict.setValue(cw.description , forKey: JsonKeys.desc)
 			cwDict.setValue(cw.definition.name, forKey: JsonKeys.workflow)
 			cwDict.setValue(cw.userCount, forKey: JsonKeys.uCount)
 			cwDict.setValue(cw.productivity, forKey: JsonKeys.productivity)

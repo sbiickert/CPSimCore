@@ -97,7 +97,7 @@ public struct HardwareDefinition: ObjectIdentity, Equatable {
 	/// A name for the hardware (expected to be unique)
 	public var name: String
 	/// A friendly description of the hardware
-	public var description: String?
+	public var description: String = ""
 	
 	/// Classification of hardware (desktop, server)
 	public var category: String?

@@ -12,5 +12,5 @@ import Foundation
 public protocol ObjectIdentity {
 	var id: String {get set}
 	var name: String {get set}
-	var description: String? {get set}
+	var description: String {get set}
 }

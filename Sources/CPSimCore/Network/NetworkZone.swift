@@ -15,7 +15,7 @@ public class NetworkZone: ObjectIdentity {
 	/// A name for the zone (expected to be unique)
 	public var name: String = ""
 	/// A friendly description of the zone
-	public var description: String?
+	public var description: String = ""
 	
 	/// Convenience accessor for the bandwidth of the ``localConnection``
 	var localBandwidth: UInt {
@@ -49,7 +49,7 @@ public class NetworkZone: ObjectIdentity {
 	/// - Parameter info: The parsed content from the design file (JSON).
 	public init(info: NSDictionary) throws {
 		name = info[JsonKeys.name] as! String
-		description = info[JsonKeys.desc] as? String
+		description = info[JsonKeys.desc] as! String
 		let bw = info[JsonKeys.bw] as! UInt
 		_ = NetworkConnection(sourceZone: self, destZone: self, bandwidth: bw, latencyMilliSeconds: 0) // localConnection
 	}
@@ -59,7 +59,7 @@ public class NetworkZone: ObjectIdentity {
 	public func toDictionary() -> NSDictionary {
 		let nzDict = NSMutableDictionary()
 		nzDict.setValue(self.name, forKey: JsonKeys.name)
-		nzDict.setValue(self.description ?? "", forKey: JsonKeys.desc)
+		nzDict.setValue(self.description, forKey: JsonKeys.desc)
 		nzDict.setValue(self.localConnection?.bandwidth ?? 0, forKey: JsonKeys.bw)
 		return nzDict
 	}

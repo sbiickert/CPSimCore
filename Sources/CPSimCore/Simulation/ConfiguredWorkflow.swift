@@ -16,7 +16,7 @@ public class ConfiguredWorkflow: ObjectIdentity {
 	/// A name for the configured workflow (expected to be unique)
 	public var name: String = ""
 	/// A friendly description of the configured workflow
-	public var description: String?
+	public var description: String = ""
 	
 	/// The number of virtual users
 	public var userCount = 0

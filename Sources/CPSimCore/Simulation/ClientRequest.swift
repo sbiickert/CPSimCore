@@ -34,7 +34,7 @@ public class ClientRequest: ObjectIdentity, Equatable {
 	/// A name for the request. Not used.
 	public var name: String = ""
 	/// A description for the request. Not used.
-	public var description: String?
+	public var description: String = ""
 
 	/// Definition of the request
 	public let configuredWorkflow: ConfiguredWorkflow!

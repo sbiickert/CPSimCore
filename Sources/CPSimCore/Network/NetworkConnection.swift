@@ -16,7 +16,7 @@ public class NetworkConnection: ObjectIdentity, ServiceTimeCalculator {
 	/// A name for the connection (expected to be unique)
 	public var name: String = ""
 	/// A friendly description of the connection
-	public var description: String?
+	public var description: String = ""
 	
 	/// The zone that data flows **from**
 	public var source: NetworkZone {

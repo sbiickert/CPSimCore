@@ -99,7 +99,7 @@ public struct WorkflowDefinition: ObjectIdentity {
 	/// A name for the workflow (expected to be unique)
 	public var name: String
 	/// A friendly description of the workflow
-	public var description: String?
+	public var description: String = ""
 
 	/// Mapping of the service times for the workflow. Workflows do not have service times for all roles.
 	public var serviceTimes = Dictionary<ComputeRole, Double>()
@@ -123,7 +123,7 @@ public struct WorkflowDefinition: ObjectIdentity {
 			self.id = id
 		}
 		self.name = workflowData.value(forKey: "name") as! String
-		self.description = workflowData.value(forKey: "description") as? String
+		self.description = (workflowData.value(forKey: "description") as! String)
 		
 		self.category = workflowData.value(forKey: "category") as? String
 		let wType = workflowData.value(forKey: "wType") as! String
@@ -151,7 +151,7 @@ public struct WorkflowDefinition: ObjectIdentity {
 	public var hasCache: Bool {
 		get {
 			let nameHasCache = self.name.contains("+$$")
-			let descHasCache = self.description?.contains("+$$") ?? false
+			let descHasCache = self.description.contains("+$$")
 			
 			return nameHasCache || descHasCache
 		}

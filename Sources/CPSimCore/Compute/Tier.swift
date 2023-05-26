@@ -15,7 +15,7 @@ public class Tier: ObjectIdentity {
 	/// A name for the tier (expected to be unique)
 	public var name: String = ""
 	/// A friendly description of the tier
-	public var description: String?
+	public var description: String = ""
 	
 	/// The collection of nodes that make up this tier
 	public var nodes = [ComputeNode]()

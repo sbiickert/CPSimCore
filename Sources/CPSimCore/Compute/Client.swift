@@ -18,7 +18,7 @@ public class Client: ObjectIdentity, ComputeNode {
 		}
 	}
 	/// A friendly description of the client
-	public var description: String?
+	public var description: String = ""
 	
 	/// The definition of the hardware that hosts this client.
 	public var hardware: HardwareDefinition?
