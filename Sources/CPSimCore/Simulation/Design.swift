@@ -25,7 +25,14 @@ public struct Design: ObjectIdentity {
 	public var workflowLibrary: WorkflowLibrary?
 	
 	/// Iniitializer. Creates a completely empty design.
-	public init() {}
+	public init() {
+		if self.hardwareLibrary == nil {
+			self.hardwareLibrary = HardwareLibrary.defaultLibrary
+		}
+		if self.workflowLibrary == nil {
+			self.workflowLibrary = WorkflowLibrary.defaultLibrary
+		}
+	}
 	
 	/// Initializer taking a parsed dictionary of a saved design.
 	/// - Parameter designData: Previously-saved design data.
