@@ -13,17 +13,12 @@ public protocol Host: ObjectIdentity, ComputeNode {}
 
 /// Model object representing a physical hardware host.
 /// Required in order to have virtual hosts, or can be a stand-alone physical server performing a role.
-public class PhysicalHost: Host {
-	/// A unique ID that is created when the object is created
-	public var id: String = UUID().uuidString
-	/// A name for the host (expected to be unique)
-	public var name: String = "" {
+public class PhysicalHost: IdentifiedClass, Host {
+	public override var name: String {
 		didSet {
 			self.queue.name = name
 		}
 	}
-	/// A friendly description of the host
-	public var description: String = ""
 	
 	/// The physical hardware platform
 	public var hardware: HardwareDefinition?
@@ -38,6 +33,7 @@ public class PhysicalHost: Host {
 	init(_ hardware: HardwareDefinition) {
 		self.hardware = hardware
 		self.queue = MultiQueue(channelCount: hardware.coreCount)
+		super.init()
 		self.queue.delegate = self
 		self.queue.mode = .processing
 	}
@@ -82,17 +78,12 @@ public class PhysicalHost: Host {
 	}
 }
 
-public class VirtualHost: Host {
-	/// A unique ID that is created when the object is created
-	public var id: String = UUID().uuidString
-	/// A name for the host (expected to be unique)
-	public var name: String = "" {
+public class VirtualHost: IdentifiedClass, Host {
+	public override var name: String {
 		didSet {
 			self.queue.name = name
 		}
 	}
-	/// A friendly description of the host
-	public var description: String = ""
 	
 	/// The number of virtual CPUs assigned to this virtual machine
 	public var vCpuCount: UInt
@@ -130,11 +121,11 @@ public class VirtualHost: Host {
 	///   - vCpus: The number of virtual CPUs assigned to the virtual machine
 	///   - vMemGB: The amount of memory in GB assigned to this virtual machine
 	public init(_ host: PhysicalHost, vCpus: UInt = 4, vMemGB: UInt = 16) {
-		self.name = ""
 		self.physicalHost = host
 		self.vCpuCount = vCpus
 		self.vMemGB = vMemGB
 		self.queue = MultiQueue(channelCount: host.hardware?.coreCount ?? 0)
+		super.init()
 		self.queue.delegate = self
 		self.queue.mode = .processing
 		self.physicalHost.virtualHosts.append(self)

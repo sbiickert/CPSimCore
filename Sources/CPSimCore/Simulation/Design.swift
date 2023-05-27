@@ -46,8 +46,8 @@ public struct Design: ObjectIdentity {
 		self.hardwareLibrary = HardwareLibrary.defaultLibrary
 		self.workflowLibrary = WorkflowLibrary.defaultLibrary
 
-		name = designData[JsonKeys.name] as? String ?? ""
-		
+		applyIdentity(from: designData)
+				
 		// Network Zones
 		if let zoneInfos = designData[JsonKeys.networkZones] as? NSArray {
 			for zInfo in zoneInfos {
@@ -87,12 +87,9 @@ public struct Design: ObjectIdentity {
 		if let clientInfos = designData[JsonKeys.clients] as? NSArray {
 			for case let cInfo as NSDictionary in clientInfos {
 				if let hwType = cInfo[JsonKeys.hwType] as? String,
-				   let name = cInfo[JsonKeys.name] as? String,
-				   let desc = cInfo[JsonKeys.desc] as? String,
 				   let hw = hardwareLibrary!.findHardware(hwType) {
 					let client = Client(hw)
-					client.name = name
-					client.description = desc
+					client.applyIdentity(from: cInfo)
 					clients.append(client)
 				}
 			}
@@ -101,14 +98,11 @@ public struct Design: ObjectIdentity {
 		if let hostInfos = designData[JsonKeys.hosts] as? NSArray {
 			for case let hInfo as NSDictionary in hostInfos {
 				if let hwType = hInfo[JsonKeys.hwType] as? String,
-				   let name = hInfo[JsonKeys.name] as? String,
-				   let desc = hInfo[JsonKeys.desc] as? String,
 				   let hw = hardwareLibrary!.findHardware(hwType),
 				   let zName = hInfo[JsonKeys.zone] as? String,
 				   let zone = findZone(named: zName) {
 					let host = PhysicalHost(hw)
-					host.name = name
-					host.description = desc
+					host.applyIdentity(from: hInfo)
 					zone.hosts.append(host)
 				}
 			}
@@ -116,15 +110,12 @@ public struct Design: ObjectIdentity {
 		
 		if let vHostInfos = designData[JsonKeys.vHosts] as? NSArray {
 			for case let vhInfo as NSDictionary in vHostInfos {
-				if let name = vhInfo[JsonKeys.name] as? String,
-				   let desc = vhInfo[JsonKeys.desc] as? String,
-				   let hName = vhInfo[JsonKeys.host] as? String,
+				if let hName = vhInfo[JsonKeys.host] as? String,
 				   let host = hosts.first(where: {$0.name == hName}) as? PhysicalHost,
 				   let zone = findZone(containingHostNamed: hName),
 				   let vCPUCount = vhInfo[JsonKeys.vCPU] as? UInt {
 					let vHost = VirtualHost(host, vCpus: vCPUCount, vMemGB: 16) // TODO: memory
-					vHost.name = name
-					vHost.description = desc
+					vHost.applyIdentity(from: vhInfo)
 					zone.hosts.append(vHost)
 				}
 			}
@@ -133,13 +124,10 @@ public struct Design: ObjectIdentity {
 		// Tiers
 		if let tierInfos = designData[JsonKeys.tiers] as? NSArray {
 			for case let tInfo as NSDictionary in tierInfos {
-				if let name = tInfo[JsonKeys.name] as? String,
-				   let desc = tInfo[JsonKeys.desc] as? String,
-				   let nodeNames = tInfo[JsonKeys.cNodes] as? NSArray,
+				if let nodeNames = tInfo[JsonKeys.cNodes] as? NSArray,
 				   let roleNames = tInfo[JsonKeys.sRoles] as? NSArray {
 					let tier = Tier()
-					tier.name = name
-					tier.description = desc
+					tier.applyIdentity(from: tInfo)
 					for case let nodeName as String in nodeNames {
 						if let node = findHost(named: nodeName) {
 							tier.nodes.append(node)
@@ -176,8 +164,7 @@ public struct Design: ObjectIdentity {
 		// Configured Workflows
 		if let cwInfos = designData[JsonKeys.configuredWorkflows] as? NSArray {
 			for case let cwInfo as NSDictionary in cwInfos {
-				if let name = cwInfo[JsonKeys.name] as? String,
-				   let desc = cwInfo[JsonKeys.desc] as? String,
+				if let name = cwInfo["name"] as? String,
 				   let wfName = cwInfo[JsonKeys.workflow] as? String,
 				   let uCount = cwInfo[JsonKeys.uCount] as? Int,
 				   let productivity = cwInfo[JsonKeys.productivity] as? Double,
@@ -189,7 +176,7 @@ public struct Design: ObjectIdentity {
 				   let zone = findZone(named: zName),
 				   let client = clients.first(where: {$0.name == cName}) {
 					let cw = ConfiguredWorkflow(name: name, definition: wf, client: client)
-					cw.description = desc
+					cw.applyIdentity(from: cwInfo)
 					cw.userCount = uCount
 					cw.productivity = productivity
 					cw.tph = tph
@@ -213,12 +200,25 @@ public struct Design: ObjectIdentity {
 		}
 	}
 	
+	private mutating func applyIdentity(from dict: NSDictionary) {
+		self.name = dict["name"] as? String ?? ""
+		self.id = dict["id"] as? String ?? ""
+		self.description = dict["description"] as? String ?? ""
+	}
+	
+	private func saveIdentity(to dict: NSDictionary) {
+		dict.setValue(self.name, forKey: "name")
+		dict.setValue(self.id, forKey: "id")
+		dict.setValue(self.description, forKey: "description")
+	}
+
+	
 	/// Method to save the design.
 	/// - Returns: Dictionary of the design, can be saved for future use.
 	public func toDictionary() -> NSDictionary {
 		let dict = NSMutableDictionary()
 		
-		dict.setValue(self.name, forKey: JsonKeys.name)
+		saveIdentity(to: dict)
 		dict.setValue(0.3, forKey: JsonKeys.version)
 		
 		// Network zones
@@ -253,8 +253,7 @@ public struct Design: ObjectIdentity {
 		let cArray = NSMutableArray()
 		for client in clients {
 			let cDict = NSMutableDictionary()
-			cDict.setValue(client.name, forKey: JsonKeys.name)
-			cDict.setValue(client.description, forKey: JsonKeys.desc)
+			client.saveIdentity(to: cDict)
 			cDict.setValue(client.hardware?.name ?? "", forKey: JsonKeys.hwType)
 			cArray.add(cDict)
 		}
@@ -265,8 +264,7 @@ public struct Design: ObjectIdentity {
 		let pHosts = hosts.compactMap({$0 as? PhysicalHost})
 		for host in pHosts {
 			let hDict = NSMutableDictionary()
-			hDict.setValue(host.name, forKey: JsonKeys.name)
-			hDict.setValue(host.description , forKey: JsonKeys.desc)
+			host.saveIdentity(to: hDict)
 			hDict.setValue(host.hardware?.name ?? "", forKey: JsonKeys.hwType)
 			let zone = self.findZone(containing: host)!
 			hDict.setValue(zone.name, forKey: JsonKeys.zone)
@@ -279,8 +277,7 @@ public struct Design: ObjectIdentity {
 		let vHosts = hosts.compactMap({$0 as? VirtualHost})
 		for vHost in vHosts {
 			let vhDict = NSMutableDictionary()
-			vhDict.setValue(vHost.name, forKey: JsonKeys.name)
-			vhDict.setValue(vHost.description , forKey: JsonKeys.desc)
+			vHost.saveIdentity(to: vhDict)
 			vhDict.setValue(vHost.physicalHost.name, forKey: JsonKeys.host)
 			vhDict.setValue(vHost.vCpuCount, forKey: JsonKeys.vCPU)
 			vhArray.add(vhDict)
@@ -291,8 +288,7 @@ public struct Design: ObjectIdentity {
 		let tArray = NSMutableArray()
 		for tier in tiers {
 			let tDict = NSMutableDictionary()
-			tDict.setValue(tier.name, forKey: JsonKeys.name)
-			tDict.setValue(tier.description , forKey: JsonKeys.desc)
+			tier.saveIdentity(to: tDict)
 			let cnArray = NSMutableArray()
 			for cNode in tier.nodes {
 				cnArray.add((cNode as! Host).name)
@@ -325,8 +321,7 @@ public struct Design: ObjectIdentity {
 		let cwArray = NSMutableArray()
 		for cw in configuredWorkflows {
 			let cwDict = NSMutableDictionary()
-			cwDict.setValue(cw.name, forKey: JsonKeys.name)
-			cwDict.setValue(cw.description , forKey: JsonKeys.desc)
+			cw.saveIdentity(to: cwDict)
 			cwDict.setValue(cw.definition.name, forKey: JsonKeys.workflow)
 			cwDict.setValue(cw.userCount, forKey: JsonKeys.uCount)
 			cwDict.setValue(cw.productivity, forKey: JsonKeys.productivity)
@@ -496,8 +491,6 @@ public struct Design: ObjectIdentity {
 		static let hosts = "hosts"
 		static let vHosts = "virtualHosts"
 		static let hwType = "hardwareType"
-		static let name = "name"
-		static let desc = "description"
 		static let zone = "zone"
 		static let host = "host"
 		static let vCPU = "vCPUCount"

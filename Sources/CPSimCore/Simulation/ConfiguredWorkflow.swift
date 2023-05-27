@@ -10,14 +10,7 @@ import Foundation
 /// Model object that represents a number of users / processes emitting requests
 /// The frequency of the requests is based on the number of users and their productivity,
 /// or the transactions per hour (tph).
-public class ConfiguredWorkflow: ObjectIdentity {
-	/// A unique ID that is created when the object is created
-	public var id: String = UUID().uuidString
-	/// A name for the configured workflow (expected to be unique)
-	public var name: String = ""
-	/// A friendly description of the configured workflow
-	public var description: String = ""
-	
+public class ConfiguredWorkflow: IdentifiedClass {
 	/// The number of virtual users
 	public var userCount = 0
 	
@@ -48,9 +41,10 @@ public class ConfiguredWorkflow: ObjectIdentity {
 	///   - definition: The workflow that defines it.
 	///   - client: The client compute node that will be emitting the request.
 	public init(name: String, definition: WorkflowDefinition, client: Client) {
-		self.name = name
 		self.definition = definition
 		self.client = client
+		super.init()
+		self.name = name
 	}
 	
 	/// Regardless of the choice of user/prod or tph, this accessor returns the transactions per second.

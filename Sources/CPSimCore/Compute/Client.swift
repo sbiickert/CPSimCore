@@ -8,17 +8,12 @@
 import Foundation
 
 /// A model representing a computing device that is the source of requests
-public class Client: ObjectIdentity, ComputeNode {
-	/// A unique ID that is created when the object is created
-	public var id: String = UUID().uuidString
-	/// A name for the client (expected to be unique)
-	public var name: String = "" {
+public class Client: IdentifiedClass, ComputeNode {
+	public override var name: String {
 		didSet {
 			self.queue.name = name
 		}
 	}
-	/// A friendly description of the client
-	public var description: String = ""
 	
 	/// The definition of the hardware that hosts this client.
 	public var hardware: HardwareDefinition?
@@ -30,6 +25,7 @@ public class Client: ObjectIdentity, ComputeNode {
 	init(_ hardware: HardwareDefinition) {
 		self.hardware = hardware
 		self.queue = MultiQueue(channelCount: hardware.coreCount)
+		super.init()
 		self.queue.delegate = self
 		self.queue.mode = .processing
 	}

@@ -9,14 +9,7 @@ import Foundation
 
 /// A group of ``ComputeNode``s that shares a set of ``ComputeRole``s
 /// The tier will assist the simulator in identifying which node to send a request to.
-public class Tier: ObjectIdentity {
-	/// A unique ID that is created when the object is created
-	public var id: String = UUID().uuidString
-	/// A name for the tier (expected to be unique)
-	public var name: String = ""
-	/// A friendly description of the tier
-	public var description: String = ""
-	
+public class Tier: IdentifiedClass {
 	/// The collection of nodes that make up this tier
 	public var nodes = [ComputeNode]()
 	/// The compute roles that are assigned to the nodes in this tier
