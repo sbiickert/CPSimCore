@@ -1,0 +1,156 @@
+{
+	"version": 0.3,
+	"name": "Design 01 (WA to DMZ)",
+	"hardwareSource": "hardware.json",
+	"workflowSource": "workflows.json",
+	"networkConnections": [
+		{"up": "Internet", 	"down": "DMZ", 				"upBW":   100,	"downBW":   100, "latency":  40},
+		{"up": "DMZ", 		"down": "LAN", 				"upBW":  1000,	"downBW":  1000, "latency":   0},
+		{"up": "Internet", 	"down": "ArcGIS Online", 	"upBW": 10000,	"downBW": 10000, "latency":   0}
+	],
+	"networkZones": [
+		{
+			"id": "DMZ",
+			"name": "DMZ",
+			"description": "Edge network zone",
+			"localBW": 1000
+		},
+		{
+			"id": "LAN",
+			"name": "LAN",
+			"description": "Main network zone",
+			"localBW": 1000
+		},
+		{
+			"id": "Internet",
+			"name": "Internet",
+			"description": "Internet",
+			"localBW": 10000
+		},
+		{
+			"id": "ArcGIS Online",
+			"name": "ArcGIS Online",
+			"description": "Esri SaaS cloud offering",
+			"localBW": 10000
+		}
+	],
+	"hardwareAliases": {
+		"E5-2667v3": "Xeon E5-2667v3 16 core (2 chip) 3200 MHz",
+		"Core i7": "Intel Core i7-4770 4 core (1 chip) 3400 MHz"
+	},
+	"clients": [{
+			"name": "Client PC",
+			"description": "",
+			"hardwareType": "Core i7"
+		}
+	],
+	"hosts": [{
+			"name": "Host 01",
+			"description": "On-premises ESX host",
+			"hardwareType": "E5-2667v3",
+			"zone": "LAN"
+		},
+		{
+			"name": "DMZ Host",
+			"description": "DMZ ESX host",
+			"hardwareType": "E5-2667v3",
+			"zone": "DMZ"
+		},
+		{
+			"name": "AGOL AMI",
+			"description": "SaaS Host",
+			"hardwareType": "AMI i2.xlarge  4 core (14 CU) 30.5 GB",
+			"zone": "ArcGIS Online"
+		}
+	],
+	"virtualHosts": [{
+			"name": "DB Host 01",
+			"description": "Virtual Machine for SQL Server",
+			"host": "Host 01",
+			"vCPUCount": 4
+		},
+		{
+			"name": "Web Host 01",
+			"description": "Virtual Machine for Web Adaptors",
+			"host": "DMZ Host",
+			"vCPUCount": 2
+		},
+		{
+			"name": "GIS Host 01",
+			"description": "Virtual Machine for GIS",
+			"host": "Host 01",
+			"vCPUCount": 4
+		}
+	],
+	"tiers": [{
+			"name": "DBMS",
+			"description": "",
+			"computeNodes": ["DB Host 01"],
+			"serverRoles": ["dbms"]
+		},
+		{
+			"name": "Web GIS",
+			"description": "",
+			"computeNodes": ["GIS Host 01"],
+			"serverRoles": ["soc", "cache", "file"]
+		},
+		{
+			"name": "Web",
+			"description": "",
+			"computeNodes": ["Web Host 01"],
+			"serverRoles": ["web"]
+		},
+		{
+			"name": "AGOL",
+			"description": "",
+			"computeNodes": ["AGOL AMI"],
+			"serverRoles": ["web", "portal", "soc", "cache"]
+		}
+	],
+	"defaultTiers": {
+		"wts": "Web GIS",
+		"web": "Web",
+		"portal": "Web GIS",
+		"soc": "Web GIS",
+		"dbms": "DBMS",
+		"file": "Web GIS",
+		"cache": "AGOL"
+	},
+	"workflowAliases": {
+		"Web View": "AGS REST 2D VP Med 20%Dyn 13x7 Feature +$$"
+	},
+	"configuredWorkflows":
+	[
+	 	{
+			"name": "Pub View",
+			"description": "Public WebMap Viewing",
+			"workflow": "Web View",
+			"userCount": 0,
+			"productivity": 6,
+			"tph": 50000,
+			"client": "Client PC",
+			"dataSource": "DB",
+			"zone": "Internet",
+			"tiers": {
+				"web": "AGOL",
+				"portal": "AGOL",
+				"soc": "AGOL",
+				"dbms": "AGOL"
+			}
+		},
+		{
+			"name": "Local View",
+			"description": "Local WebMap Viewing",
+			"workflow": "Web View",
+			"userCount": 0,
+			"productivity": 6,
+			"tph": 2000,
+			"client": "Client PC",
+			"dataSource": "DB",
+			"zone": "LAN",
+			"tiers": {
+				
+			}
+		}
+	]
+}
