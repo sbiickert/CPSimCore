@@ -1,6 +1,7 @@
 {
 	"version": 0.3,
 	"name": "Design 00 (Simple)",
+	"description": "A basic design",
 	"hardwareSource": "hardware.json",
 	"workflowSource": "workflows.json",
 	"networkConnections": [

@@ -1,6 +1,7 @@
 {
 	"version": 0.3,
 	"name": "Design 01 (WA to DMZ)",
+	"description": "A more complex design",
 	"hardwareSource": "hardware.json",
 	"workflowSource": "workflows.json",
 	"networkConnections": [

@@ -1,6 +1,7 @@
 {
 	"version": 0.3,
 	"name": "Design 02 (HA)",
+	"description": "A high availability design",
 	"hardwareSource": "hardware.json",
 	"workflowSource": "workflows.json",
 	"networkConnections": [
