@@ -25,7 +25,7 @@ public class IdentifiedClass: ObjectIdentity {
 	
 	public func applyIdentity(from dict: NSDictionary) {
 		self.name = dict["name"] as? String ?? ""
-		self.id = dict["name"] as? String ?? ""
+		self.id = dict["name"] as? String ?? UUID().uuidString
 		self.description = dict["description"] as? String ?? ""
 	}
 	
