@@ -9,7 +9,7 @@
 import Foundation
 
 /// Protocol for assigning id, name and description for all model objects.
-public protocol ObjectIdentity {
+public protocol ObjectIdentity: Identifiable {
 	var id: String {get set}
 	var name: String {get set}
 	var description: String {get set}
