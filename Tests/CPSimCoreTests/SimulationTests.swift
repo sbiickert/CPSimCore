@@ -344,10 +344,10 @@ final class SimulationTests: XCTestCase {
 		}
 		print(simulator.handled.count)
 		for cNode in simulator.design!.computeNodes {
-			print("\((cNode as? ObjectIdentity)!.name) utilization: \(cNode.queue.metrics.utilization(inPrevious: nil))")
+			print("\((cNode as? (any ObjectIdentity))!.name) utilization: \(cNode.queue.metrics.utilization(inPrevious: nil))")
 		}
 		for nConn in simulator.design!.networkConnections {
-			print("\((nConn as ObjectIdentity).name) utilization: \(nConn.queue.metrics.utilization(inPrevious: nil))")
+			print("\((nConn as (any ObjectIdentity)).name) utilization: \(nConn.queue.metrics.utilization(inPrevious: nil))")
 		}
 	}
 }
