@@ -40,7 +40,7 @@ public enum ComputeRole: String, CaseIterable {
 
 
 /// Protocol encapsulating the abstract idea of a compute node that can handle requests on known hardware.
-public protocol ComputeNode: ServiceTimeCalculator {
+public protocol ComputeNode: Identifiable, ServiceTimeCalculator {
 	var hardware: HardwareDefinition? {get set}
 	var queue: MultiQueue {get set}
 	func adjustedServiceTime(_ workflowServiceTime: Double) -> Double
