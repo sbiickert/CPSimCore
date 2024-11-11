@@ -40,11 +40,43 @@ public enum ComputeRole: String, CaseIterable {
 
 
 /// Protocol encapsulating the abstract idea of a compute node that can handle requests on known hardware.
-public protocol ComputeNode: Identifiable, ServiceTimeCalculator {
-	var hardware: HardwareDefinition? {get set}
-	var queue: MultiQueue {get set}
-	func adjustedServiceTime(_ workflowServiceTime: Double) -> Double
-	func handle(request: ClientRequest, clock: Double)
+public class ComputeNode: IdentifiedClass, ServiceTimeCalculator {
+	public init(coreCount: UInt = 1) {
+		queue = MultiQueue(channelCount: coreCount)
+		super.init()
+	}
+	
+	/// The definition of the hardware that hosts this ComputeNode.
+	public var hardware: HardwareDefinition?
+	
+	/// The queue for handling requests as they come in.
+	public var queue: MultiQueue
+	
+	/// Client is passed the request at simulation time. It queues the request.
+	/// - Parameters:
+	///   - request: The request to handle.
+	///   - clock: The simulation time that the Client is receiving the request.
+	public func handle(request: ClientRequest, clock: Double) {
+		queue.enqueue(request, clock: clock)
+	}
+	
+	/// Adjusts the service time based on the `Client` `hardwareDefinition`
+	///
+	/// - Parameter workflowServiceTime: The standard service time in seconds.
+	/// - Returns: The adjusted service time in seconds.
+	public func adjustedServiceTime(_ workflowServiceTime: Double) -> Double {
+		guard hardware != nil else { return -1.0 }
+		return workflowServiceTime * (HardwareDefinition.baselineRatingPerCore / hardware!.specRatingPerCore)
+	}
+	
+	public func calculateServiceTime(for request:ClientRequest) -> Double {
+		return 0.0
+	}
+
+	public func calculateLatency(for request:ClientRequest) -> Double {
+		return 0.0
+	}
+
 }
 
 /// Enumeration of known data source types for vector data.

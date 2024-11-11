@@ -291,7 +291,7 @@ public struct Design: ObjectIdentity {
 			tier.saveIdentity(to: tDict)
 			let cnArray = NSMutableArray()
 			for cNode in tier.nodes {
-				cnArray.add((cNode as! (any Host)).name)
+				cnArray.add((cNode as! ( Host)).name)
 			}
 			tDict.setValue(cnArray, forKey: JsonKeys.cNodes)
 			let srArray = NSMutableArray()
@@ -374,8 +374,8 @@ public struct Design: ObjectIdentity {
 	}
 	
 	/// List of all hosts.
-	public var hosts: [any Host] {
-		var h = [any Host]()
+	public var hosts: [Host] {
+		var h = [ Host]()
 		for zone in zones {
 			h.append(contentsOf: zone.hosts)
 		}
@@ -383,8 +383,8 @@ public struct Design: ObjectIdentity {
 	}
 	
 	/// List of all compute nodes (i.e. hosts and clients).
-	public var computeNodes: [any ComputeNode] {
-		var nodes = [any ComputeNode]()
+	public var computeNodes: [ComputeNode] {
+		var nodes = [ComputeNode]()
 		nodes.append(contentsOf: hosts)
 		for configuredWorkflow in configuredWorkflows {
 			nodes.append(configuredWorkflow.client)
@@ -435,7 +435,7 @@ public struct Design: ObjectIdentity {
 	/// Method to find a network zone that contains a given host.
 	/// - Parameter host: The host in the network zone
 	/// - Returns: The network zone containing the host if it exists.
-	public func findZone(containing host: any Host) -> NetworkZone? {
+	public func findZone(containing host: Host) -> NetworkZone? {
 		return findZone(containingHostNamed: host.name)
 	}
 	
@@ -466,7 +466,7 @@ public struct Design: ObjectIdentity {
 	/// Method to find a named host.
 	/// - Parameter name: The name of the host to find.
 	/// - Returns: The named host if it exists.
-	public func findHost(named name: String) -> (any Host)? {
+	public func findHost(named name: String) -> ( Host)? {
 		for zone in zones {
 			if let host = zone.hosts.first(where: {$0.name == name}) {
 				return host

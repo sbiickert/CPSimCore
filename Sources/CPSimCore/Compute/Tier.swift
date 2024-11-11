@@ -11,7 +11,7 @@ import Foundation
 /// The tier will assist the simulator in identifying which node to send a request to.
 public class Tier: IdentifiedClass {
 	/// The collection of nodes that make up this tier
-	public var nodes = [any ComputeNode]()
+	public var nodes = [ComputeNode]()
 	/// The compute roles that are assigned to the nodes in this tier
 	public var roles = Set<ComputeRole>()
 	
@@ -29,7 +29,7 @@ public class Tier: IdentifiedClass {
 	
 	private var _roundRobinIndex = 0
 	/// The compute node that is next in line for receiving a request.
-	public var roundRobinNode: (any ComputeNode)? {
+	public var roundRobinNode: (ComputeNode)? {
 		guard nodes.isEmpty == false else { return nil }
 		_roundRobinIndex += 1
 		if _roundRobinIndex >= nodes.count {

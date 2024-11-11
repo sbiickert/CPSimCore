@@ -62,7 +62,7 @@ public class ClientRequestSolutionFactory {
 	/// - Returns: The solution. Will return `nil` if no solution is possible.
 	public static func createSolution(for cr:ClientRequest, in design:Design) throws -> ClientRequestSolution? {
 		var solution = ClientRequestSolution()
-		var computeNodeStack = [any ComputeNode]()
+		var computeNodeStack = [ ComputeNode]()
 
 		// REQUEST PHASE ------------------
 		// Start with the client
@@ -100,7 +100,7 @@ public class ClientRequestSolutionFactory {
 				print("No available compute nodes in tier \(tier!.name)")
 				return nil
 			}
-			let host = optComputeNode as! any Host
+			let host = optComputeNode as! Host
 
 			// Store the host so we can use it in the reponse phase
 			computeNodeStack.append(host)
@@ -150,7 +150,7 @@ public class ClientRequestSolutionFactory {
 		
 		let client = computeNodeStack.removeLast() // Client will be used at the end of the chain
 		
-		let start = computeNodeStack.removeFirst() as! any Host
+		let start = computeNodeStack.removeFirst() as! Host
 		var computeRole = chain.removeFirst()
 		
 		// Data size starts at "server" size and steps down to "client" size after rendering
@@ -178,7 +178,7 @@ public class ClientRequestSolutionFactory {
 		fromZone = design.findZone(containing: start) // Don't need to test for nil: we've found these once already
 		
 		// For each compute node in reversed chain
-		for case let host as any Host in computeNodeStack {
+		for case let host as Host in computeNodeStack {
 			// The compute role that is being done at this node
 			computeRole = chain.removeFirst()
 			

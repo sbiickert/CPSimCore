@@ -31,7 +31,7 @@ public class NetworkZone: ObjectIdentity {
 	public var configuredWorkflows = [ConfiguredWorkflow]()
 	
 	/// List of hosts that are located in this zone.
-	public var hosts = [any Host]()
+	public var hosts = [Host]()
 	
 	/// Initializer
 	/// - Parameter bw: The local bandwidth within the zone in Mbps.
