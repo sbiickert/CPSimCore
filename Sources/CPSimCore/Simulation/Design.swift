@@ -24,6 +24,11 @@ public struct Design: ObjectIdentity {
 	/// The library of workflow types available for the design.
 	public var workflowLibrary: WorkflowLibrary?
 	
+	/// For presenting the design
+	public var summary: DesignSummary {
+		return DesignSummary(design: self)
+	}
+	
 	/// Iniitializer. Creates a completely empty design.
 	public init() {
 		if self.hardwareLibrary == nil {
@@ -506,5 +511,21 @@ public struct Design: ObjectIdentity {
 		static let productivity = "productivity"
 		static let client = "client"
 		static let dataSource = "dataSource"
+	}
+}
+
+public struct DesignSummary {
+	public let design: Design
+	
+	public var clients: Dictionary<String, Int> {
+		let names = design.clients.map {$0.name}.sorted()
+		var summary = Dictionary<String, Int>()
+		for name in names {
+			if !summary.keys.contains(name) {
+				summary[name] = 0
+			}
+			summary[name]! += 1
+		}
+		return summary
 	}
 }
