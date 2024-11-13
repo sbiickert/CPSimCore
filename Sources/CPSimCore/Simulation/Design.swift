@@ -518,13 +518,10 @@ public struct DesignSummary {
 	public let design: Design
 	
 	public var clients: Dictionary<String, Int> {
-		let names = design.clients.map {$0.name}.sorted()
+		let names = design.computeNodes.filter {$0 is Client}.map {$0.name}.sorted()
 		var summary = Dictionary<String, Int>()
 		for name in names {
-			if !summary.keys.contains(name) {
-				summary[name] = 0
-			}
-			summary[name]! += 1
+			summary[name] = (summary[name] ?? 0) + 1
 		}
 		return summary
 	}
